@@ -116,7 +116,7 @@ ErrorDocument 403 /404.html
   Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
   Header always set X-Permitted-Cross-Domain-Policies "none"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), serial=(), bluetooth=(), hid=(), midi=(), accelerometer=(), gyroscope=(), magnetometer=(), display-capture=(), browsing-topics=()"
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'sha256-aJRyNSry/qf/jd6Mrix7QD2Mmur9ipTdQ8aDyOhrtWQ='; style-src 'self' 'unsafe-inline'; style-src-elem 'self'; style-src-attr 'unsafe-inline'; img-src 'self'; media-src 'self'; font-src 'self'; connect-src 'self'; manifest-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'sha256-0lj6WM2Msa7a+wQfkV5oKrkXfwcMaTT9/qYLOi1nOug='; style-src 'self' 'unsafe-inline'; style-src-elem 'self'; style-src-attr 'unsafe-inline'; img-src 'self'; media-src 'self'; font-src 'self'; connect-src 'self'; manifest-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
   Header always unset X-Powered-By
   Header unset X-Powered-By
 
