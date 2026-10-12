@@ -22,11 +22,20 @@ export const motionOK = html.classList.contains("motion");
 export const coarse = window.matchMedia("(hover: none), (pointer: coarse)").matches;
 export const isDesktop = () => window.matchMedia("(min-width: 901px)").matches;
 
+/* Las escenas fijadas (pin + scrub) son solo para pantalla ancha con ratón.
+   En móvil y tableta, el scroll de inercia del sistema y una escena fijada
+   no se llevan: al bajar rápido la escena da tirones o se queda trabada, y
+   en una pantalla alta la imagen acababa encima del texto. Allí la home es
+   un documento normal con apariciones suaves (scenes.flow). La clase `pin`
+   en <html> la pone home.js y es la que activa los estilos de las escenas. */
+export const PIN_QUERY = "(min-width: 901px) and (hover: hover) and (pointer: fine)";
+export const FLOW_QUERY = `not all and ${PIN_QUERY}`;
+
 let lenis = null;
 
-/** Scroll con inercia en escritorio. En táctil se deja el nativo. */
+/** Scroll con inercia en escritorio. En táctil se deja el nativo, sin Lenis. */
 export function smoothScroll() {
-  if (!motionOK || lenis) return lenis;
+  if (!motionOK || lenis || coarse) return lenis;
   lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

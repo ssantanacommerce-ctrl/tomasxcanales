@@ -94,7 +94,7 @@ Ciudad y estudio en títulos, descripciones, pie y `TattooParlor`. NAP
 ## 7. Qué hacer a continuación (por impacto)
 
 **Decisión (12/10/2026):** el estudio es **Tomasxcanales Studio**, Calle Dos
-Hermanas 20, 1.º I, 28982 Parla (Madrid), con ficha en Google Business
+Hermanas 20, 28982 Parla (Madrid), con ficha en Google Business
 Profile. `TattooParlor` lleva la dirección completa (`streetAddress`,
 `postalCode`, `addressLocality`), `hasMap` (enlace de búsqueda en Google Maps)
 y `sameAs` (Instagram). No lleva `geo` ni `openingHoursSpecification`: no hay

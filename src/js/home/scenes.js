@@ -5,8 +5,10 @@
    kind. Ninguna obra entra con el mismo gesto que la anterior: si dos
    tatuajes aparecen igual, el recorrido deja de tener ritmo.
 
-   Cada función recibe la sección y el contexto de gsap.matchMedia (escritorio
-   o móvil). Todo lo que crean se revierte solo al cambiar de tamaño.
+   Las funciones por kind son la versión de escritorio (escenas fijadas).
+   En móvil y tableta todas las escenas que fijan algo pasan por flow(): ver
+   motion.js. Todo lo que crean se revierte solo al cambiar de tamaño
+   (gsap.matchMedia en home.js).
    ========================================================================== */
 
 import { gsap, ScrollTrigger, coarse } from "../core/motion.js";
@@ -37,6 +39,47 @@ function preload(section, ahead = "150%") {
     start: `top bottom+=${ahead}`,
     once: true,
     onEnter: () => imgs.forEach((img) => { img.loading = "eager"; })
+  });
+}
+
+/* ------------------------------------------------------------------ FLOW
+   Móvil y tableta. La escena es un bloque normal (el CSS sin `.pin` la
+   maqueta: imagen, y debajo su texto; los fotogramas uno tras otro). Nada
+   va atado al scroll fotograma a fotograma salvo el entintado del texto,
+   que solo cambia clases: cada pieza aparece una vez, con un fundido corto,
+   y los vídeos se reproducen solo mientras se ven. */
+const FLOW_REVEAL = [
+  ".zoom__plate", ".zoom__cartela",
+  ".process__monitor", ".process__text",
+  ".ink__img", ".ink__cartela",
+  ".film__screen", ".film__cartela",
+  ".layers__main", ".layers__detail", ".layers__cartela",
+  ".line__clip",
+  ".gallery__head",
+  ".artist__main", ".artist__second", ".artist__text", ".artist__studio"
+].join(", ");
+
+export function flow(section) {
+  // los de data-autoplay ya los lleva autoplayVideos() (core/media.js)
+  section.querySelectorAll("video:not([data-autoplay])").forEach((v) => {
+    v.loop = true;
+    useMobileSource(v);
+    ScrollTrigger.create({
+      trigger: v,
+      start: "top bottom",
+      end: "bottom top",
+      onToggle: (self) => (self.isActive ? safePlay(v) : v.pause())
+    });
+  });
+  section.querySelectorAll("[data-ink]").forEach((el) => inkScrub(el, { start: "top 85%", end: "bottom 60%" }));
+  section.querySelectorAll(FLOW_REVEAL).forEach((el) => {
+    gsap.from(el, {
+      opacity: 0,
+      y: 28,
+      duration: 0.9,
+      ease: "power2.out",
+      scrollTrigger: { trigger: el, start: "top 92%", once: true }
+    });
   });
 }
 

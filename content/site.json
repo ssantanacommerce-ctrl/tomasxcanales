@@ -7,7 +7,7 @@
   "studio": "Tomasxcanales Studio",
   "address": {
     "$comment": "Dirección del estudio. Debe coincidir letra por letra con la ficha de Google Business Profile (nombre, dirección y teléfono iguales en todas partes).",
-    "street": "Calle Dos Hermanas 20, 1.º I",
+    "street": "Calle Dos Hermanas 20",
     "postalCode": "28982",
     "locality": "Parla",
     "province": "Madrid"

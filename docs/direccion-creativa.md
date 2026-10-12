@@ -142,7 +142,8 @@ quietos un momento. Durante el umbral no se puede hacer scroll.
 | 10 | Tomás Canales | — | El museo, su voz sincronizada, el estudio en formato cine |
 | 11 | Reservar | — | «…hacia la persona que me confía su piel.» y RESERVAR CITA |
 
-Unas 28 pantallas de recorrido en escritorio y 24 en móvil.
+Unas 28 pantallas de recorrido en escritorio. En móvil no hay recorrido
+fijado: es un documento continuo (ver el punto 6 de Movimiento).
 
 ## 8. Movimiento
 
@@ -156,6 +157,13 @@ Unas 28 pantallas de recorrido en escritorio y 24 en móvil.
 5. Técnicas usadas: `scrub`, `pin`, `timeline`, `gsap.matchMedia` (escritorio
    y móvil se construyen y se revierten solos), `stagger`,
    `ScrollTrigger.refresh()` tras cargar fuentes e imágenes.
+6. **El recorrido fijado es solo de escritorio** (pantalla de 901 px o más y
+   ratón; clase `pin` en `<html>`). En móvil y tableta, con la inercia del
+   dedo, una escena fijada daba tirones al bajar rápido y en pantallas altas
+   la lámina acababa encima de la cartela. Allí cada sala es un bloque normal
+   (lámina y debajo su texto, sin nada superpuesto), con un fundido corto al
+   aparecer, el entintado de las frases y los vídeos solo mientras se ven
+   (`scenes.flow`). Sin Lenis: el scroll nativo del teléfono.
 
 ### 3D y WebGL: dónde y por qué
 

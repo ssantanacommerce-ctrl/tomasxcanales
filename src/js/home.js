@@ -2,7 +2,7 @@
    TOMASXCANALES · home: umbral + exposición
    ========================================================================== */
 
-import { gsap, ScrollTrigger, motionOK, smoothScroll, fontsReady, markReady, getLenis } from "./core/motion.js";
+import { gsap, ScrollTrigger, motionOK, smoothScroll, fontsReady, markReady, getLenis, PIN_QUERY, FLOW_QUERY } from "./core/motion.js";
 import { markImages, autoplayVideos } from "./core/media.js";
 import { initHud } from "./core/hud.js";
 import { wireLinks } from "./core/links.js";
@@ -34,12 +34,21 @@ async function start() {
   const intro = introSection ? setupIntro(introSection) : null;
 
   if (motionOK) {
+    // Escritorio: escenas fijadas. Móvil y tableta: flujo normal (ver motion.js).
+    // Las escenas que no fijan nada (words, booking) se comportan igual en los dos.
+    const SAME = new Set(["words", "booking"]);
+    const html = document.documentElement;
     const mm = gsap.matchMedia();
-    mm.add({ desk: "(min-width: 901px)", mob: "(max-width: 900px)" }, (ctx) => {
+    mm.add({ pin: PIN_QUERY, flow: FLOW_QUERY }, (ctx) => {
+      const { pin } = ctx.conditions;
+      html.classList.toggle("pin", pin);
       document.querySelectorAll("[data-kind]").forEach((section) => {
-        const fn = scenes[section.dataset.kind];
-        if (fn) fn(section, ctx.conditions);
+        const kind = section.dataset.kind;
+        if (kind === "intro") return; // la lleva intro.js
+        const fn = pin || SAME.has(kind) ? scenes[kind] : scenes.flow;
+        if (fn) fn(section, { desk: pin });
       });
+      return () => html.classList.remove("pin");
     });
   }
 

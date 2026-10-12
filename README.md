@@ -1,7 +1,7 @@
 # Tomasxcanales
 
 Web de **Tomás Canales** (Tomasxcanales), tatuador en su estudio,
-**Tomasxcanales Studio** (Calle Dos Hermanas 20, 1.º I, 28982 Parla, Madrid).
+**Tomasxcanales Studio** (Calle Dos Hermanas 20, 28982 Parla, Madrid).
 Una exposición digital: tres segundos de umbral con sus símbolos, el
 vídeo de Tomás trabajando, y la obra presentada como en una galería, con el
 scroll como hilo narrativo.
@@ -24,7 +24,7 @@ Necesita **Node 24** y **FFmpeg** (para los vídeos).
 | `npm run dev` | Genera las páginas y abre el servidor. Cambiar `content/` recarga solo. |
 | `npm run build` | Medios + páginas + compilación a `dist/` + CSP en `dist/.htaccess`. |
 | `npm run check` | Revisa `dist/` antes de publicar (enlaces, SEO, alt, codificación, CSP, archivos que no deben subirse…). |
-| `npm run publicar` | Compila, revisa y publica: sube la web a GitHub (rama `produccion`) y Hostinger la despliega sola. |
+| `npm run publicar` | Compila, revisa y publica: sube a GitHub (`main` y `produccion`) y actualiza Hostinger por SSH. Ver [despliegue](docs/despliegue-hostinger.md). |
 | `npm run media` | Solo derivados de imagen, vídeo y audio (incremental). |
 | `npm run generate` | Solo páginas, sitemap, robots, manifiesto e iconos. |
 | `npm run preview` | Sirve `dist/` tal cual. |
@@ -62,8 +62,9 @@ index.html, work/, about/, booking/, 404.html,
 aviso-legal/, privacidad/, cookies/             GENERADOS: no editar a mano
 ```
 
-La web tal como está publicada (copia de `dist/`) está también en el
-escritorio, en `Tomasxcanales Studio - Web`. `npm run publicar` la actualiza.
+Todo lo de Tomasxcanales vive en esta carpeta: la fuente (`content/`), la web
+compilada tal como se publica (`dist/`, se regenera con `npm run build`) y,
+en `content/marketing/`, las piezas para Google Ads (no se publican en la web).
 
 ## Documentación
 
@@ -75,7 +76,7 @@ escritorio, en `Tomasxcanales Studio - Web`. `npm run publicar` la actualiza.
 
 ## Decisiones
 
-- El estudio es **Tomasxcanales Studio**, Calle Dos Hermanas 20, 1.º I,
+- El estudio es **Tomasxcanales Studio**, Calle Dos Hermanas 20,
   28982 Parla (Madrid), con ficha en Google Business Profile (12/10/2026).
   Nombre, dirección y teléfono salen de `content/site.json` y tienen que ser
   idénticos a los de la ficha de Google. La web enlaza a Google Maps (no lo

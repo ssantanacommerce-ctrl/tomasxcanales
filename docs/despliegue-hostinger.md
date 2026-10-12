@@ -45,26 +45,31 @@ se publican nunca.
 
 ## 3. Subir
 
-### Lo normal: `npm run publicar` (GitHub → Hostinger)
+### Lo normal: `npm run publicar` (GitHub + Hostinger por SSH)
 
 ```bash
 npm run publicar
 ```
 
-Compila, revisa y, si todo está bien, guarda `dist/` como un commit nuevo en
-la rama **`produccion`** del repositorio de GitHub y sube `main` y
-`produccion`. Hostinger está conectado a esa rama (hPanel → Avanzado → GIT,
-rama `produccion`, directorio `public_html`, con **despliegue automático** por
-webhook): en unos segundos la descarga en `public_html`. También refresca la
-carpeta `Tomasxcanales Studio - Web` del escritorio. Detalles en
-`tools/publish.mjs`.
+Compila, revisa y, si todo está bien:
 
-- `produccion` contiene solo la web compilada. No se edita a mano.
-- En `public_html` queda la carpeta `.git` del despliegue: el `.htaccess`
-  bloquea todo lo oculto (salvo `.well-known`), así que da 403.
-- Si Hostinger no se actualiza, en hPanel → Avanzado → GIT está el botón
-  «Desplegar» para lanzarlo a mano, y en GitHub → Settings → Webhooks se ve
-  si el aviso llegó.
+1. guarda los cambios en `main` y la web compilada como un commit nuevo en la
+   rama **`produccion`** (registro de cada publicación) y sube las dos a GitHub;
+2. sincroniza `public_html` por **SSH**: sube solo los archivos que han
+   cambiado (primero CSS, JS y medios; el HTML y el `.htaccess` al final, para
+   que no haya un instante con páginas sin estilos), borra los que sobran y
+   comprueba con SHA-256 que el servidor queda idéntico a `dist/`.
+
+Acceso SSH (una vez por ordenador):
+
+- hPanel → Avanzado → Acceso SSH: estado **Activo**, y en «Claves SSH» la
+  clave pública de `~/.ssh/tomasxcanales_hostinger.pub`.
+- `~/.ssh/config` con el alias `tomasxcanales-hostinger` (IP, puerto 65002,
+  usuario y la clave). Lo usa `tools/publish.mjs`.
+- Prueba: `ssh tomasxcanales-hostinger "ls domains/tomasxcanales.com/public_html"`.
+
+Si falla SSH, el script lo dice y GitHub queda igualmente al día: se puede
+publicar a mano (abajo).
 
 ### A mano (si GitHub fallara)
 

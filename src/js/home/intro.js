@@ -23,8 +23,8 @@
    CSS amplía y desenfoca. Cuesta casi nada.
    ========================================================================== */
 
-import { gsap, ScrollTrigger, motionOK } from "../core/motion.js";
-import { letters, inner, inkTo } from "../core/type.js";
+import { gsap, ScrollTrigger, motionOK, PIN_QUERY, FLOW_QUERY } from "../core/motion.js";
+import { letters, inner, inkTo, inkScrub } from "../core/type.js";
 import { useMobileSource } from "../core/media.js";
 
 export function setupIntro(section) {
@@ -119,10 +119,17 @@ export function setupIntro(section) {
     return tl;
   }
 
-  /* ------------------------------------------------ scroll */
+  /* ------------------------------------------------ scroll
+     Fijada solo en escritorio (ver motion.js). En móvil y tableta el vídeo
+     ocupa la pantalla y la frase de VIDA va debajo, como bloque, y se
+     entinta al bajar. */
   const mm = gsap.matchMedia();
-  mm.add({ desk: "(min-width: 901px)", mob: "(max-width: 900px)" }, (c) => {
-    const { desk } = c.conditions;
+  mm.add({ pin: PIN_QUERY, flow: FLOW_QUERY }, (c) => {
+    if (!c.conditions.pin) {
+      if (inkEl) inkScrub(inkEl, { start: "top 80%", end: "bottom 55%" });
+      return;
+    }
+    const desk = true;
     const pw = portal.getBoundingClientRect().width || 1;
     const push = desk ? Math.max(innerWidth / pw, 1) * 1.18 : 1.55;
     const left = chars.slice(0, xIndex), right = chars.slice(xIndex + 1), X = chars[xIndex];

@@ -244,7 +244,8 @@ html[data-menu-open="true"] .hud { transform: none; }
   .hud__menu { display: block; }
   .hud__name { font-size: 17px; }
   .hud__mark { width: 30px; }
-  .hud__room { bottom: 14px; }
+  /* en pantalla estrecha el rótulo de la sala quedaba encima del contenido */
+  .hud__room { display: none; }
   .footer__grid { grid-template-columns: 1fr 1fr; row-gap: 40px; }
   .footer__base { flex-wrap: wrap; justify-content: flex-start; }
   .footer__base p { flex-basis: calc(100% - 60px); text-align: left; }
