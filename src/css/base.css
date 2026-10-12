@@ -1,0 +1,278 @@
+/* ==========================================================================
+   TOMASXCANALES · base
+   Tokens, fuentes, tipografía y reglas comunes.
+
+   La paleta sale del material, no de una plantilla:
+   - noche     el estudio, el ritual, el vídeo: negro suave, nunca #000
+   - muro      la sala donde cuelga la obra: blanco cálido de galería
+   - mármol    el material de las esculturas que tatúa (David, Atlas, el busto)
+   - violeta   el del stencil, el calco que se ve en INTRO, VIDA y en Atlas.
+               Es el ÚNICO acento, y solo tiene un uso: el estado de "idea"
+               antes de volverse tinta (las palabras que se entintan al bajar,
+               lo que en Atlas aún es stencil).
+   ========================================================================== */
+
+@import "@fontsource/dm-mono/latin-300.css";
+@import "@fontsource/dm-mono/latin-400.css";
+
+@font-face {
+  font-family: "Melodrama";
+  src: url("/fonts/melodrama-variable.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Boska";
+  src: url("/fonts/boska-variable.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Boska";
+  src: url("/fonts/boska-variable-italic.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --night: #0c0b0a;
+  --night-2: #161513;
+  --wall: #efece6;
+  --wall-2: #e5e1d9;
+  --marble: #cfc9bf;
+  --ink: #141311;
+  --ink-2: #3b3833;
+  --ink-3: #66615a;
+  --bone: #f2ece2;
+  --bone-2: #c2bbb0;
+  --bone-3: #938c81;
+  --symbol: #f8eedf;
+  --stencil: #5b53a6;
+  --stencil-ink: rgba(91, 83, 166, .34);
+
+  --f-display: "Melodrama", "Didot", "Bodoni 72", "Times New Roman", serif;
+  --f-text: "Boska", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --f-mono: "DM Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --ease: cubic-bezier(.22, .61, .36, 1);
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+
+  --gutter: clamp(16px, 2.6vw, 44px);
+  --hud-h: 68px;
+  --measure: 62ch;
+
+  --shadow-hang: 0 38px 70px -34px rgba(38, 32, 24, .42), 0 10px 22px -14px rgba(38, 32, 24, .28);
+
+  color-scheme: light dark;
+}
+
+/* Quien tiene el sistema en modo oscuro recibe la misma galería con menos
+   deslumbramiento: el muro baja un punto, como una sala al atardecer. La
+   identidad (noche para el ritual, día para la sala) no cambia. */
+@media (prefers-color-scheme: dark) {
+  /* --ink-3 un punto más oscuro: sobre este muro el de siempre daba 4,4:1 (AA pide 4,5) */
+  :root { --wall: #dedad2; --wall-2: #d3cec5; --ink-3: #5c5751; }
+}
+
+/* ------------------------------------------------------------- las luces */
+[data-light="night"] {
+  --bg: var(--night);
+  --fg: var(--bone);
+  --fg-2: var(--bone-2);
+  --fg-3: var(--bone-3);
+  --line: rgba(242, 236, 226, .16);
+  --line-2: rgba(242, 236, 226, .32);
+}
+[data-light="day"] {
+  --bg: var(--wall);
+  --fg: var(--ink);
+  --fg-2: var(--ink-2);
+  --fg-3: var(--ink-3);
+  --line: rgba(20, 19, 17, .14);
+  --line-2: rgba(20, 19, 17, .3);
+}
+
+/* ----------------------------------------------------------------- reset */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+html.lenis, html.lenis body { height: auto; }
+body {
+  background: var(--night);
+  color: var(--bone);
+  font-family: var(--f-text);
+  font-size: clamp(1rem, .94rem + .26vw, 1.1875rem);
+  line-height: 1.62;
+  font-weight: 400;
+  font-kerning: normal;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+.page--home { background: var(--wall); }
+.page:not(.page--home):not(.page--404) { background: var(--wall); color: var(--ink); }
+
+img, video, canvas, svg, picture { display: block; max-width: 100%; }
+picture { display: contents; }
+img, video { height: auto; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; padding: 0; }
+input, textarea, select { font: inherit; color: inherit; }
+
+:where(section, footer, main)[data-light] { background: var(--bg); color: var(--fg); }
+
+::selection { background: var(--stencil); color: var(--bone); }
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 1px;
+}
+
+.skip {
+  position: fixed; left: var(--gutter); top: 10px; z-index: 200;
+  padding: 10px 16px; background: var(--ink); color: var(--bone);
+  font: 400 13px/1 var(--f-mono);
+  transform: translateY(-160%); transition: transform .3s var(--ease);
+}
+.skip:focus-visible { transform: none; }
+
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+
+/* --------------------------------------------------------- tipografía */
+/* sin palabras sueltas en la última línea («…en negro y / gris.») */
+p, dd, figcaption, summary { text-wrap: pretty; }
+
+.wordmark {
+  display: block;
+  font-family: var(--f-display);
+  font-weight: 380;
+  text-transform: uppercase;
+  letter-spacing: -.012em;
+  line-height: .8;
+  white-space: nowrap;
+  font-size: var(--fit, 16.4vw);
+  font-kerning: normal;
+}
+
+.display {
+  font-family: var(--f-display);
+  font-weight: 400;
+  line-height: .9;
+  letter-spacing: -.01em;
+}
+
+.words p,
+.ink-text {
+  font-family: var(--f-text);
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: -.008em;
+  hyphens: manual;
+  text-wrap: balance;
+}
+.words footer,
+.cartela__quote footer,
+.work-body__quote footer {
+  margin-top: 1.4em;
+  font: 400 12px/1.4 var(--f-mono);
+  letter-spacing: .04em;
+  color: var(--fg-3);
+}
+
+/* Entintado: la palabra empieza en el violeta del stencil y termina en
+   tinta. Solo si hay movimiento; sin JS o con «reducir movimiento» el texto
+   está ya entintado desde el principio. */
+.motion.ready .ink-text .w { color: var(--stencil-ink); transition: none; }
+.motion.ready [data-light="night"] .ink-text .w { color: rgba(128, 118, 214, .42); }
+.motion.ready .ink-text .w.is-inked { color: var(--fg); }
+
+/* cartela de museo */
+.cartela { max-width: 34ch; }
+.cartela__status {
+  display: inline-block;
+  margin-bottom: 1.1em;
+  font: 400 12px/1 var(--f-mono);
+  letter-spacing: .04em;
+  color: var(--stencil);
+}
+.cartela__title {
+  font-family: var(--f-display);
+  font-weight: 470;
+  font-size: clamp(2rem, 1.4rem + 1.8vw, 3.25rem);
+  line-height: .92;
+  letter-spacing: -.005em;
+}
+.cartela__title a { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .6s var(--ease-out); }
+.cartela__title a:hover { background-size: 100% 1px; }
+.cartela__meta {
+  display: grid;
+  gap: .35em;
+  margin-top: 1.2em;
+  font: 400 12.5px/1.45 var(--f-mono);
+  letter-spacing: .01em;
+  color: var(--fg-2);
+}
+.cartela__meta div { display: grid; grid-template-columns: 5.2em 1fr; gap: 1em; }
+.cartela__meta dt { color: var(--fg-3); }
+.cartela__text {
+  margin-top: 1.1em;
+  font-size: .95em;
+  line-height: 1.55;
+  color: var(--fg-2);
+}
+.cartela__quote { margin-top: 1.3em; }
+.cartela__quote p {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.15em;
+  line-height: 1.35;
+}
+.cartela__more {
+  display: inline-block;
+  margin-top: 1.4em;
+  font: 400 12.5px/1 var(--f-mono);
+  letter-spacing: .03em;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--line-2);
+  transition: border-color .4s var(--ease);
+}
+.cartela__more:hover { border-color: currentColor; }
+
+/* lámina colgada: la fotografía como obra en el muro */
+.plate {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--tone, var(--night-2));
+  box-shadow: var(--shadow-hang);
+}
+.plate img, .plate video { width: 100%; height: 100%; object-fit: cover; }
+
+/* Las imágenes aparecen cuando han cargado: sin saltos, sin parpadeo.
+   `ready` lo pone el JS al arrancar, después de marcar las que ya estaban
+   cargadas: si el JS no llega, ninguna imagen se queda oculta. */
+.motion img[data-media] { transition: opacity 1.1s var(--ease); }
+.motion.ready img[data-media]:not(.is-loaded) { opacity: 0; }
+
+/* video: el color medio del póster ocupa el hueco mientras llega */
+video[data-media] { background: var(--tone, var(--night-2)); }
+
+.crumbs {
+  padding: calc(var(--hud-h) + 18px) var(--gutter) 0;
+  font: 400 12px/1.4 var(--f-mono);
+  letter-spacing: .02em;
+  color: var(--fg-3, var(--ink-3));
+}
+.crumbs ol { display: flex; flex-wrap: wrap; gap: .5em; }
+.crumbs li + li::before { content: "/"; margin-right: .5em; opacity: .5; }
+.crumbs a:hover { color: var(--fg, var(--ink)); }

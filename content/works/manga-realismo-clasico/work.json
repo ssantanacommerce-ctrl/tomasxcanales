@@ -1,0 +1,33 @@
+{
+  "slug": "manga-realismo-clasico",
+  "published": true,
+  "order": 8,
+  "title": "Figuras clásicas",
+  "status": null,
+  "description": "Composición densa en negro y gris sobre el brazo: un grupo de figuras entrelazadas y un caballo alado resueltos como un relieve escultórico, con fuertes negros de fondo.",
+  "body": [
+    "Solo existe en vídeo. Los negros de fondo hacen que las figuras se lean como piedra tallada."
+  ],
+  "quote": null,
+  "styles": ["Realismo", "Negro y gris"],
+  "bodyPlacement": "Manga",
+  "year": null,
+  "dateAdded": "2026-09-20",
+  "cover": "manga",
+  "media": [
+    {
+      "id": "manga",
+      "type": "video",
+      "src": "originals/manga.mp4",
+      "trim": [0.0, 19.0],
+      "poster": 7.92,
+      "role": ["cinematic", "secondary"],
+      "alt": "Recorrido en vídeo de un brazo tatuado con un grupo de figuras clásicas entrelazadas y un caballo alado, en negro y gris."
+    }
+  ],
+  "related": ["medusa-zodiaco", "david-miguel-angel"],
+  "seo": {
+    "title": "Figuras clásicas. Manga realista en negro y gris, en vídeo",
+    "description": "Manga en realismo negro y gris con figuras clásicas entrelazadas y un caballo alado resueltos como relieve escultórico. Tomasxcanales, tatuador en Parla (Madrid)."
+  }
+}

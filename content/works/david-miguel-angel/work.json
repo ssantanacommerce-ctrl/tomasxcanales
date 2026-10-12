@@ -1,0 +1,43 @@
+{
+  "slug": "david-miguel-angel",
+  "published": true,
+  "order": 6,
+  "title": "David",
+  "status": null,
+  "description": "La figura del David de Miguel Ángel sobre su pedestal, en la pierna, acompañada de columnas de texto manuscrito.",
+  "body": [
+    "Solo existe en vídeo. Arranca con Tomás inclinado sobre el stencil violeta y sigue la sesión hasta el sombreado de las piernas, el tronco de apoyo y el pedestal.",
+    "Es el vídeo que abre esta web."
+  ],
+  "quote": null,
+  "styles": ["Realismo", "Negro y gris"],
+  "bodyPlacement": "Pierna",
+  "year": null,
+  "dateAdded": "2026-09-26",
+  "cover": "sesion",
+  "media": [
+    {
+      "id": "sesion",
+      "type": "video",
+      "src": "originals/intro.mp4",
+      "trim": [0.0, 9.8],
+      "poster": 0.5,
+      "role": ["hero", "cinematic", "process", "mobile"],
+      "alt": "Tomás, con gorra y guantes negros, tatúa la pierna sobre el stencil violeta del David; después, primeros planos de la aguja y el resultado: las piernas de la estatua sobre su pedestal y columnas de texto manuscrito."
+    },
+    {
+      "id": "resultado",
+      "type": "video",
+      "src": "originals/intro.mp4",
+      "trim": [6.8, 9.8],
+      "poster": 1.2,
+      "role": ["primary"],
+      "alt": "Las piernas del David, el tronco de apoyo y el pedestal sombreados en negro y gris, con texto manuscrito a la derecha."
+    }
+  ],
+  "related": ["atlas-vitruvio", "manga-realismo-clasico"],
+  "seo": {
+    "title": "David de Miguel Ángel. Tatuaje realista en la pierna, en vídeo",
+    "description": "La figura del David de Miguel Ángel sobre su pedestal, tatuada en la pierna en negro y gris. El vídeo recorre la sesión del stencil al sombreado. Tomasxcanales, Parla (Madrid)."
+  }
+}

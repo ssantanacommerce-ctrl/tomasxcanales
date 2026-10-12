@@ -1,0 +1,35 @@
+{
+  "slug": "corazon-anatomico-rosa",
+  "published": false,
+  "$curaduria": "Apartada en la auditoría: el vídeo está blando, la pieza ocupa poco cuadro y un estampado de calaveras y dragones invade el tercio derecho en todos los fotogramas. Con una fotografía limpia, cambia published a true y vuelve a compilar.",
+  "order": 12,
+  "title": "Corazón y rosa",
+  "status": null,
+  "description": "Corazón anatómico sostenido por una mano de piedra y envuelto en un paño, con una rosa dentro de un círculo punteado, un dodecaedro y arcos de puntos alrededor.",
+  "body": [],
+  "quote": {
+    "text": "A veces, en distintas situaciones, algunos creen que el amor reside en el exterior, en la cáscara…",
+    "source": "Texto que Tomás publicó con la obra"
+  },
+  "styles": ["Línea fina", "Micro-realismo"],
+  "bodyPlacement": "Antebrazo",
+  "year": null,
+  "dateAdded": "2026-09-26",
+  "cover": "antebrazo",
+  "media": [
+    {
+      "id": "antebrazo",
+      "type": "video",
+      "src": "originals/antebrazo.mp4",
+      "trim": [0.0, 26.5],
+      "poster": 11.5,
+      "role": ["secondary"],
+      "alt": "El antebrazo gira despacio y muestra el corazón anatómico sostenido por una mano, la rosa en su círculo punteado y el dodecaedro."
+    }
+  ],
+  "related": [],
+  "seo": {
+    "title": "Corazón y rosa. Tatuaje de línea fina en el antebrazo",
+    "description": "Corazón anatómico sostenido por una mano, rosa en un círculo punteado y dodecaedro: línea fina y micro-realismo en el antebrazo. Tomasxcanales, Parla (Madrid)."
+  }
+}

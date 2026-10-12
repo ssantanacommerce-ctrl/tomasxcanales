@@ -1,0 +1,32 @@
+{
+  "slug": "manga-arcangel-geometria",
+  "published": true,
+  "order": 7,
+  "title": "Arcángel y geometría",
+  "status": null,
+  "description": "Manga completa en línea fina: figura alada con lanza sobre una montura, hexagrama, caduceo y una secuencia de símbolos y lunas que desciende por el antebrazo hasta la muñeca.",
+  "body": [
+    "Solo existe en vídeo. El recorrido baja por el brazo como se lee la pieza: de la figura alada a los signos de la muñeca."
+  ],
+  "quote": null,
+  "styles": ["Línea fina", "Dotwork", "Geometría sagrada"],
+  "bodyPlacement": "Manga completa",
+  "year": null,
+  "dateAdded": "2026-09-20",
+  "cover": "manga",
+  "media": [
+    {
+      "id": "manga",
+      "type": "video",
+      "src": "originals/manga.mp4",
+      "poster": 7.88,
+      "role": ["cinematic", "featured"],
+      "alt": "Recorrido en vídeo de una manga completa en línea fina: figura alada con lanza sobre una montura, hexagrama y símbolos punteados que bajan hasta la muñeca."
+    }
+  ],
+  "related": ["anima-spiritus", "manga-egipcia"],
+  "seo": {
+    "title": "Arcángel y geometría. Manga de línea fina y dotwork, en vídeo",
+    "description": "Manga completa en línea fina y dotwork: figura alada con lanza, hexagrama, caduceo y símbolos lunares hasta la muñeca. Obra de Tomasxcanales, tatuador en Parla (Madrid)."
+  }
+}

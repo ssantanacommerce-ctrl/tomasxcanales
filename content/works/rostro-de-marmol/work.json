@@ -1,0 +1,52 @@
+{
+  "slug": "rostro-de-marmol",
+  "published": true,
+  "order": 4,
+  "title": "Rostro de mármol",
+  "status": null,
+  "description": "Un busto femenino de mármol agrietado, con hojas en el cabello, apoya el rostro en una mano. Encima, una carta celeste con un sol radiante; debajo, dos manos sostienen un hexágono con una mariposa.",
+  "body": [
+    "La piel imita la piedra: las grietas atraviesan la frente, la nariz y los labios, y el sombreado mantiene el frío del mármol.",
+    "La parte baja se abre en geometría: hexágonos, líneas punteadas y dos polígonos rellenos que bajan hacia la muñeca."
+  ],
+  "quote": {
+    "text": "Todo lo abraza el destino cuando el río llega al mar…",
+    "source": "Texto que Tomás publicó con la obra"
+  },
+  "styles": ["Realismo", "Negro y gris", "Geometría"],
+  "bodyPlacement": "Antebrazo",
+  "year": null,
+  "dateAdded": "2026-09-26",
+  "cover": "detalle",
+  "media": [
+    {
+      "id": "detalle",
+      "type": "image",
+      "src": "originals/detalle.jpg",
+      "role": ["featured", "detail", "mobile"],
+      "focus": "62% 55%",
+      "alt": "Primer plano con poca profundidad de campo: un rostro femenino de mármol, agrietado, con hojas en el cabello y los ojos entornados, apoya la mejilla en una mano; arriba asoma una carta celeste con un sol."
+    },
+    {
+      "id": "plano-general",
+      "type": "image",
+      "src": "originals/plano-general.jpg",
+      "role": ["primary"],
+      "focus": "50% 45%",
+      "alt": "El antebrazo completo: el busto de mármol agrietado apoyado en una mano, la carta celeste con el sol encima y, debajo, dos manos que sostienen un hexágono con una mariposa, con geometría de hexágonos hasta la muñeca."
+    },
+    {
+      "id": "plano-general-b",
+      "type": "image",
+      "src": "originals/plano-general-b.jpg",
+      "role": ["unused"],
+      "alt": "Toma de la pieza sobre una tela estampada con calaveras.",
+      "note": "El estampado de calaveras del fondo compite con la pieza."
+    }
+  ],
+  "related": ["manga-egipcia", "medusa-zodiaco"],
+  "seo": {
+    "title": "Rostro de mármol. Tatuaje realista de escultura clásica en el antebrazo",
+    "description": "Busto femenino de mármol agrietado, carta celeste con sol y geometría hexagonal: tatuaje realista en negro y gris en el antebrazo, por Tomasxcanales en Parla (Madrid)."
+  }
+}

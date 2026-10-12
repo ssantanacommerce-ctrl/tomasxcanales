@@ -1,0 +1,59 @@
+{
+  "slug": "medusa-zodiaco",
+  "published": true,
+  "order": 1,
+  "title": "Medusa y el zodiaco",
+  "status": null,
+  "description": "Figura femenina con serpientes en el cabello, túnica y peto, recortada sobre un disco con símbolos zodiacales. Realismo en negro y gris con la piedra desprendiéndose hacia la muñeca.",
+  "body": [
+    "La pieza envuelve la cara interna del brazo, así que ninguna fotografía la muestra entera: el giro del brazo en vídeo la cierra.",
+    "El disco del zodiaco hace de fondo y de marco a la vez. Debajo de la figura, la piedra se rompe en fragmentos que caen hacia el antebrazo."
+  ],
+  "quote": null,
+  "styles": ["Realismo", "Negro y gris"],
+  "bodyPlacement": "Brazo, cara interna",
+  "year": null,
+  "dateAdded": "2026-09-20",
+  "cover": "plano-cerrado",
+  "media": [
+    {
+      "id": "plano-cerrado",
+      "type": "image",
+      "src": "originals/plano-cerrado.jpg",
+      "role": ["hero", "featured", "detail", "mobile"],
+      "focus": "50% 38%",
+      "alt": "Tatuaje en negro y gris de una figura femenina con serpientes en el cabello, vestida con túnica y peto, de pie ante un disco con símbolos del zodiaco; bajo ella se desprenden fragmentos de piedra."
+    },
+    {
+      "id": "plano-general",
+      "type": "image",
+      "src": "originals/plano-general.jpg",
+      "role": ["primary"],
+      "focus": "50% 40%",
+      "alt": "Plano más abierto del brazo: se ve la pieza completa desde el hombro hasta el codo, con el disco zodiacal y los fragmentos de piedra cayendo hacia el antebrazo."
+    },
+    {
+      "id": "rotacion",
+      "type": "video",
+      "src": "originals/rotacion.mp4",
+      "poster": 11.4,
+      "scrub": true,
+      "role": ["cinematic"],
+      "alt": "El brazo gira lentamente y muestra la figura completa con el disco zodiacal detrás."
+    },
+    {
+      "id": "detalle",
+      "type": "video",
+      "src": "originals/detalle.mp4",
+      "trim": [0, 16.2],
+      "poster": 4.46,
+      "role": ["detail"],
+      "alt": "Recorrido cercano sobre el rostro, las serpientes del cabello y el peto de la figura."
+    }
+  ],
+  "related": ["manga-realismo-clasico", "rostro-de-marmol"],
+  "seo": {
+    "title": "Medusa y el zodiaco. Tatuaje realista en negro y gris en el brazo",
+    "description": "Tatuaje de Medusa en realismo negro y gris: serpientes en el cabello, túnica, peto y un disco zodiacal en la cara interna del brazo. Obra de Tomasxcanales en Parla (Madrid)."
+  }
+}

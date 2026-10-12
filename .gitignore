@@ -1,0 +1,11 @@
+# Dependencias y compilación (se regeneran con npm install / npm run build)
+node_modules/
+dist/
+.deploy/
+
+# Local
+.claude/settings.local.json
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini

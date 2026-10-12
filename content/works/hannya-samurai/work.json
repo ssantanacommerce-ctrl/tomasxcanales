@@ -1,0 +1,41 @@
+{
+  "slug": "hannya-samurai",
+  "published": true,
+  "order": 9,
+  "title": "Hannya",
+  "status": null,
+  "description": "Figura agazapada con máscara hannya sosteniendo una katana, rodeada de símbolos planetarios, una rosa de los vientos y trazos punteados que la conectan con el resto del brazo.",
+  "body": [
+    "Los símbolos planetarios y la rosa de los vientos se unen con líneas de puntos, como un mapa que recorre el brazo."
+  ],
+  "quote": null,
+  "styles": ["Realismo", "Línea fina", "Simbología"],
+  "bodyPlacement": "Brazo",
+  "year": null,
+  "dateAdded": "2026-09-20",
+  "cover": "plano-general",
+  "media": [
+    {
+      "id": "plano-general",
+      "type": "image",
+      "src": "originals/plano-general.jpg",
+      "role": ["primary", "mobile"],
+      "focus": "50% 45%",
+      "alt": "Brazo tatuado con una figura agazapada que lleva una máscara hannya de cuernos y sostiene una katana apoyada en el suelo; por encima, una rosa de los vientos con un triángulo inscrito y, alrededor, símbolos planetarios unidos por líneas punteadas."
+    },
+    {
+      "id": "brazo",
+      "type": "video",
+      "src": "originals/brazo.mp4",
+      "trim": [0, 12.0],
+      "poster": 3.08,
+      "role": ["secondary"],
+      "alt": "Recorrido en vídeo del brazo tatuado con la figura de máscara hannya y los símbolos que la rodean."
+    }
+  ],
+  "related": ["medusa-zodiaco", "tres-de-espadas"],
+  "seo": {
+    "title": "Hannya. Tatuaje de máscara hannya y katana en el brazo",
+    "description": "Figura con máscara hannya y katana, rosa de los vientos y símbolos planetarios unidos por líneas punteadas. Tatuaje en negro y gris de Tomasxcanales en Parla (Madrid)."
+  }
+}

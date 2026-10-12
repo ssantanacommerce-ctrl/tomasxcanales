@@ -1,0 +1,832 @@
+{
+  "generatedAt": "2026-10-12T15:15:29.769Z",
+  "items": {
+    "medusa-zodiaco/plano-cerrado": {
+      "kind": "image",
+      "w": 3413,
+      "h": 5120,
+      "widths": [
+        480,
+        800,
+        1200,
+        1800
+      ],
+      "color": "#362f2d",
+      "hash": "9b5de3ae4105",
+      "base": "/media/medusa-zodiaco/tomasxcanales-medusa-zodiaco-plano-cerrado",
+      "files": [
+        "tomasxcanales-medusa-zodiaco-plano-cerrado-480.jpg",
+        "tomasxcanales-medusa-zodiaco-plano-cerrado-480.webp",
+        "tomasxcanales-medusa-zodiaco-plano-cerrado-480.avif",
+        "tomasxcanales-medusa-zodiaco-plano-cerrado-800.jpg",
+        "tomasxcanales-medusa-zodiaco-plano-cerrado-800.webp",
+        "tomasxcanales-medusa-zodiaco-plano-cerrado-800.avif",
+        "tomasxcanales-medusa-zodiaco-plano-cerrado-1200.jpg",
+        "tomasxcanales-medusa-zodiaco-plano-cerrado-1200.webp",
+        "tomasxcanales-medusa-zodiaco-plano-cerrado-1200.avif",
+        "tomasxcanales-medusa-zodiaco-plano-cerrado-1800.jpg",
+        "tomasxcanales-medusa-zodiaco-plano-cerrado-1800.webp",
+        "tomasxcanales-medusa-zodiaco-plano-cerrado-1800.avif"
+      ]
+    },
+    "medusa-zodiaco/plano-general": {
+      "kind": "image",
+      "w": 3413,
+      "h": 5120,
+      "widths": [
+        480,
+        800,
+        1200,
+        1800
+      ],
+      "color": "#342d2b",
+      "hash": "44eb958c210f",
+      "base": "/media/medusa-zodiaco/tomasxcanales-medusa-zodiaco-plano-general",
+      "files": [
+        "tomasxcanales-medusa-zodiaco-plano-general-480.jpg",
+        "tomasxcanales-medusa-zodiaco-plano-general-480.webp",
+        "tomasxcanales-medusa-zodiaco-plano-general-480.avif",
+        "tomasxcanales-medusa-zodiaco-plano-general-800.jpg",
+        "tomasxcanales-medusa-zodiaco-plano-general-800.webp",
+        "tomasxcanales-medusa-zodiaco-plano-general-800.avif",
+        "tomasxcanales-medusa-zodiaco-plano-general-1200.jpg",
+        "tomasxcanales-medusa-zodiaco-plano-general-1200.webp",
+        "tomasxcanales-medusa-zodiaco-plano-general-1200.avif",
+        "tomasxcanales-medusa-zodiaco-plano-general-1800.jpg",
+        "tomasxcanales-medusa-zodiaco-plano-general-1800.webp",
+        "tomasxcanales-medusa-zodiaco-plano-general-1800.avif"
+      ]
+    },
+    "medusa-zodiaco/rotacion": {
+      "kind": "video",
+      "w": 576,
+      "h": 1024,
+      "duration": 27.4,
+      "fps": 30,
+      "scrub": true,
+      "poster": {
+        "widths": [
+          576
+        ],
+        "w": 576,
+        "h": 1024,
+        "allWidths": [
+          480,
+          576
+        ],
+        "formats": [
+          "jpg"
+        ]
+      },
+      "color": "#3b2e2d",
+      "hash": "33b76cd3bc8e",
+      "base": "/media/medusa-zodiaco/tomasxcanales-medusa-zodiaco-rotacion",
+      "files": [
+        "tomasxcanales-medusa-zodiaco-rotacion.mp4",
+        "tomasxcanales-medusa-zodiaco-rotacion.webm",
+        "tomasxcanales-medusa-zodiaco-rotacion-480.mp4",
+        "tomasxcanales-medusa-zodiaco-rotacion-scrub.mp4",
+        "tomasxcanales-medusa-zodiaco-rotacion-poster-576.jpg"
+      ]
+    },
+    "medusa-zodiaco/detalle": {
+      "kind": "video",
+      "w": 720,
+      "h": 1280,
+      "duration": 16.2,
+      "fps": 30,
+      "scrub": false,
+      "poster": {
+        "widths": [
+          720
+        ],
+        "allWidths": [
+          480,
+          720
+        ],
+        "formats": [
+          "jpg"
+        ],
+        "w": 720,
+        "h": 1280
+      },
+      "color": "#13100f",
+      "hash": "ffbee9c2506f",
+      "base": "/media/medusa-zodiaco/tomasxcanales-medusa-zodiaco-detalle",
+      "files": [
+        "tomasxcanales-medusa-zodiaco-detalle.mp4",
+        "tomasxcanales-medusa-zodiaco-detalle.webm",
+        "tomasxcanales-medusa-zodiaco-detalle-480.mp4",
+        "tomasxcanales-medusa-zodiaco-detalle-poster-720.jpg"
+      ]
+    },
+    "anima-spiritus/stencil": {
+      "kind": "video",
+      "w": 720,
+      "h": 880,
+      "duration": 4.2,
+      "fps": 30,
+      "scrub": false,
+      "poster": {
+        "widths": [
+          720
+        ],
+        "w": 720,
+        "h": 880,
+        "allWidths": [
+          480,
+          720
+        ],
+        "formats": [
+          "jpg"
+        ]
+      },
+      "color": "#413333",
+      "hash": "1a76d6230903",
+      "base": "/media/anima-spiritus/tomasxcanales-anima-spiritus-stencil",
+      "files": [
+        "tomasxcanales-anima-spiritus-stencil.mp4",
+        "tomasxcanales-anima-spiritus-stencil.webm",
+        "tomasxcanales-anima-spiritus-stencil-480.mp4",
+        "tomasxcanales-anima-spiritus-stencil-poster-720.jpg"
+      ]
+    },
+    "anima-spiritus/linea": {
+      "kind": "video",
+      "w": 720,
+      "h": 880,
+      "duration": 6.9,
+      "fps": 30,
+      "scrub": false,
+      "poster": {
+        "widths": [
+          720
+        ],
+        "w": 720,
+        "h": 880,
+        "allWidths": [
+          480,
+          720
+        ],
+        "formats": [
+          "jpg"
+        ]
+      },
+      "color": "#504047",
+      "hash": "3faec28b1ce8",
+      "base": "/media/anima-spiritus/tomasxcanales-anima-spiritus-linea",
+      "files": [
+        "tomasxcanales-anima-spiritus-linea.mp4",
+        "tomasxcanales-anima-spiritus-linea.webm",
+        "tomasxcanales-anima-spiritus-linea-480.mp4",
+        "tomasxcanales-anima-spiritus-linea-poster-720.jpg"
+      ]
+    },
+    "anima-spiritus/resultado": {
+      "kind": "video",
+      "w": 720,
+      "h": 880,
+      "duration": 2.9,
+      "fps": 30,
+      "scrub": false,
+      "poster": {
+        "widths": [
+          720
+        ],
+        "w": 720,
+        "h": 880,
+        "allWidths": [
+          480,
+          720
+        ],
+        "formats": [
+          "jpg"
+        ]
+      },
+      "color": "#503b43",
+      "hash": "e984a3fc177f",
+      "base": "/media/anima-spiritus/tomasxcanales-anima-spiritus-resultado",
+      "files": [
+        "tomasxcanales-anima-spiritus-resultado.mp4",
+        "tomasxcanales-anima-spiritus-resultado.webm",
+        "tomasxcanales-anima-spiritus-resultado-480.mp4",
+        "tomasxcanales-anima-spiritus-resultado-poster-720.jpg"
+      ]
+    },
+    "anima-spiritus/plano-general": {
+      "kind": "image",
+      "w": 3413,
+      "h": 5120,
+      "widths": [
+        480,
+        800,
+        1200,
+        1800
+      ],
+      "color": "#2a2727",
+      "hash": "44eb958c210f",
+      "base": "/media/anima-spiritus/tomasxcanales-anima-spiritus-plano-general",
+      "files": [
+        "tomasxcanales-anima-spiritus-plano-general-480.jpg",
+        "tomasxcanales-anima-spiritus-plano-general-480.webp",
+        "tomasxcanales-anima-spiritus-plano-general-480.avif",
+        "tomasxcanales-anima-spiritus-plano-general-800.jpg",
+        "tomasxcanales-anima-spiritus-plano-general-800.webp",
+        "tomasxcanales-anima-spiritus-plano-general-800.avif",
+        "tomasxcanales-anima-spiritus-plano-general-1200.jpg",
+        "tomasxcanales-anima-spiritus-plano-general-1200.webp",
+        "tomasxcanales-anima-spiritus-plano-general-1200.avif",
+        "tomasxcanales-anima-spiritus-plano-general-1800.jpg",
+        "tomasxcanales-anima-spiritus-plano-general-1800.webp",
+        "tomasxcanales-anima-spiritus-plano-general-1800.avif"
+      ]
+    },
+    "anima-spiritus/plano-medio": {
+      "kind": "image",
+      "w": 3413,
+      "h": 5120,
+      "widths": [
+        480,
+        800,
+        1200,
+        1800
+      ],
+      "color": "#3d3938",
+      "hash": "36c6c4c28b25",
+      "base": "/media/anima-spiritus/tomasxcanales-anima-spiritus-plano-medio",
+      "files": [
+        "tomasxcanales-anima-spiritus-plano-medio-480.jpg",
+        "tomasxcanales-anima-spiritus-plano-medio-480.webp",
+        "tomasxcanales-anima-spiritus-plano-medio-480.avif",
+        "tomasxcanales-anima-spiritus-plano-medio-800.jpg",
+        "tomasxcanales-anima-spiritus-plano-medio-800.webp",
+        "tomasxcanales-anima-spiritus-plano-medio-800.avif",
+        "tomasxcanales-anima-spiritus-plano-medio-1200.jpg",
+        "tomasxcanales-anima-spiritus-plano-medio-1200.webp",
+        "tomasxcanales-anima-spiritus-plano-medio-1200.avif",
+        "tomasxcanales-anima-spiritus-plano-medio-1800.jpg",
+        "tomasxcanales-anima-spiritus-plano-medio-1800.webp",
+        "tomasxcanales-anima-spiritus-plano-medio-1800.avif"
+      ]
+    },
+    "anima-spiritus/detalle": {
+      "kind": "image",
+      "w": 3413,
+      "h": 5120,
+      "widths": [
+        480,
+        800,
+        1200,
+        1800
+      ],
+      "color": "#524b4b",
+      "hash": "7dbdd9a58e8c",
+      "base": "/media/anima-spiritus/tomasxcanales-anima-spiritus-detalle",
+      "files": [
+        "tomasxcanales-anima-spiritus-detalle-480.jpg",
+        "tomasxcanales-anima-spiritus-detalle-480.webp",
+        "tomasxcanales-anima-spiritus-detalle-480.avif",
+        "tomasxcanales-anima-spiritus-detalle-800.jpg",
+        "tomasxcanales-anima-spiritus-detalle-800.webp",
+        "tomasxcanales-anima-spiritus-detalle-800.avif",
+        "tomasxcanales-anima-spiritus-detalle-1200.jpg",
+        "tomasxcanales-anima-spiritus-detalle-1200.webp",
+        "tomasxcanales-anima-spiritus-detalle-1200.avif",
+        "tomasxcanales-anima-spiritus-detalle-1800.jpg",
+        "tomasxcanales-anima-spiritus-detalle-1800.webp",
+        "tomasxcanales-anima-spiritus-detalle-1800.avif"
+      ]
+    },
+    "anima-spiritus/antebrazo": {
+      "kind": "video",
+      "w": 720,
+      "h": 1280,
+      "duration": 20.57,
+      "fps": 30,
+      "scrub": false,
+      "poster": {
+        "widths": [
+          720
+        ],
+        "w": 720,
+        "h": 1280,
+        "allWidths": [
+          480,
+          720
+        ],
+        "formats": [
+          "jpg"
+        ]
+      },
+      "color": "#453f3f",
+      "hash": "0490ee91cca1",
+      "base": "/media/anima-spiritus/tomasxcanales-anima-spiritus-antebrazo",
+      "files": [
+        "tomasxcanales-anima-spiritus-antebrazo.mp4",
+        "tomasxcanales-anima-spiritus-antebrazo.webm",
+        "tomasxcanales-anima-spiritus-antebrazo-480.mp4",
+        "tomasxcanales-anima-spiritus-antebrazo-poster-720.jpg"
+      ]
+    },
+    "atlas-vitruvio/plano-general": {
+      "kind": "image",
+      "w": 1170,
+      "h": 1453,
+      "widths": [
+        480,
+        800,
+        1170
+      ],
+      "color": "#524c4c",
+      "hash": "44eb958c210f",
+      "base": "/media/atlas-vitruvio/tomasxcanales-atlas-vitruvio-plano-general",
+      "files": [
+        "tomasxcanales-atlas-vitruvio-plano-general-480.jpg",
+        "tomasxcanales-atlas-vitruvio-plano-general-480.webp",
+        "tomasxcanales-atlas-vitruvio-plano-general-480.avif",
+        "tomasxcanales-atlas-vitruvio-plano-general-800.jpg",
+        "tomasxcanales-atlas-vitruvio-plano-general-800.webp",
+        "tomasxcanales-atlas-vitruvio-plano-general-800.avif",
+        "tomasxcanales-atlas-vitruvio-plano-general-1170.jpg",
+        "tomasxcanales-atlas-vitruvio-plano-general-1170.webp",
+        "tomasxcanales-atlas-vitruvio-plano-general-1170.avif"
+      ]
+    },
+    "atlas-vitruvio/detalle": {
+      "kind": "image",
+      "w": 1170,
+      "h": 1453,
+      "widths": [
+        480,
+        800,
+        1170
+      ],
+      "color": "#4b4546",
+      "hash": "7dbdd9a58e8c",
+      "base": "/media/atlas-vitruvio/tomasxcanales-atlas-vitruvio-detalle",
+      "files": [
+        "tomasxcanales-atlas-vitruvio-detalle-480.jpg",
+        "tomasxcanales-atlas-vitruvio-detalle-480.webp",
+        "tomasxcanales-atlas-vitruvio-detalle-480.avif",
+        "tomasxcanales-atlas-vitruvio-detalle-800.jpg",
+        "tomasxcanales-atlas-vitruvio-detalle-800.webp",
+        "tomasxcanales-atlas-vitruvio-detalle-800.avif",
+        "tomasxcanales-atlas-vitruvio-detalle-1170.jpg",
+        "tomasxcanales-atlas-vitruvio-detalle-1170.webp",
+        "tomasxcanales-atlas-vitruvio-detalle-1170.avif"
+      ]
+    },
+    "rostro-de-marmol/detalle": {
+      "kind": "image",
+      "w": 1170,
+      "h": 1462,
+      "widths": [
+        480,
+        800,
+        1170
+      ],
+      "color": "#4f4e4e",
+      "hash": "7dbdd9a58e8c",
+      "base": "/media/rostro-de-marmol/tomasxcanales-rostro-de-marmol-detalle",
+      "files": [
+        "tomasxcanales-rostro-de-marmol-detalle-480.jpg",
+        "tomasxcanales-rostro-de-marmol-detalle-480.webp",
+        "tomasxcanales-rostro-de-marmol-detalle-480.avif",
+        "tomasxcanales-rostro-de-marmol-detalle-800.jpg",
+        "tomasxcanales-rostro-de-marmol-detalle-800.webp",
+        "tomasxcanales-rostro-de-marmol-detalle-800.avif",
+        "tomasxcanales-rostro-de-marmol-detalle-1170.jpg",
+        "tomasxcanales-rostro-de-marmol-detalle-1170.webp",
+        "tomasxcanales-rostro-de-marmol-detalle-1170.avif"
+      ]
+    },
+    "rostro-de-marmol/plano-general": {
+      "kind": "image",
+      "w": 1170,
+      "h": 1459,
+      "widths": [
+        480,
+        800,
+        1170
+      ],
+      "color": "#414040",
+      "hash": "44eb958c210f",
+      "base": "/media/rostro-de-marmol/tomasxcanales-rostro-de-marmol-plano-general",
+      "files": [
+        "tomasxcanales-rostro-de-marmol-plano-general-480.jpg",
+        "tomasxcanales-rostro-de-marmol-plano-general-480.webp",
+        "tomasxcanales-rostro-de-marmol-plano-general-480.avif",
+        "tomasxcanales-rostro-de-marmol-plano-general-800.jpg",
+        "tomasxcanales-rostro-de-marmol-plano-general-800.webp",
+        "tomasxcanales-rostro-de-marmol-plano-general-800.avif",
+        "tomasxcanales-rostro-de-marmol-plano-general-1170.jpg",
+        "tomasxcanales-rostro-de-marmol-plano-general-1170.webp",
+        "tomasxcanales-rostro-de-marmol-plano-general-1170.avif"
+      ]
+    },
+    "manga-egipcia/plano-general": {
+      "kind": "image",
+      "w": 1170,
+      "h": 1463,
+      "widths": [
+        480,
+        800,
+        1170
+      ],
+      "color": "#3e3937",
+      "hash": "44eb958c210f",
+      "base": "/media/manga-egipcia/tomasxcanales-manga-egipcia-plano-general",
+      "files": [
+        "tomasxcanales-manga-egipcia-plano-general-480.jpg",
+        "tomasxcanales-manga-egipcia-plano-general-480.webp",
+        "tomasxcanales-manga-egipcia-plano-general-480.avif",
+        "tomasxcanales-manga-egipcia-plano-general-800.jpg",
+        "tomasxcanales-manga-egipcia-plano-general-800.webp",
+        "tomasxcanales-manga-egipcia-plano-general-800.avif",
+        "tomasxcanales-manga-egipcia-plano-general-1170.jpg",
+        "tomasxcanales-manga-egipcia-plano-general-1170.webp",
+        "tomasxcanales-manga-egipcia-plano-general-1170.avif"
+      ]
+    },
+    "david-miguel-angel/sesion": {
+      "kind": "video",
+      "w": 720,
+      "h": 1280,
+      "duration": 9.8,
+      "fps": 30,
+      "scrub": false,
+      "poster": {
+        "widths": [
+          480,
+          720
+        ],
+        "w": 720,
+        "h": 1280,
+        "allWidths": [
+          480,
+          720
+        ],
+        "formats": [
+          "jpg",
+          "webp",
+          "avif"
+        ]
+      },
+      "color": "#4f4847",
+      "hash": "e84ff01b4966",
+      "base": "/media/david-miguel-angel/tomasxcanales-david-miguel-angel-sesion",
+      "files": [
+        "tomasxcanales-david-miguel-angel-sesion.mp4",
+        "tomasxcanales-david-miguel-angel-sesion.webm",
+        "tomasxcanales-david-miguel-angel-sesion-480.mp4",
+        "tomasxcanales-david-miguel-angel-sesion-poster-480.jpg",
+        "tomasxcanales-david-miguel-angel-sesion-poster-480.webp",
+        "tomasxcanales-david-miguel-angel-sesion-poster-480.avif",
+        "tomasxcanales-david-miguel-angel-sesion-poster-720.jpg",
+        "tomasxcanales-david-miguel-angel-sesion-poster-720.webp",
+        "tomasxcanales-david-miguel-angel-sesion-poster-720.avif"
+      ]
+    },
+    "david-miguel-angel/resultado": {
+      "kind": "video",
+      "w": 720,
+      "h": 1280,
+      "duration": 3,
+      "fps": 30,
+      "scrub": false,
+      "poster": {
+        "widths": [
+          720
+        ],
+        "w": 720,
+        "h": 1280,
+        "allWidths": [
+          480,
+          720
+        ],
+        "formats": [
+          "jpg"
+        ]
+      },
+      "color": "#63595a",
+      "hash": "1ac66252e2c3",
+      "base": "/media/david-miguel-angel/tomasxcanales-david-miguel-angel-resultado",
+      "files": [
+        "tomasxcanales-david-miguel-angel-resultado.mp4",
+        "tomasxcanales-david-miguel-angel-resultado.webm",
+        "tomasxcanales-david-miguel-angel-resultado-480.mp4",
+        "tomasxcanales-david-miguel-angel-resultado-poster-720.jpg"
+      ]
+    },
+    "manga-arcangel-geometria/manga": {
+      "kind": "video",
+      "w": 720,
+      "h": 1280,
+      "duration": 21,
+      "fps": 30,
+      "scrub": false,
+      "poster": {
+        "widths": [
+          480,
+          720
+        ],
+        "w": 720,
+        "h": 1280,
+        "allWidths": [
+          480,
+          720
+        ],
+        "formats": [
+          "jpg",
+          "webp",
+          "avif"
+        ]
+      },
+      "color": "#3e3838",
+      "hash": "d20db5239025",
+      "base": "/media/manga-arcangel-geometria/tomasxcanales-manga-arcangel-geometria-manga",
+      "files": [
+        "tomasxcanales-manga-arcangel-geometria-manga.mp4",
+        "tomasxcanales-manga-arcangel-geometria-manga.webm",
+        "tomasxcanales-manga-arcangel-geometria-manga-480.mp4",
+        "tomasxcanales-manga-arcangel-geometria-manga-poster-480.jpg",
+        "tomasxcanales-manga-arcangel-geometria-manga-poster-480.webp",
+        "tomasxcanales-manga-arcangel-geometria-manga-poster-480.avif",
+        "tomasxcanales-manga-arcangel-geometria-manga-poster-720.jpg",
+        "tomasxcanales-manga-arcangel-geometria-manga-poster-720.webp",
+        "tomasxcanales-manga-arcangel-geometria-manga-poster-720.avif"
+      ]
+    },
+    "manga-realismo-clasico/manga": {
+      "kind": "video",
+      "w": 720,
+      "h": 1280,
+      "duration": 19,
+      "fps": 30,
+      "scrub": false,
+      "poster": {
+        "widths": [
+          480,
+          720
+        ],
+        "w": 720,
+        "h": 1280,
+        "allWidths": [
+          480,
+          720
+        ],
+        "formats": [
+          "jpg",
+          "webp",
+          "avif"
+        ]
+      },
+      "color": "#3a302d",
+      "hash": "81d6ae2a6d5b",
+      "base": "/media/manga-realismo-clasico/tomasxcanales-manga-realismo-clasico-manga",
+      "files": [
+        "tomasxcanales-manga-realismo-clasico-manga.mp4",
+        "tomasxcanales-manga-realismo-clasico-manga.webm",
+        "tomasxcanales-manga-realismo-clasico-manga-480.mp4",
+        "tomasxcanales-manga-realismo-clasico-manga-poster-480.jpg",
+        "tomasxcanales-manga-realismo-clasico-manga-poster-480.webp",
+        "tomasxcanales-manga-realismo-clasico-manga-poster-480.avif",
+        "tomasxcanales-manga-realismo-clasico-manga-poster-720.jpg",
+        "tomasxcanales-manga-realismo-clasico-manga-poster-720.webp",
+        "tomasxcanales-manga-realismo-clasico-manga-poster-720.avif"
+      ]
+    },
+    "hannya-samurai/plano-general": {
+      "kind": "image",
+      "w": 2874,
+      "h": 5120,
+      "widths": [
+        480,
+        800,
+        1200,
+        1800
+      ],
+      "color": "#1b1818",
+      "hash": "44eb958c210f",
+      "base": "/media/hannya-samurai/tomasxcanales-hannya-samurai-plano-general",
+      "files": [
+        "tomasxcanales-hannya-samurai-plano-general-480.jpg",
+        "tomasxcanales-hannya-samurai-plano-general-480.webp",
+        "tomasxcanales-hannya-samurai-plano-general-480.avif",
+        "tomasxcanales-hannya-samurai-plano-general-800.jpg",
+        "tomasxcanales-hannya-samurai-plano-general-800.webp",
+        "tomasxcanales-hannya-samurai-plano-general-800.avif",
+        "tomasxcanales-hannya-samurai-plano-general-1200.jpg",
+        "tomasxcanales-hannya-samurai-plano-general-1200.webp",
+        "tomasxcanales-hannya-samurai-plano-general-1200.avif",
+        "tomasxcanales-hannya-samurai-plano-general-1800.jpg",
+        "tomasxcanales-hannya-samurai-plano-general-1800.webp",
+        "tomasxcanales-hannya-samurai-plano-general-1800.avif"
+      ]
+    },
+    "hannya-samurai/brazo": {
+      "kind": "video",
+      "w": 720,
+      "h": 1280,
+      "duration": 12,
+      "fps": 30,
+      "scrub": false,
+      "poster": {
+        "widths": [
+          720
+        ],
+        "allWidths": [
+          480,
+          720
+        ],
+        "formats": [
+          "jpg"
+        ],
+        "w": 720,
+        "h": 1280
+      },
+      "color": "#25211e",
+      "hash": "9ade409441e6",
+      "base": "/media/hannya-samurai/tomasxcanales-hannya-samurai-brazo",
+      "files": [
+        "tomasxcanales-hannya-samurai-brazo.mp4",
+        "tomasxcanales-hannya-samurai-brazo.webm",
+        "tomasxcanales-hannya-samurai-brazo-480.mp4",
+        "tomasxcanales-hannya-samurai-brazo-poster-720.jpg"
+      ]
+    },
+    "alas-escudo-pecho/plano-medio": {
+      "kind": "image",
+      "w": 3413,
+      "h": 4762,
+      "widths": [
+        480,
+        800,
+        1200,
+        1800
+      ],
+      "color": "#625956",
+      "hash": "eeaa1cc5f51f",
+      "base": "/media/alas-escudo-pecho/tomasxcanales-alas-escudo-pecho-plano-medio",
+      "files": [
+        "tomasxcanales-alas-escudo-pecho-plano-medio-480.jpg",
+        "tomasxcanales-alas-escudo-pecho-plano-medio-480.webp",
+        "tomasxcanales-alas-escudo-pecho-plano-medio-480.avif",
+        "tomasxcanales-alas-escudo-pecho-plano-medio-800.jpg",
+        "tomasxcanales-alas-escudo-pecho-plano-medio-800.webp",
+        "tomasxcanales-alas-escudo-pecho-plano-medio-800.avif",
+        "tomasxcanales-alas-escudo-pecho-plano-medio-1200.jpg",
+        "tomasxcanales-alas-escudo-pecho-plano-medio-1200.webp",
+        "tomasxcanales-alas-escudo-pecho-plano-medio-1200.avif",
+        "tomasxcanales-alas-escudo-pecho-plano-medio-1800.jpg",
+        "tomasxcanales-alas-escudo-pecho-plano-medio-1800.webp",
+        "tomasxcanales-alas-escudo-pecho-plano-medio-1800.avif"
+      ]
+    },
+    "alas-escudo-pecho/plano-general": {
+      "kind": "image",
+      "w": 3413,
+      "h": 4096,
+      "widths": [
+        480,
+        800,
+        1200,
+        1800
+      ],
+      "color": "#524b49",
+      "hash": "9cb284675d82",
+      "base": "/media/alas-escudo-pecho/tomasxcanales-alas-escudo-pecho-plano-general",
+      "files": [
+        "tomasxcanales-alas-escudo-pecho-plano-general-480.jpg",
+        "tomasxcanales-alas-escudo-pecho-plano-general-480.webp",
+        "tomasxcanales-alas-escudo-pecho-plano-general-480.avif",
+        "tomasxcanales-alas-escudo-pecho-plano-general-800.jpg",
+        "tomasxcanales-alas-escudo-pecho-plano-general-800.webp",
+        "tomasxcanales-alas-escudo-pecho-plano-general-800.avif",
+        "tomasxcanales-alas-escudo-pecho-plano-general-1200.jpg",
+        "tomasxcanales-alas-escudo-pecho-plano-general-1200.webp",
+        "tomasxcanales-alas-escudo-pecho-plano-general-1200.avif",
+        "tomasxcanales-alas-escudo-pecho-plano-general-1800.jpg",
+        "tomasxcanales-alas-escudo-pecho-plano-general-1800.webp",
+        "tomasxcanales-alas-escudo-pecho-plano-general-1800.avif"
+      ]
+    },
+    "tres-de-espadas/plano-general": {
+      "kind": "image",
+      "w": 2880,
+      "h": 5120,
+      "widths": [
+        480,
+        800,
+        1200,
+        1800
+      ],
+      "color": "#6e6c6c",
+      "hash": "44eb958c210f",
+      "base": "/media/tres-de-espadas/tomasxcanales-tres-de-espadas-plano-general",
+      "files": [
+        "tomasxcanales-tres-de-espadas-plano-general-480.jpg",
+        "tomasxcanales-tres-de-espadas-plano-general-480.webp",
+        "tomasxcanales-tres-de-espadas-plano-general-480.avif",
+        "tomasxcanales-tres-de-espadas-plano-general-800.jpg",
+        "tomasxcanales-tres-de-espadas-plano-general-800.webp",
+        "tomasxcanales-tres-de-espadas-plano-general-800.avif",
+        "tomasxcanales-tres-de-espadas-plano-general-1200.jpg",
+        "tomasxcanales-tres-de-espadas-plano-general-1200.webp",
+        "tomasxcanales-tres-de-espadas-plano-general-1200.avif",
+        "tomasxcanales-tres-de-espadas-plano-general-1800.jpg",
+        "tomasxcanales-tres-de-espadas-plano-general-1800.webp",
+        "tomasxcanales-tres-de-espadas-plano-general-1800.avif"
+      ]
+    },
+    "site/artista-delacroix": {
+      "kind": "image",
+      "w": 1170,
+      "h": 1560,
+      "widths": [
+        480,
+        800,
+        1170
+      ],
+      "color": "#544436",
+      "hash": "c96b6aa6d746",
+      "base": "/media/site/tomasxcanales-artista-delacroix",
+      "files": [
+        "tomasxcanales-artista-delacroix-480.jpg",
+        "tomasxcanales-artista-delacroix-480.webp",
+        "tomasxcanales-artista-delacroix-480.avif",
+        "tomasxcanales-artista-delacroix-800.jpg",
+        "tomasxcanales-artista-delacroix-800.webp",
+        "tomasxcanales-artista-delacroix-800.avif",
+        "tomasxcanales-artista-delacroix-1170.jpg",
+        "tomasxcanales-artista-delacroix-1170.webp",
+        "tomasxcanales-artista-delacroix-1170.avif"
+      ]
+    },
+    "site/artista-veronese": {
+      "kind": "image",
+      "w": 1170,
+      "h": 1560,
+      "widths": [
+        480,
+        800,
+        1170
+      ],
+      "color": "#534034",
+      "hash": "ec6f9ea00656",
+      "base": "/media/site/tomasxcanales-artista-veronese",
+      "files": [
+        "tomasxcanales-artista-veronese-480.jpg",
+        "tomasxcanales-artista-veronese-480.webp",
+        "tomasxcanales-artista-veronese-480.avif",
+        "tomasxcanales-artista-veronese-800.jpg",
+        "tomasxcanales-artista-veronese-800.webp",
+        "tomasxcanales-artista-veronese-800.avif",
+        "tomasxcanales-artista-veronese-1170.jpg",
+        "tomasxcanales-artista-veronese-1170.webp",
+        "tomasxcanales-artista-veronese-1170.avif"
+      ]
+    },
+    "site/vida-voz": {
+      "kind": "audio",
+      "duration": 34.2,
+      "hash": "38fa421e5004",
+      "base": "/media/site/tomasxcanales-vida-voz",
+      "files": [
+        "tomasxcanales-vida-voz.webm",
+        "tomasxcanales-vida-voz.m4a"
+      ]
+    },
+    "site/vida-estudio": {
+      "kind": "video",
+      "w": 720,
+      "h": 304,
+      "duration": 14.8,
+      "fps": 30,
+      "scrub": false,
+      "poster": {
+        "widths": [
+          720
+        ],
+        "w": 720,
+        "h": 304,
+        "allWidths": [
+          480,
+          720
+        ],
+        "formats": [
+          "jpg"
+        ]
+      },
+      "color": "#605856",
+      "hash": "d41ad99a5819",
+      "base": "/media/site/tomasxcanales-vida-estudio",
+      "files": [
+        "tomasxcanales-vida-estudio.mp4",
+        "tomasxcanales-vida-estudio.webm",
+        "tomasxcanales-vida-estudio-480.mp4",
+        "tomasxcanales-vida-estudio-poster-720.jpg"
+      ]
+    }
+  }
+}

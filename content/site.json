@@ -1,0 +1,132 @@
+{
+  "$comment": "Identidad, textos y medios del sitio. TODO lo que se muestra aquí procede de material real: el vídeo VIDA, los textos que Tomás publicó con sus obras, o los datos de contacto que ya existían. Nada inventado. Ver docs/contenido.md.",
+
+  "brand": "Tomasxcanales",
+  "person": "Tomás Canales",
+  "role": "Tatuador",
+  "studio": "Tomasxcanales Studio",
+  "address": {
+    "$comment": "Dirección del estudio. Debe coincidir letra por letra con la ficha de Google Business Profile (nombre, dirección y teléfono iguales en todas partes).",
+    "street": "Calle Dos Hermanas 20, 1.º I",
+    "postalCode": "28982",
+    "locality": "Parla",
+    "province": "Madrid"
+  },
+  "city": "Parla",
+  "place": "Parla, Madrid",
+  "region": "Comunidad de Madrid",
+  "country": "ES",
+  "origin": "https://tomasxcanales.com",
+  "locale": "es_ES",
+  "lang": "es",
+
+  "contact": {
+    "instagram": "tomasxcanales",
+    "whatsapp": "34685349860",
+    "whatsappDisplay": "+34 685 349 860",
+    "email": "tomasxcanalesink@gmail.com"
+  },
+
+  "vida": {
+    "$comment": "Transcripción literal de los subtítulos del vídeo VIDA (35,4 s, voz en off sobre música). Cada fragmento lleva el intervalo en segundos en que aparece en el vídeo, medido fotograma a fotograma a 5 fps. Sirve para sincronizar el texto con la voz en la escucha opcional.",
+    "source": "content/site/originals/vida.mp4",
+    "sentences": [
+      {
+        "id": "ceremonia",
+        "text": "Considero el tatuaje una ceremonia en la que se inmortalizan sentimientos, recuerdos, intenciones y sueños.",
+        "cues": [
+          [0.2, 0.8, "Considero el"],
+          [0.8, 4.1, "tatuaje una ceremonia en la que se inmortalizan sentimientos,"],
+          [4.8, 6.8, "recuerdos, intenciones y sueños."]
+        ]
+      },
+      {
+        "id": "linea",
+        "text": "Cada línea que realizo es intencionada y refleja respeto, paciencia y conciencia hacia la persona que me confía su piel.",
+        "cues": [
+          [8.2, 12.1, "Cada línea que realizo es intencionada y refleja respeto,"],
+          [12.6, 13.3, "paciencia"],
+          [13.6, 16.5, "y conciencia hacia la persona que me confía su piel."]
+        ]
+      },
+      {
+        "id": "lenguaje",
+        "text": "Mi proceso creativo se basa en transformar las ideas que recibo en un lenguaje propio, simbólico y evolutivo.",
+        "cues": [
+          [17.0, 17.9, "Mi proceso creativo"],
+          [18.0, 18.5, "se basa"],
+          [18.6, 21.9, "en transformar las ideas que recibo en un lenguaje propio,"],
+          [22.4, 23.7, "simbólico y evolutivo."]
+        ]
+      },
+      {
+        "id": "gratitud",
+        "text": "Cada símbolo y cada geometría están impregnados de gratitud por la oportunidad de materializar algo que permanecerá para siempre.",
+        "cues": [
+          [25.2, 25.7, "Cada símbolo"],
+          [25.8, 26.7, "y cada geometría"],
+          [27.0, 28.1, "están impregnados"],
+          [28.2, 28.9, "de gratitud"],
+          [29.2, 29.9, "por la oportunidad"],
+          [30.0, 32.9, "de materializar algo que permanecerá para siempre."]
+        ]
+      }
+    ]
+  },
+
+  "media": {
+    "$comment": "Medios del sitio que no pertenecen a una obra concreta. Los recortes (crop) y los tramos (trim) quitan los subtítulos incrustados del vídeo VIDA y los segundos en negro: nunca se retoca la imagen.",
+    "items": [
+      {
+        "id": "simbolos",
+        "type": "image",
+        "src": "site/originals/simbolos.png",
+        "role": ["identity", "unused"],
+        "note": "Referencia de medida: los símbolos se dibujan en SVG (tools/site/symbols.mjs). La imagen no se publica.",
+        "alt": "Los símbolos de Tomasxcanales: una luna creciente y un sol, un círculo con un punto en el centro."
+      },
+      {
+        "id": "simbolos-radiante",
+        "type": "image",
+        "src": "site/originals/simbolos-radiante.png",
+        "role": ["identity", "unused"],
+        "note": "Referencia de medida: los símbolos se dibujan en SVG (tools/site/symbols.mjs). La imagen no se publica.",
+        "alt": "Variante de los símbolos: la luna creciente y el sol con rayos."
+      },
+      {
+        "id": "artista-delacroix",
+        "type": "image",
+        "src": "site/originals/artista-delacroix.jpg",
+        "role": ["artist"],
+        "alt": "Tomás, de espaldas, ante La muerte de Sardanápalo de Delacroix, en una sala de muros rojos y suelo de parqué.",
+        "focus": "30% 50%"
+      },
+      {
+        "id": "artista-veronese",
+        "type": "image",
+        "src": "site/originals/artista-veronese.jpg",
+        "role": ["artist"],
+        "alt": "Tomás, de espaldas, ante Las bodas de Caná de Veronese, un lienzo monumental con marco dorado.",
+        "focus": "55% 60%"
+      },
+      {
+        "id": "vida-voz",
+        "type": "audio",
+        "src": "site/originals/vida.mp4",
+        "trim": [0, 34.2],
+        "role": ["voice"],
+        "alt": "Tomás lee su declaración sobre el tatuaje. Voz en off con música."
+      },
+      {
+        "id": "vida-estudio",
+        "type": "video",
+        "src": "site/originals/vida.mp4",
+        "trim": [18.1, 32.9],
+        "crop": { "w": 720, "h": 304, "x": 0, "y": 487 },
+        "poster": 6.2,
+        "role": ["studio", "process"],
+        "alt": "En el estudio: Tomás trabaja sobre la pierna de un cliente tumbado en la camilla, con el material sobre la mesa en primer plano."
+      }
+    ]
+  }
+}

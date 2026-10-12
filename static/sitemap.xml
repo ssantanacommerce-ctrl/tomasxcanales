@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://tomasxcanales.com/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <image:image><image:loc>https://tomasxcanales.com/media/medusa-zodiaco/tomasxcanales-medusa-zodiaco-plano-cerrado-1800.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/site/tomasxcanales-artista-delacroix-1170.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/medusa-zodiaco/tomasxcanales-medusa-zodiaco-plano-cerrado-1200.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/anima-spiritus/tomasxcanales-anima-spiritus-detalle-1200.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/atlas-vitruvio/tomasxcanales-atlas-vitruvio-plano-general-1170.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/rostro-de-marmol/tomasxcanales-rostro-de-marmol-detalle-1170.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/manga-egipcia/tomasxcanales-manga-egipcia-plano-general-1170.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/david-miguel-angel/tomasxcanales-david-miguel-angel-sesion-poster-720.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/manga-arcangel-geometria/tomasxcanales-manga-arcangel-geometria-manga-poster-720.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/manga-realismo-clasico/tomasxcanales-manga-realismo-clasico-manga-poster-720.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/hannya-samurai/tomasxcanales-hannya-samurai-plano-general-1200.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/alas-escudo-pecho/tomasxcanales-alas-escudo-pecho-plano-medio-1200.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/tres-de-espadas/tomasxcanales-tres-de-espadas-plano-general-1200.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://tomasxcanales.com/work/</loc>
+    <lastmod>2026-09-26</lastmod>
+
+  </url>
+  <url>
+    <loc>https://tomasxcanales.com/work/medusa-zodiaco/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <image:image><image:loc>https://tomasxcanales.com/media/medusa-zodiaco/tomasxcanales-medusa-zodiaco-plano-cerrado-1800.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/medusa-zodiaco/tomasxcanales-medusa-zodiaco-plano-general-1800.jpg</image:loc></image:image>
+    <video:video>
+      <video:thumbnail_loc>https://tomasxcanales.com/media/medusa-zodiaco/tomasxcanales-medusa-zodiaco-rotacion-poster-576.jpg</video:thumbnail_loc>
+      <video:title>Medusa y el zodiaco</video:title>
+      <video:description>El brazo gira lentamente y muestra la figura completa con el disco zodiacal detrás.</video:description>
+      <video:content_loc>https://tomasxcanales.com/media/medusa-zodiaco/tomasxcanales-medusa-zodiaco-rotacion.mp4</video:content_loc>
+      <video:duration>27</video:duration>
+      <video:publication_date>2026-09-20T00:00:00+02:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://tomasxcanales.com/media/medusa-zodiaco/tomasxcanales-medusa-zodiaco-detalle-poster-720.jpg</video:thumbnail_loc>
+      <video:title>Medusa y el zodiaco</video:title>
+      <video:description>Recorrido cercano sobre el rostro, las serpientes del cabello y el peto de la figura.</video:description>
+      <video:content_loc>https://tomasxcanales.com/media/medusa-zodiaco/tomasxcanales-medusa-zodiaco-detalle.mp4</video:content_loc>
+      <video:duration>16</video:duration>
+      <video:publication_date>2026-09-20T00:00:00+02:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://tomasxcanales.com/work/anima-spiritus/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <image:image><image:loc>https://tomasxcanales.com/media/anima-spiritus/tomasxcanales-anima-spiritus-plano-general-1800.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/anima-spiritus/tomasxcanales-anima-spiritus-plano-medio-1800.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/anima-spiritus/tomasxcanales-anima-spiritus-detalle-1800.jpg</image:loc></image:image>
+    <video:video>
+      <video:thumbnail_loc>https://tomasxcanales.com/media/anima-spiritus/tomasxcanales-anima-spiritus-stencil-poster-720.jpg</video:thumbnail_loc>
+      <video:title>Ánima Spiritus: El stencil, apoyado sobre el antebrazo</video:title>
+      <video:description>Unas manos con guantes negros retiran el papel del stencil del antebrazo: el diseño queda calcado en violeta sobre la piel.</video:description>
+      <video:content_loc>https://tomasxcanales.com/media/anima-spiritus/tomasxcanales-anima-spiritus-stencil.mp4</video:content_loc>
+      <video:duration>4</video:duration>
+      <video:publication_date>2026-09-20T00:00:00+02:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://tomasxcanales.com/media/anima-spiritus/tomasxcanales-anima-spiritus-linea-poster-720.jpg</video:thumbnail_loc>
+      <video:title>Ánima Spiritus: Las primeras líneas sobre el trazo violeta</video:title>
+      <video:description>Primer plano de la aguja siguiendo el trazo violeta del stencil: el icosaedro y los círculos se vuelven línea negra.</video:description>
+      <video:content_loc>https://tomasxcanales.com/media/anima-spiritus/tomasxcanales-anima-spiritus-linea.mp4</video:content_loc>
+      <video:duration>7</video:duration>
+      <video:publication_date>2026-09-20T00:00:00+02:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://tomasxcanales.com/media/anima-spiritus/tomasxcanales-anima-spiritus-resultado-poster-720.jpg</video:thumbnail_loc>
+      <video:title>Ánima Spiritus: La pieza terminada</video:title>
+      <video:description>La pieza recién terminada: la caligrafía Spiritus, el icosaedro inscrito en un cuadrado y los círculos atravesados por el eje.</video:description>
+      <video:content_loc>https://tomasxcanales.com/media/anima-spiritus/tomasxcanales-anima-spiritus-resultado.mp4</video:content_loc>
+      <video:duration>3</video:duration>
+      <video:publication_date>2026-09-20T00:00:00+02:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://tomasxcanales.com/media/anima-spiritus/tomasxcanales-anima-spiritus-antebrazo-poster-720.jpg</video:thumbnail_loc>
+      <video:title>Ánima Spiritus</video:title>
+      <video:description>Recorrido en vídeo del tatuaje Ánima Spiritus girando alrededor del antebrazo.</video:description>
+      <video:content_loc>https://tomasxcanales.com/media/anima-spiritus/tomasxcanales-anima-spiritus-antebrazo.mp4</video:content_loc>
+      <video:duration>21</video:duration>
+      <video:publication_date>2026-09-20T00:00:00+02:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://tomasxcanales.com/work/atlas-vitruvio/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <image:image><image:loc>https://tomasxcanales.com/media/atlas-vitruvio/tomasxcanales-atlas-vitruvio-plano-general-1170.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/atlas-vitruvio/tomasxcanales-atlas-vitruvio-detalle-1170.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://tomasxcanales.com/work/rostro-de-marmol/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <image:image><image:loc>https://tomasxcanales.com/media/rostro-de-marmol/tomasxcanales-rostro-de-marmol-detalle-1170.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/rostro-de-marmol/tomasxcanales-rostro-de-marmol-plano-general-1170.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://tomasxcanales.com/work/manga-egipcia/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <image:image><image:loc>https://tomasxcanales.com/media/manga-egipcia/tomasxcanales-manga-egipcia-plano-general-1170.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://tomasxcanales.com/work/david-miguel-angel/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://tomasxcanales.com/media/david-miguel-angel/tomasxcanales-david-miguel-angel-sesion-poster-720.jpg</video:thumbnail_loc>
+      <video:title>David</video:title>
+      <video:description>Tomás, con gorra y guantes negros, tatúa la pierna sobre el stencil violeta del David; después, primeros planos de la aguja y el resultado: las piernas de la estatua sobre su pedestal y columnas de texto manuscrito.</video:description>
+      <video:content_loc>https://tomasxcanales.com/media/david-miguel-angel/tomasxcanales-david-miguel-angel-sesion.mp4</video:content_loc>
+      <video:duration>10</video:duration>
+      <video:publication_date>2026-09-26T00:00:00+02:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://tomasxcanales.com/media/david-miguel-angel/tomasxcanales-david-miguel-angel-resultado-poster-720.jpg</video:thumbnail_loc>
+      <video:title>David</video:title>
+      <video:description>Las piernas del David, el tronco de apoyo y el pedestal sombreados en negro y gris, con texto manuscrito a la derecha.</video:description>
+      <video:content_loc>https://tomasxcanales.com/media/david-miguel-angel/tomasxcanales-david-miguel-angel-resultado.mp4</video:content_loc>
+      <video:duration>3</video:duration>
+      <video:publication_date>2026-09-26T00:00:00+02:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://tomasxcanales.com/work/manga-arcangel-geometria/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://tomasxcanales.com/media/manga-arcangel-geometria/tomasxcanales-manga-arcangel-geometria-manga-poster-720.jpg</video:thumbnail_loc>
+      <video:title>Arcángel y geometría</video:title>
+      <video:description>Recorrido en vídeo de una manga completa en línea fina: figura alada con lanza sobre una montura, hexagrama y símbolos punteados que bajan hasta la muñeca.</video:description>
+      <video:content_loc>https://tomasxcanales.com/media/manga-arcangel-geometria/tomasxcanales-manga-arcangel-geometria-manga.mp4</video:content_loc>
+      <video:duration>21</video:duration>
+      <video:publication_date>2026-09-20T00:00:00+02:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://tomasxcanales.com/work/manga-realismo-clasico/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://tomasxcanales.com/media/manga-realismo-clasico/tomasxcanales-manga-realismo-clasico-manga-poster-720.jpg</video:thumbnail_loc>
+      <video:title>Figuras clásicas</video:title>
+      <video:description>Recorrido en vídeo de un brazo tatuado con un grupo de figuras clásicas entrelazadas y un caballo alado, en negro y gris.</video:description>
+      <video:content_loc>https://tomasxcanales.com/media/manga-realismo-clasico/tomasxcanales-manga-realismo-clasico-manga.mp4</video:content_loc>
+      <video:duration>19</video:duration>
+      <video:publication_date>2026-09-20T00:00:00+02:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://tomasxcanales.com/work/hannya-samurai/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <image:image><image:loc>https://tomasxcanales.com/media/hannya-samurai/tomasxcanales-hannya-samurai-plano-general-1800.jpg</image:loc></image:image>
+    <video:video>
+      <video:thumbnail_loc>https://tomasxcanales.com/media/hannya-samurai/tomasxcanales-hannya-samurai-brazo-poster-720.jpg</video:thumbnail_loc>
+      <video:title>Hannya</video:title>
+      <video:description>Recorrido en vídeo del brazo tatuado con la figura de máscara hannya y los símbolos que la rodean.</video:description>
+      <video:content_loc>https://tomasxcanales.com/media/hannya-samurai/tomasxcanales-hannya-samurai-brazo.mp4</video:content_loc>
+      <video:duration>12</video:duration>
+      <video:publication_date>2026-09-20T00:00:00+02:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://tomasxcanales.com/work/alas-escudo-pecho/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <image:image><image:loc>https://tomasxcanales.com/media/alas-escudo-pecho/tomasxcanales-alas-escudo-pecho-plano-medio-1800.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/alas-escudo-pecho/tomasxcanales-alas-escudo-pecho-plano-general-1800.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://tomasxcanales.com/work/tres-de-espadas/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <image:image><image:loc>https://tomasxcanales.com/media/tres-de-espadas/tomasxcanales-tres-de-espadas-plano-general-1800.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://tomasxcanales.com/about/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <image:image><image:loc>https://tomasxcanales.com/media/site/tomasxcanales-artista-delacroix-1170.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/site/tomasxcanales-artista-veronese-1170.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://tomasxcanales.com/booking/</loc>
+    <lastmod>2026-09-26</lastmod>
+
+  </url>
+</urlset>

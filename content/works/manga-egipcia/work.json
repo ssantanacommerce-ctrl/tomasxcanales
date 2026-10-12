@@ -1,0 +1,33 @@
+{
+  "slug": "manga-egipcia",
+  "published": true,
+  "order": 5,
+  "title": "Manga egipcia",
+  "status": null,
+  "description": "Una manga que baja del hombro a la muñeca: pintura egipcia con una figura en su trono, pirámides trazadas con geometría, un gato esfinge con collar y una figura que camina por el desierto hacia unas columnas.",
+  "body": [
+    "Arriba, jeroglíficos y una escena de figuras con el ojo de Horus; debajo, pirámides construidas con líneas y el signo de la proporción áurea.",
+    "El gato, sin pelo y con un collar de cuentas, ocupa el centro del antebrazo. En la muñeca, una greca cierra la manga."
+  ],
+  "quote": null,
+  "styles": ["Realismo", "Línea fina", "Geometría"],
+  "bodyPlacement": "Manga completa",
+  "year": null,
+  "dateAdded": "2026-09-26",
+  "cover": "plano-general",
+  "media": [
+    {
+      "id": "plano-general",
+      "type": "image",
+      "src": "originals/plano-general.jpg",
+      "role": ["featured", "primary", "mobile"],
+      "focus": "52% 45%",
+      "alt": "Brazo de perfil con una manga completa: jeroglíficos y una figura sentada en su trono, pirámides trazadas con geometría y el signo de la proporción áurea, un gato esfinge con collar de cuentas, una figura con túnica que camina por el desierto y una greca en la muñeca."
+    }
+  ],
+  "related": ["rostro-de-marmol", "manga-arcangel-geometria"],
+  "seo": {
+    "title": "Manga egipcia. Tatuaje de brazo completo con geometría y realismo",
+    "description": "Manga completa de temática egipcia: jeroglíficos, pirámides con geometría y proporción áurea, un gato esfinge y una figura en el desierto. Tomasxcanales, tatuador en Parla (Madrid)."
+  }
+}

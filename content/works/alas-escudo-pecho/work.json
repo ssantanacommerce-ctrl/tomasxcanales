@@ -1,0 +1,42 @@
+{
+  "slug": "alas-escudo-pecho",
+  "published": true,
+  "order": 10,
+  "title": "Alas y escudo",
+  "status": null,
+  "description": "Pieza de pecho simétrica: un ala de murciélago y un ala de ave a ambos lados de una espada y un escudo con un trébol, bajo una flor de la vida y sobre una mano que sostiene un ojo radiante.",
+  "body": [
+    "Entre los símbolos, el texto tatuado en letra pequeña: Libertad, y El amor es eterno, repartido letra a letra."
+  ],
+  "quote": null,
+  "styles": ["Línea fina", "Realismo", "Geometría sagrada"],
+  "bodyPlacement": "Pecho y esternón",
+  "year": null,
+  "dateAdded": "2026-09-20",
+  "cover": "plano-medio",
+  "media": [
+    {
+      "id": "plano-medio",
+      "type": "image",
+      "src": "originals/plano-medio.jpg",
+      "crop": { "bottom": 0.07 },
+      "role": ["primary", "mobile"],
+      "focus": "50% 35%",
+      "alt": "Pecho tatuado: un ala de murciélago a la izquierda y un ala de ave a la derecha, flanqueando una espada clavada en un escudo con un trébol, bajo una flor de la vida entre dos estrellas de seis puntas."
+    },
+    {
+      "id": "plano-general",
+      "type": "image",
+      "src": "originals/plano-general.jpg",
+      "crop": { "bottom": 0.2 },
+      "role": ["secondary"],
+      "focus": "50% 40%",
+      "alt": "Plano más abierto del torso: bajo el escudo aparece una mano que sostiene un ojo radiante dentro de dos rectángulos, con las palabras Libertad y El amor es eterno tatuadas en letras pequeñas."
+    }
+  ],
+  "related": ["anima-spiritus", "atlas-vitruvio"],
+  "seo": {
+    "title": "Alas y escudo. Tatuaje de pecho en línea fina y geometría",
+    "description": "Pieza de pecho simétrica con ala de murciélago, ala de ave, espada, escudo con trébol y flor de la vida. Línea fina y realismo por Tomasxcanales en Parla (Madrid)."
+  }
+}

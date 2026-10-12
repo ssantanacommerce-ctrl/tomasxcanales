@@ -1,0 +1,129 @@
+# ============================================================================
+# TOMASXCANALES · Apache / LiteSpeed (Hostinger)
+# Se copia a dist/ en cada build. Va en la raíz de public_html, junto a
+# index.html. Ver docs/despliegue-hostinger.md
+#
+# La línea Content-Security-Policy lleva el hash del script en línea del
+# <head>. La escribe `npm run build` (tools/csp.mjs) en dist/.htaccess: aquí
+# solo hay un marcador que el build sustituye. No la edites a mano en el
+# servidor: vuelve a compilar y sube el .htaccess nuevo.
+#
+# Fuerza HTTPS y el dominio sin www. Antes de subirlo, el certificado SSL
+# tiene que figurar como «Activo» en hPanel → Seguridad → SSL. En hPanel NO
+# hace falta activar «Forzar HTTPS»: este archivo ya lo hace.
+# ============================================================================
+
+Options -Indexes
+DirectoryIndex index.html
+AddDefaultCharset utf-8
+
+# --- Errores ------------------------------------------------------------------
+# 403 muestra la misma página que 404: no se confirma qué existe en el servidor.
+ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # --- Barra final, HTTPS y dominio canónico, en un solo salto --------------
+  # Las URLs canónicas llevan barra final: /work/medusa-zodiaco/
+  # 1) Carpeta pedida sin barra: se añade y, en el mismo salto, https y sin www.
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteCond %{HTTP_HOST} ^(www\.)?(.+)$ [NC]
+  RewriteRule ^ https://%2%{REQUEST_URI}/ [R=301,L,NE]
+
+  # 2) www → dominio sin www, directamente en https.
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L,NE]
+
+  # 3) http → https. La segunda condición evita el bucle de redirecciones
+  #    detrás de un proxy o CDN (Cloudflare, CDN de Hostinger) que conecta
+  #    con el servidor por http aunque el visitante esté en https.
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !^https$ [NC]
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE]
+
+  # --- Archivos que nunca deben servirse -------------------------------------
+  # En dist/ no hay ninguno; esto protege si algún día se sube algo de más
+  # (el proyecto entero, un .zip, una copia de seguridad…).
+  # Ocultos: .git, .env, .htaccess… salvo .well-known (validación del SSL).
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteRule (^|/)\. - [F,L]
+  # Copias, comprimidos, volcados, registros, configuración, claves y fuentes.
+  RewriteRule \.(bak|backup|old|orig|save|swp|swo|tmp|sql|sqlite|sqlite3|db|zip|tar|gz|tgz|rar|7z|bz2|xz|log|ini|conf|cfg|env|yml|yaml|toml|lock|md|ts|mjs|cjs|map|sh|bat|cmd|ps1|pem|key|crt|p12|pfx)$ - [NC,F,L]
+  RewriteRule (^|/)(package\.json|package-lock\.json|node_modules|src|tools|content|docs|_archive|scripts)(/|$) - [NC,F,L]
+  # Esta web es estática y no usa PHP ni CGI: nada de eso debe ejecutarse.
+  # (Si algún día se añade un formulario en PHP, quitar esta regla.)
+  RewriteRule \.(php[0-9]?|phtml|phar|cgi|pl|py)$ - [NC,F,L]
+</IfModule>
+
+# --- Tipos MIME ---------------------------------------------------------------
+# Sin esto hay servidores que sirven AVIF, WebP o WebM como descarga.
+<IfModule mod_mime.c>
+  AddType image/avif                    .avif
+  AddType image/webp                    .webp
+  AddType video/webm                    .webm
+  AddType video/mp4                     .mp4
+  AddType audio/mp4                     .m4a
+  AddType font/woff2                    .woff2
+  AddType font/woff                     .woff
+  AddType image/svg+xml                 .svg
+  AddType application/manifest+json     .webmanifest
+  AddType application/xml               .xml
+  AddCharset utf-8 .html .css .js .xml .json .txt .svg .webmanifest
+</IfModule>
+
+# --- Compresión del texto (las imágenes y el vídeo ya vienen comprimidos) -----
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/xml text/javascript
+  AddOutputFilterByType BROTLI_COMPRESS application/javascript application/json application/xml application/manifest+json image/svg+xml
+</IfModule>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/json application/xml application/manifest+json image/svg+xml
+</IfModule>
+
+<IfModule mod_headers.c>
+  # --- Caché ---------------------------------------------------------------
+  #  - _build/ lleva hash en el nombre: puede cachearse para siempre
+  #  - fuentes: no cambian
+  #  - media/: fotos y vídeo con nombre estable. Si se regenera una foto con
+  #    otro recorte conserva el nombre, así que 30 días y no "para siempre"
+  #  - HTML, sitemap, robots y manifiesto: siempre revalidados
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(woff2|woff)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(avif|webp|jpg|jpeg|png|svg|mp4|webm|m4a)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.(html|xml|txt|webmanifest)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+
+  # --- Seguridad -----------------------------------------------------------
+  # HSTS: un año, sin includeSubDomains ni preload (no se sabe qué otros
+  # subdominios tendrá el dominio). Los navegadores lo ignoran si llega por
+  # http, así que solo actúa cuando el SSL ya funciona.
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "DENY"
+  # same-origin-allow-popups: el formulario abre WhatsApp en otra pestaña.
+  Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+  Header always set X-Permitted-Cross-Domain-Policies "none"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), serial=(), bluetooth=(), hid=(), midi=(), accelerometer=(), gyroscope=(), magnetometer=(), display-capture=(), browsing-topics=()"
+  Header always set Content-Security-Policy "__CSP__"
+  Header always unset X-Powered-By
+  Header unset X-Powered-By
+
+  # Otras webs no pueden incrustar las obras, los vídeos ni la voz.
+  # Los JPG y PNG quedan fuera a propósito: son la imagen para compartir
+  # (og:image) que leen WhatsApp, Instagram o Google.
+  <FilesMatch "\.(avif|webp|mp4|webm|m4a|woff2?)$">
+    Header set Cross-Origin-Resource-Policy "same-origin"
+  </FilesMatch>
+</IfModule>

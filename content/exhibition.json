@@ -1,0 +1,16 @@
+{
+  "$comment": "El recorrido de la home, en orden. Cada escena declara un 'kind' (su gesto: cómo entra, cómo se transforma) y la obra que muestra. Para destacar una obra nueva, añade aquí una escena con el kind que le convenga; la galería del final ya incluye sola todas las obras publicadas. Tipos disponibles y qué hace cada uno: docs/contenido.md.",
+  "scenes": [
+    { "kind": "intro",   "name": "Umbral",               "work": "david-miguel-angel", "media": "sesion", "sentence": "ceremonia" },
+    { "kind": "zoom",    "name": "Medusa y el zodiaco",  "work": "medusa-zodiaco",     "sequence": ["plano-general", "plano-cerrado", "rotacion"] },
+    { "kind": "line",    "name": "Cada línea",           "sentence": "linea",          "work": "anima-spiritus", "media": "linea" },
+    { "kind": "process", "name": "Ánima Spiritus",       "work": "anima-spiritus",     "sentence": "lenguaje", "sequence": ["stencil", "linea", "resultado", "detalle"] },
+    { "kind": "layers",  "name": "Atlas",                "work": "atlas-vitruvio",     "sequence": ["plano-general", "detalle"] },
+    { "kind": "ink",     "name": "Rostro de mármol",     "work": "rostro-de-marmol",   "media": "detalle", "next": { "work": "manga-egipcia", "media": "plano-general" } },
+    { "kind": "film",    "name": "Arcángel y geometría", "work": "manga-arcangel-geometria", "media": "manga" },
+    { "kind": "gallery", "name": "Archivo" },
+    { "kind": "words",   "name": "Para siempre",         "sentence": "gratitud" },
+    { "kind": "artist",  "name": "Tomás Canales" },
+    { "kind": "booking", "name": "Reservar" }
+  ]
+}

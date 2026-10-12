@@ -1,0 +1,33 @@
+{
+  "slug": "chakras-hombro",
+  "published": false,
+  "$curaduria": "Apartada en la auditoría: la única foto está subexpuesta, con ruido y poco contraste. La pieza merece una fotografía nueva. Añádela en originals/, añade la entrada en media y cambia published a true.",
+  "order": 13,
+  "title": "Órbita y chakras",
+  "status": null,
+  "description": "Figura sentada dentro de una órbita con las fases de la luna, geometría y constelaciones de puntos; debajo, una columna de chakras, un cerebro y una hélice de ADN.",
+  "body": [],
+  "quote": {
+    "text": "Ha llegado la hora de anticipar, con precisión, qué te depara el futuro.",
+    "source": "Texto que Tomás publicó con la obra"
+  },
+  "styles": ["Línea fina", "Dotwork", "Geometría"],
+  "bodyPlacement": "Hombro",
+  "year": null,
+  "dateAdded": "2026-09-26",
+  "cover": "plano-general",
+  "media": [
+    {
+      "id": "plano-general",
+      "type": "image",
+      "src": "originals/plano-general.jpg",
+      "role": ["unused"],
+      "alt": "Hombro con una figura sentada dentro de una órbita con fases lunares, una columna de chakras, un cerebro y una hélice de ADN."
+    }
+  ],
+  "related": [],
+  "seo": {
+    "title": "Órbita y chakras. Tatuaje de línea fina en el hombro",
+    "description": "Figura en una órbita con fases lunares, columna de chakras y geometría: línea fina y dotwork en el hombro. Tomasxcanales, Parla (Madrid)."
+  }
+}

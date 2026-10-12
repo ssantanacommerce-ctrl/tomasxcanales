@@ -1,0 +1,90 @@
+{
+  "slug": "anima-spiritus",
+  "published": true,
+  "order": 2,
+  "title": "Ánima Spiritus",
+  "status": null,
+  "description": "Composición vertical en el antebrazo: caligrafía, sólidos platónicos, una cola de ballena sobre un círculo y una cabeza de tiburón, unidos por un eje de línea fina.",
+  "body": [
+    "Es la única pieza del archivo documentada de principio a fin: el vídeo VIDA la sigue desde que el stencil se apoya sobre la piel hasta la primera línea y el resultado.",
+    "En el margen, los cinco sólidos platónicos alineados: tetraedro, cubo, octaedro, dodecaedro e icosaedro."
+  ],
+  "quote": null,
+  "styles": ["Línea fina", "Micro-realismo", "Geometría sagrada"],
+  "bodyPlacement": "Antebrazo",
+  "year": null,
+  "dateAdded": "2026-09-20",
+  "cover": "detalle",
+  "media": [
+    {
+      "id": "stencil",
+      "type": "video",
+      "src": "../../site/originals/vida.mp4",
+      "trim": [0.0, 4.2],
+      "crop": { "w": 720, "h": 880, "x": 0, "y": 0 },
+      "poster": 3.2,
+      "role": ["process"],
+      "caption": "El stencil, apoyado sobre el antebrazo.",
+      "alt": "Unas manos con guantes negros retiran el papel del stencil del antebrazo: el diseño queda calcado en violeta sobre la piel."
+    },
+    {
+      "id": "linea",
+      "type": "video",
+      "src": "../../site/originals/vida.mp4",
+      "trim": [5.0, 11.9],
+      "crop": { "w": 720, "h": 880, "x": 0, "y": 0 },
+      "poster": 1.2,
+      "role": ["process", "detail"],
+      "caption": "Las primeras líneas sobre el trazo violeta.",
+      "alt": "Primer plano de la aguja siguiendo el trazo violeta del stencil: el icosaedro y los círculos se vuelven línea negra."
+    },
+    {
+      "id": "resultado",
+      "type": "video",
+      "src": "../../site/originals/vida.mp4",
+      "trim": [12.0, 14.9],
+      "crop": { "w": 720, "h": 880, "x": 0, "y": 0 },
+      "poster": 0.8,
+      "role": ["process"],
+      "caption": "La pieza terminada.",
+      "alt": "La pieza recién terminada: la caligrafía Spiritus, el icosaedro inscrito en un cuadrado y los círculos atravesados por el eje."
+    },
+    {
+      "id": "plano-general",
+      "type": "image",
+      "src": "originals/plano-general.jpg",
+      "role": ["primary", "mobile"],
+      "focus": "50% 45%",
+      "alt": "Antebrazo con un tatuaje vertical en línea fina: la palabra Spiritus en caligrafía sobre las letras ANIMA, un icosaedro dentro de un cuadrado, una cola de ballena sobre un círculo y una cabeza de tiburón, sobre camiseta blanca."
+    },
+    {
+      "id": "plano-medio",
+      "type": "image",
+      "src": "originals/plano-medio.jpg",
+      "role": ["secondary"],
+      "focus": "50% 45%",
+      "alt": "Plano medio del antebrazo tatuado: se distinguen los cinco sólidos geométricos alineados en el margen y el sombreado gris de la cola de ballena."
+    },
+    {
+      "id": "detalle",
+      "type": "image",
+      "src": "originals/detalle.jpg",
+      "role": ["featured", "detail"],
+      "focus": "50% 35%",
+      "alt": "Detalle en primer plano: la caligrafía Spiritus superpuesta a las letras ANIMA, el icosaedro inscrito en un cuadrado y los círculos concéntricos, todo a línea muy fina."
+    },
+    {
+      "id": "antebrazo",
+      "type": "video",
+      "src": "originals/antebrazo.mp4",
+      "poster": 8.57,
+      "role": ["secondary"],
+      "alt": "Recorrido en vídeo del tatuaje Ánima Spiritus girando alrededor del antebrazo."
+    }
+  ],
+  "related": ["atlas-vitruvio", "tres-de-espadas"],
+  "seo": {
+    "title": "Ánima Spiritus. Tatuaje de línea fina y geometría en el antebrazo",
+    "description": "Del stencil a la piel: tatuaje vertical en línea fina con caligrafía, sólidos platónicos, cola de ballena y cabeza de tiburón en el antebrazo. Tomasxcanales, Parla (Madrid)."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$comment": "Datos del titular de la web para el aviso legal (art. 10 LSSI-CE) y la política de privacidad (art. 13 RGPD). Facilitados por el cliente el 12/10/2026. Solo los lee tools/generate.mjs: no entran en el JavaScript del sitio (src/js importa site.json, no este archivo). Si cambia algún dato, cambia «updated» y vuelve a compilar.",
+
+  "holder": "Tomás Ignacio Gomara Canales",
+  "nif": "60387397T",
+  "address": "Calle Dos Hermanas 20, 1.º I",
+  "postalCode": "28982",
+  "locality": "Parla",
+  "province": "Madrid",
+  "country": "España",
+  "updated": "2026-10-12",
+
+  "providers": {
+    "$comment": "Servicios que intervienen en el tratamiento de datos. Se citan en la política de privacidad.",
+    "hosting": "Hostinger International Ltd. (Chipre, Unión Europea)",
+    "whatsapp": "WhatsApp Ireland Ltd.",
+    "instagram": "Meta Platforms Ireland Ltd.",
+    "email": "Google Ireland Ltd. (Gmail)"
+  }
+}

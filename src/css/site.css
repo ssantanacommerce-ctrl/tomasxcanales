@@ -1,0 +1,11 @@
+/* ==========================================================================
+   TOMASXCANALES · hoja de estilos
+   base     tokens, fuentes, tipografía, cartela, lámina
+   chrome   cargador, HUD, menú, pie
+   home     las escenas de la exposición
+   pages    obra, archivo, artista, reservar, 404
+   ========================================================================== */
+@import "./base.css";
+@import "./chrome.css";
+@import "./home.css";
+@import "./pages.css";

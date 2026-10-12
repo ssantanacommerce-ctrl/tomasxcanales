@@ -1,0 +1,255 @@
+/* ==========================================================================
+   TOMASXCANALES · cargador, HUD, menú y pie
+   ========================================================================== */
+
+/* -------------------------------------------------------------- cargador */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: clamp(22px, 4vh, 40px);
+  background: var(--night);
+  color: var(--symbol);
+  pointer-events: none;
+  /* red de seguridad: si el JS no llega, el cargador se retira solo */
+  animation: loader-failsafe .6s 7s forwards;
+}
+.no-js .loader { display: none; }
+@keyframes loader-failsafe { to { opacity: 0; visibility: hidden; } }
+.loader.is-done { visibility: hidden; }
+
+.ritual { width: min(62vw, 460px); height: auto; overflow: visible; fill: currentColor; }
+.ritual__ring { stroke: currentColor; }
+.ray { fill: currentColor; opacity: 0; }
+/* con movimiento no se pinta nada hasta que la coreografía arranca:
+   ni un fotograma de los símbolos "ya hechos" antes de dibujarse */
+.motion .loader:not(.is-running) .ritual,
+.motion .loader:not(.is-running) .loader__name { opacity: 0; }
+
+/* el diafragma: un agujero circular que se abre desde el sol */
+.loader.is-iris {
+  -webkit-mask-image: radial-gradient(circle at var(--ix) var(--iy), transparent var(--iris), #000 calc(var(--iris) + 1.5px));
+          mask-image: radial-gradient(circle at var(--ix) var(--iy), transparent var(--iris), #000 calc(var(--iris) + 1.5px));
+}
+.loader__name {
+  font-family: var(--f-text);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(12px, .8rem + .2vw, 15px);
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  color: var(--bone-2);
+  padding-left: .42em; /* compensa el tracking para que quede centrado */
+}
+
+/* ----------------------------------------------------------------- HUD */
+.hud {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 90;
+  height: var(--hud-h);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--gutter);
+  padding: 0 var(--gutter);
+  /* Diferencia: el HUD se invierte contra lo que tenga detrás. Tinta sobre el
+     muro, marfil sobre la noche y sobre una fotografía oscura. Sin cajas ni
+     fondos que ensucien la composición. */
+  --hud-fg: #f2ece2;
+  color: var(--hud-fg);
+  mix-blend-mode: difference;
+  transition: transform .7s var(--ease-out), opacity .6s var(--ease);
+  pointer-events: none;
+}
+.hud > * { pointer-events: auto; }
+
+/* en la home no existe hasta que se deja atrás el umbral: allí el nombre es la marca */
+.page--home .hud { opacity: 0; transform: translateY(-14px); }
+.page--home .hud.is-on { opacity: 1; transform: none; }
+.hud.is-away { transform: translateY(-110%); }
+.no-js .page--home .hud, html:not(.motion) .page--home .hud { opacity: 1; transform: none; }
+/* con teclado el HUD aparece aunque esté oculto o retirado: un foco invisible no sirve */
+.hud:focus-within, .page--home .hud:focus-within { opacity: 1; transform: none; }
+/* mientras está oculto en el umbral no recibe clics: su «Reservar cita» invisible
+   quedaba encima del botón «Pausar vídeo» y se lo llevaba */
+html.motion .page--home .hud:not(.is-on):not(:focus-within) > * { pointer-events: none; }
+
+.hud__brand { display: inline-flex; align-items: center; gap: 12px; }
+.hud__mark { width: 34px; height: auto; fill: currentColor; }
+.hud__name {
+  font-family: var(--f-display);
+  font-weight: 450;
+  font-size: 19px;
+  letter-spacing: .01em;
+  text-transform: uppercase;
+  line-height: 1;
+  padding-top: 2px;
+}
+.hud__nav {
+  grid-column: 3;
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.4vw, 38px);
+  font: 400 13px/1 var(--f-mono);
+  letter-spacing: .02em;
+}
+.hud__link, .hud__cta { position: relative; padding: 8px 0; }
+.hud__link::after, .hud__cta::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: 2px; height: 1px;
+  background: currentColor;
+  transform: scaleX(0); transform-origin: right;
+  transition: transform .5s var(--ease-out);
+}
+.hud__link:hover::after, .hud__link[aria-current]::after,
+.hud__cta:hover::after, .hud__cta[aria-current]::after { transform: scaleX(1); transform-origin: left; }
+.hud__cta {
+  padding: 11px 16px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  transition: background-color .45s var(--ease), color .45s var(--ease);
+}
+.hud__cta::after { display: none; }
+/* relleno invertido y texto negro: en diferencia, el texto deja ver el
+   color original de la página a través de la píldora */
+.hud__cta:hover, .hud__cta[aria-current] { background: var(--hud-fg); color: #000; }
+
+.hud__menu {
+  display: none;
+  grid-column: 3;
+  font: 400 13px/1 var(--f-mono);
+  letter-spacing: .02em;
+  padding: 12px 0 12px 12px;
+}
+
+.hud__room {
+  position: fixed;
+  left: var(--gutter);
+  bottom: 18px;
+  font: 400 12px/1 var(--f-mono);
+  letter-spacing: .02em;
+  color: var(--hud-fg);
+  opacity: .8;
+  transition: opacity .5s var(--ease);
+}
+.hud__room span { display: inline-block; transition: transform .5s var(--ease-out), opacity .5s var(--ease); }
+.hud.is-end .hud__room, .hud.is-end .hud__progress { opacity: 0; }
+.hud__progress { transition: opacity .5s var(--ease); }
+.hud__room.is-swapping span { transform: translateY(6px); opacity: 0; }
+.hud__progress {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  pointer-events: none;
+}
+.hud__progress i {
+  position: absolute; inset: 0;
+  background: currentColor;
+  opacity: .5;
+  transform-origin: left;
+  transform: scaleX(var(--progress, 0));
+}
+
+/* ---------------------------------------------------------------- menú */
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 89;
+  display: grid;
+  align-content: center;
+  gap: 8vh;
+  padding: calc(var(--hud-h) + 4vh) var(--gutter) 6vh;
+  background: var(--night);
+  color: var(--bone);
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path .8s var(--ease-out);
+}
+.menu[hidden] { display: grid; visibility: hidden; }
+.menu.is-open { clip-path: inset(0); visibility: visible; }
+.menu__link {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(3rem, 14vw, 6rem);
+  line-height: 1.02;
+  text-transform: uppercase;
+}
+.menu__foot { display: flex; flex-wrap: wrap; gap: 24px; font: 400 13px/1 var(--f-mono); color: var(--bone-2); }
+html[data-menu-open="true"] .hud { transform: none; }
+
+/* --------------------------------------------------------------- pie */
+.footer {
+  position: relative;
+  padding: clamp(80px, 14vh, 160px) var(--gutter) 0;
+  overflow: hidden;
+}
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--gutter);
+  font-size: .95rem;
+}
+.footer__head {
+  margin-bottom: 1.1em;
+  font: 400 12px/1.4 var(--f-mono);
+  letter-spacing: .03em;
+  color: var(--fg-3);
+}
+.footer__col li + li { margin-top: .3em; }
+.footer__col address { font-style: normal; }
+.footer__col .footer__map { background: none; display: inline-block; margin-top: .9em; padding-bottom: 3px; font: 400 12px/1.4 var(--f-mono); border-bottom: 1px solid var(--line-2); }
+.footer__col a { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .5s var(--ease-out); }
+.footer__col a:hover { background-size: 100% 1px; }
+.footer__sign {
+  margin-top: clamp(70px, 12vh, 150px);
+  /* el nombre sale por abajo: se ve entero de ancho y cortado de alto */
+  height: calc(var(--fit, 16vw) * .6);
+  overflow: hidden;
+}
+.footer__wordmark {
+  font-family: var(--f-display);
+  font-weight: 380;
+  text-transform: uppercase;
+  line-height: .8;
+  letter-spacing: -.012em;
+  white-space: nowrap;
+  font-size: var(--fit, 16vw);
+  color: var(--fg);
+  transform: translateY(var(--sink, 0%));
+}
+.footer__base {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 0 22px;
+  border-top: 1px solid var(--line);
+  font: 400 12px/1.5 var(--f-mono);
+  color: var(--fg-3);
+}
+.footer__mark { width: 40px; height: auto; fill: currentColor; flex: none; }
+.footer__base p { flex: 1 1 auto; text-align: right; }
+.footer__legal { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+.footer__legal a { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .5s var(--ease-out); }
+.footer__legal a:hover, .footer__legal a:focus-visible { background-size: 100% 1px; }
+
+/* ------------------------------------------------------------ responsive */
+@media (max-width: 860px) {
+  :root { --hud-h: 60px; }
+  .hud__nav { display: none; }
+  .hud__menu { display: block; }
+  .hud__name { font-size: 17px; }
+  .hud__mark { width: 30px; }
+  .hud__room { bottom: 14px; }
+  .footer__grid { grid-template-columns: 1fr 1fr; row-gap: 40px; }
+  .footer__base { flex-wrap: wrap; justify-content: flex-start; }
+  .footer__base p { flex-basis: calc(100% - 60px); text-align: left; }
+  .footer__legal { order: 3; flex-basis: 100%; }
+}
+@media (max-width: 420px) {
+  .hud__name { display: none; }
+}

@@ -1,0 +1,53 @@
+{
+  "slug": "atlas-vitruvio",
+  "published": true,
+  "order": 3,
+  "title": "Atlas",
+  "status": "En proceso",
+  "description": "Atlas carga el globo terrestre dentro de un sistema de órbitas por el que giran las fases de la luna. A sus pies, el Hombre de Vitruvio inscrito en el círculo y el cuadrado.",
+  "body": [
+    "Las fotografías muestran la pieza a medio hacer. Lo negro ya es tatuaje; lo violeta todavía es stencil: una escalera con una puerta y una mariposa a la izquierda, y una frase bajo la figura.",
+    "Bajo el Hombre de Vitruvio, dos palabras partidas en líneas, cada una sobre su signo: CUERPO, sobre un círculo con un punto, y ESPÍRITU, sobre un círculo vacío."
+  ],
+  "quote": {
+    "text": "Atlas sostiene el mundo, pero no es solo fuerza: es ritual. Las lunas giran…",
+    "source": "Texto que Tomás publicó con la obra en proceso"
+  },
+  "stencilText": "He caído tantas veces, ya es un arte el levantar",
+  "styles": ["Micro-realismo", "Línea fina", "Geometría"],
+  "bodyPlacement": "Hombro y brazo",
+  "year": null,
+  "dateAdded": "2026-09-26",
+  "cover": "plano-general",
+  "media": [
+    {
+      "id": "plano-general",
+      "type": "image",
+      "src": "originals/plano-general.jpg",
+      "role": ["featured", "primary", "mobile"],
+      "focus": "50% 40%",
+      "alt": "Tatuaje en proceso en el hombro: Atlas, musculado y barbado, sostiene un globo terrestre con meridianos y continentes, rodeado de órbitas con fases de la luna; debajo, el Hombre de Vitruvio dentro de un círculo y un cuadrado, y a los lados columnas de puntos y de ceros y unos."
+    },
+    {
+      "id": "detalle",
+      "type": "image",
+      "src": "originals/detalle.jpg",
+      "role": ["detail", "process"],
+      "focus": "55% 60%",
+      "alt": "Detalle de la parte baja: el Hombre de Vitruvio y, debajo, las palabras CUERPO y ESPÍRITU partidas en dos líneas, cada una sobre un pequeño círculo; en violeta, todavía sin tatuar, una escalera con una puerta y una mariposa, y la frase He caído tantas veces, ya es un arte el levantar."
+    },
+    {
+      "id": "plano-general-b",
+      "type": "image",
+      "src": "originals/plano-general-b.jpg",
+      "role": ["unused"],
+      "alt": "Otra toma casi idéntica de la pieza en proceso.",
+      "note": "Redundante con plano-general: mismo encuadre con un giro mínimo."
+    }
+  ],
+  "related": ["anima-spiritus", "manga-egipcia"],
+  "seo": {
+    "title": "Atlas y el Hombre de Vitruvio. Tatuaje de micro-realismo en el hombro (en proceso)",
+    "description": "Atlas sostiene el globo entre órbitas y fases lunares; debajo, el Hombre de Vitruvio. Tatuaje en proceso de Tomasxcanales en Parla (Madrid), con el stencil aún visible."
+  }
+}
