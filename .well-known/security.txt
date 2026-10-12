@@ -1,0 +1,4 @@
+Contact: mailto:tomasxcanalesink@gmail.com
+Expires: 2027-10-07T00:00:00Z
+Preferred-Languages: es, en
+Canonical: https://tomasxcanales.com/.well-known/security.txt

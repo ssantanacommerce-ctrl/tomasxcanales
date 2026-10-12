@@ -1,0 +1,5 @@
+Melodrama y Boska: Indian Type Foundry, distribuidas por Fontshare
+(https://www.fontshare.com) bajo la ITF Free Font License, que permite el uso
+personal y comercial, incluido el uso web autoalojado.
+
+DM Mono: Colophon Foundry, SIL Open Font License 1.1 (via @fontsource/dm-mono).
