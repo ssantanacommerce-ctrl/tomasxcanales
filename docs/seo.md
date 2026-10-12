@@ -109,8 +109,9 @@ hay que borrar), sitemap enviado el 12/10/2026.
 2. **Enlace a la web desde la bio de Instagram.**
 3. **Fotografiar** Arcángel y Figuras clásicas (Google Imágenes no indexa un
    fotograma de un MP4).
-4. **Imagen para compartir 1200×630**: hoy `og:image` es la foto vertical de
-   cada obra (WhatsApp e Instagram la recortan). Opcional.
+4. **Imagen para compartir**: hecho (12/10/2026). Portada, archivo, reservar
+   y legales usan `/og/tomasxcanales-1200x628.jpg` (la manga egipcia, 1,91:1,
+   `content/site.json → share`); cada obra sigue con su propia foto.
 5. Más adelante: versión en inglés (`/en/`, con `hreflang`) y páginas por
    estilo cuando haya 4 o 5 obras por estilo (hoy canibalizarían a las obras).
 

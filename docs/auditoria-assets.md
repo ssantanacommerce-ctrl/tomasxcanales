@@ -127,12 +127,12 @@ su dirección en Parla (Madrid) son datos del cliente, no de VIDA.
 1. **La estructura de la home**: cada frase es un texto de sala. *Ceremonia*
    en el umbral; *cada línea* junto a la aguja; *lenguaje propio* en la escena
    del proceso; *gratitud / para siempre* antes del artista.
-2. **La voz** (retirada: ver nota). El audio extraído (Opus 263 KB / AAC 415 KB) se escuchaba a
+2. **La voz**: solo su voz, sin la música (ver nota). Se escucha a
    petición («Escuchar a Tomás», nunca en automático) y el texto se ilumina en
    sincronía con los tiempos de la tabla. En `/about/`, sobre la declaración
    completa.
 
-   **Retirada (12/10/2026):** la música de fondo de VIDA no tiene licencia, así que el audio no se publica (`vida-voz` lleva el rol `unused`). Se publica solo el texto de la declaración. Si Tomás graba su voz sin música, el reproductor puede recuperarse del historial de git.
+   **Voz sin música (12/10/2026):** la música de fondo de VIDA no tiene licencia, así que se publica SOLO la voz de Tomás (`content/site/originals/vida-voz-sin-musica.flac`), separada con Demucs (`htdemucs_ft`, dos pasadas). Comprobado: en los tramos sin voz la música queda a −70 dB y la transcripción con Whisper solo contiene sus palabras. El audio de `vida.mp4` (con música) no se usa nunca.
 3. **Las imágenes del proceso**: stencil (0–4,2 s), línea (5–11,9 s) y
    resultado (12–14,9 s), recortados a 720×880 para dejar fuera los
    subtítulos. Son la escena de Ánima Spiritus y su página.
@@ -155,9 +155,9 @@ su dirección en Parla (Madrid) son datos del cliente, no de VIDA.
 | 7,0 – 9,8 | Resultado: piernas, tronco de apoyo, pedestal y texto manuscrito. |
 | 9,8 – 12,4 | Negro (recortado). |
 
-Uso: el umbral. El vídeo **no arranca hasta que el diafragma del sol se
-abre**, así que lo primero que se ve es su comienzo: Tomás trabajando. El
-enfoque llega con la entrada (desenfoque → nitidez), el nombre se forma
+Uso: el umbral. El vídeo arranca nada más cargar la página (ya no hay
+pantalla de carga), así que lo primero que se ve es su comienzo: Tomás
+trabajando. El enfoque llega con la entrada (desenfoque → nitidez), el nombre se forma
 encima y, al bajar, la cámara empuja hacia la aguja. Recortado a 0–9,8 s;
 póster en 0,5 s; versión de 480 px (615 KB) para móvil. También es la
 página de la obra **David**, que solo existe en vídeo.

@@ -222,7 +222,8 @@ export function renderArchive(ctx) {
     title: `Obra | ${site.brand}, tatuador en ${site.place}`,
     description: `Archivo de ${site.brand}: ${published.length} obras en realismo negro y gris, línea fina y geometría. Cada pieza con sus fotografías, vídeos, zona del cuerpo y técnica.`,
     path: "/work/",
-    image: imageURL("medusa-zodiaco/plano-cerrado", 1200),
+    image: site.share.src,
+    imageAlt: site.share.alt,
     ld: [ld],
     light: "day"
   })}
@@ -254,6 +255,7 @@ export function renderAbout(ctx) {
   const { site } = ctx;
   const item = (id) => site.media.items.find((m) => m.id === id);
   const del = item("artista-delacroix"), ver = item("artista-veronese"), studio = item("vida-estudio");
+  const voz = entry("site/vida-voz");
   const trail = [{ name: "Inicio", path: "/" }, { name: "Artista", path: "/about/" }];
   const ld = {
     "@context": "https://schema.org",
@@ -299,8 +301,18 @@ ${hud({ current: "about", room: site.person })}
     </figure>
     <section class="about__statement" aria-labelledby="declaracion">
       <h2 class="about__h2" id="declaracion">Con sus palabras</h2>
-      <div class="statement">
-        ${site.vida.sentences.map((s) => `<p data-sentence="${s.id}">${esc(s.text)}</p>`).join("\n        ")}
+      <div class="statement" data-voice-text>
+        ${site.vida.sentences.map((s) => `<p data-sentence="${s.id}">${s.cues.map((c) => `<span data-cue="${c[0]}:${c[1]}">${esc(c[2])}</span>`).join(" ")}</p>`).join("\n        ")}
+      </div>
+      <div class="voice" data-voice>
+        <button class="voice__play" type="button" data-voice-play aria-pressed="false">
+          ${mark({ cls: "voice__mark" })}<span data-voice-label>Escuchar a Tomás</span>
+        </button>
+        <p class="voice__note">Texto transcrito de su declaración, leída con su voz (${Math.round(voz.duration)} s).</p>
+        <audio preload="none" data-voice-audio>
+          <source src="${voz.base}.webm" type="audio/webm">
+          <source src="${voz.base}.m4a" type="audio/mp4">
+        </audio>
       </div>
     </section>
     <figure class="about__second" style="aspect-ratio:${ratio("site/artista-veronese")}">
@@ -384,7 +396,8 @@ export function renderBooking(ctx) {
     title: `Reservar cita | ${site.brand}, tatuador en ${site.place}`,
     description: `Reserva cita con ${site.person} en ${site.studio}, ${site.city} (${site.address.province}). Cuéntale la idea, la zona del cuerpo y el tamaño: el formulario prepara el mensaje y lo envía por WhatsApp.`,
     path: "/booking/",
-    image: imageURL("medusa-zodiaco/plano-cerrado", 1200),
+    image: site.share.src,
+    imageAlt: site.share.alt,
     ld: [ld],
     light: "day"
   })}

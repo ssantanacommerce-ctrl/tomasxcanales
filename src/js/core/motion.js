@@ -22,14 +22,16 @@ export const motionOK = html.classList.contains("motion");
 export const coarse = window.matchMedia("(hover: none), (pointer: coarse)").matches;
 export const isDesktop = () => window.matchMedia("(min-width: 901px)").matches;
 
-/* Las escenas fijadas (pin + scrub) son solo para pantalla ancha con ratón.
-   En móvil y tableta, el scroll de inercia del sistema y una escena fijada
-   no se llevan: al bajar rápido la escena da tirones o se queda trabada, y
-   en una pantalla alta la imagen acababa encima del texto. Allí la home es
-   un documento normal con apariciones suaves (scenes.flow). La clase `pin`
-   en <html> la pone home.js y es la que activa los estilos de las escenas. */
+/* Escenas fijadas con GSAP (pin) solo en pantalla ancha con ratón. En móvil
+   y tableta, el scroll de inercia del dedo y un pin de JS no se llevan: al
+   bajar rápido la escena da tirones o se queda trabada. Allí las mismas
+   escenas son position: sticky (las sostiene el navegador) y GSAP solo
+   anima lo de dentro. home.js pone en <html> la clase `pin` o `stick`, que
+   es la que activa los estilos de cada escena (home.css). */
 export const PIN_QUERY = "(min-width: 901px) and (hover: hover) and (pointer: fine)";
-export const FLOW_QUERY = `not all and ${PIN_QUERY}`;
+// gsap.matchMedia solo llama si alguna condición se cumple: el modo sticky
+// necesita la suya (la negación exacta de PIN_QUERY)
+export const STICK_QUERY = `not all and ${PIN_QUERY}`;
 
 let lenis = null;
 

@@ -58,7 +58,9 @@ ${GENERATED}
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${url}">
 ${img ? `<meta property="og:image" content="${img}">
-<meta property="og:image:alt" content="${esc(imageAlt || title)}">` : ""}
+<meta property="og:image:alt" content="${esc(imageAlt || title)}">${image === site.share?.src ? `
+<meta property="og:image:width" content="${site.share.width}">
+<meta property="og:image:height" content="${site.share.height}">` : ""}` : ""}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(description)}">

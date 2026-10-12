@@ -41,7 +41,8 @@ function page(ctx, { path, title, description, heading, intro, sections }) {
     title: `${title} | ${site.brand}`,
     description,
     path,
-    image: imageURL("medusa-zodiaco/plano-cerrado", 1200),
+    image: site.share.src,
+    imageAlt: site.share.alt,
     noindex: true,
     light: "day"
   })}
@@ -147,18 +148,11 @@ export function renderCookies(ctx) {
   return page(ctx, {
     path: "/cookies/",
     title: "Política de cookies",
-    description: `La web de ${site.brand} no usa cookies: ni propias ni de terceros, ni de análisis ni de publicidad. Qué guarda el navegador y por qué.`,
+    description: `La web de ${site.brand} no usa cookies: ni propias ni de terceros, ni de análisis ni de publicidad, y no guarda nada en tu navegador.`,
     heading: "Cookies",
     intro: `Esta web no usa cookies. Ni propias ni de terceros, ni de análisis ni de publicidad. Por eso no aparece ningún aviso para aceptarlas.`,
     sections: [
-      ["Lo único que guarda tu navegador", `<p>Una marca técnica en el almacenamiento de sesión del navegador (sessionStorage), para no repetir la animación de entrada si vuelves a la página de inicio durante la misma visita.</p>
-      <dl class="legal__data">
-        <div><dt>Nombre</dt><dd>txc:umbral</dd></div>
-        <div><dt>Valor</dt><dd>1</dd></div>
-        <div><dt>Duración</dt><dd>Se borra sola al cerrar la pestaña</dd></div>
-        <div><dt>Quién la usa</dt><dd>Solo esta web. No te identifica y no se envía a ningún servidor</dd></div>
-      </dl>
-      <p>Es un dato técnico, necesario para mostrar la web tal como está diseñada, de los que no necesitan consentimiento (art. 22.2 LSSI-CE).</p>`],
+      ["Tu navegador", `<p>Esta web tampoco guarda nada en tu navegador por otros medios (almacenamiento local o de sesión). Lo que escribes en el formulario de reserva no se guarda: solo sale de tu dispositivo cuando lo envías por WhatsApp.</p>`],
       ["Enlaces a otros servicios", `<p>Al pulsar en WhatsApp o en Instagram sales de esta web. Esos servicios usan sus propias cookies, según sus políticas.</p>`],
       ["Si esto cambia", `<p>Si algún día se añade analítica u otro servicio que use cookies no técnicas, esta página se actualizará y la web te pedirá permiso antes de instalarlas.</p>`]
     ]

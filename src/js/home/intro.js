@@ -4,11 +4,11 @@
    Lo que tiene que sentir quien entra: que mira a Tomás trabajando y que,
    al bajar, entra en su mundo.
 
-   Al abrirse el diafragma
+   Nada más cargar (sin espera ni pantalla de carga)
      - el vídeo arranca desenfocado y algo más cerca, y enfoca (2,2 s)
      - las letras de TOMASXCANALES llegan separadas y se juntan en el nombre
 
-   Al hacer scroll (escena fijada)
+   Al hacer scroll (escena fijada en escritorio, pegajosa en móvil)
      0.00 – 0.50  la cámara empuja hacia la aguja (el marco vertical crece
                   hasta desbordar la pantalla)
      0.00 – 0.40  TOMAS se va por la izquierda, CANALES por la derecha; la X,
@@ -23,8 +23,8 @@
    CSS amplía y desenfoca. Cuesta casi nada.
    ========================================================================== */
 
-import { gsap, ScrollTrigger, motionOK, PIN_QUERY, FLOW_QUERY } from "../core/motion.js";
-import { letters, inner, inkTo, inkScrub } from "../core/type.js";
+import { gsap, ScrollTrigger, motionOK, PIN_QUERY, STICK_QUERY } from "../core/motion.js";
+import { letters, inner, inkTo } from "../core/type.js";
 import { useMobileSource } from "../core/media.js";
 
 export function setupIntro(section) {
@@ -105,7 +105,7 @@ export function setupIntro(section) {
   dawn.setAttribute("aria-hidden", "true");
   section.appendChild(dawn);
 
-  /* ------------------------------------------------ revelado (tras el diafragma) */
+  /* ------------------------------------------------ revelado (al cargar) */
   function reveal() {
     const tl = gsap.timeline();
     tl.to(video, { scale: 1, filter: "blur(0px) brightness(1)", duration: 2.4, ease: "power2.out" }, 0)
@@ -120,29 +120,24 @@ export function setupIntro(section) {
   }
 
   /* ------------------------------------------------ scroll
-     Fijada solo en escritorio (ver motion.js). En móvil y tableta el vídeo
-     ocupa la pantalla y la frase de VIDA va debajo, como bloque, y se
-     entinta al bajar. */
+     Escritorio con ratón: la sección se fija con GSAP (pin). Móvil y
+     tableta: la misma coreografía con la sección pegajosa (CSS sticky; el
+     recorrido lo da --track, ver home.css). */
   const mm = gsap.matchMedia();
-  mm.add({ pin: PIN_QUERY, flow: FLOW_QUERY }, (c) => {
-    if (!c.conditions.pin) {
-      if (inkEl) inkScrub(inkEl, { start: "top 80%", end: "bottom 55%" });
-      return;
-    }
-    const desk = true;
+  mm.add({ pin: PIN_QUERY, stick: STICK_QUERY, wide: "(min-width: 901px)" }, (c) => {
+    const { pin, wide: desk } = c.conditions;
     const pw = portal.getBoundingClientRect().width || 1;
     const push = desk ? Math.max(innerWidth / pw, 1) * 1.18 : 1.55;
     const left = chars.slice(0, xIndex), right = chars.slice(xIndex + 1), X = chars[xIndex];
+    const run = pin
+      ? { trigger: section, start: "top top", end: desk ? "+=200%" : "+=160%", pin: true, scrub: 0.9, anticipatePin: 1 }
+      : { trigger: section, start: "top top", end: "bottom bottom", scrub: 0.6 };
+    if (!pin) gsap.set(section, { "--track": desk ? 1.8 : 1.4 });
 
     const tl = gsap.timeline({
       defaults: { ease: "none" },
       scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: desk ? "+=200%" : "+=160%",
-        pin: true,
-        scrub: 0.9,
-        anticipatePin: 1,
+        ...run,
         invalidateOnRefresh: true,
         onUpdate: (self) => inkEl && inkTo(inkEl, gsap.utils.mapRange(0.45, 0.8, 0, 1, self.progress))
       }

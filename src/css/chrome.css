@@ -1,49 +1,6 @@
 /* ==========================================================================
-   TOMASXCANALES · cargador, HUD, menú y pie
+   TOMASXCANALES · HUD, menú y pie
    ========================================================================== */
-
-/* -------------------------------------------------------------- cargador */
-.loader {
-  position: fixed;
-  inset: 0;
-  z-index: 150;
-  display: grid;
-  place-items: center;
-  align-content: center;
-  gap: clamp(22px, 4vh, 40px);
-  background: var(--night);
-  color: var(--symbol);
-  pointer-events: none;
-  /* red de seguridad: si el JS no llega, el cargador se retira solo */
-  animation: loader-failsafe .6s 7s forwards;
-}
-.no-js .loader { display: none; }
-@keyframes loader-failsafe { to { opacity: 0; visibility: hidden; } }
-.loader.is-done { visibility: hidden; }
-
-.ritual { width: min(62vw, 460px); height: auto; overflow: visible; fill: currentColor; }
-.ritual__ring { stroke: currentColor; }
-.ray { fill: currentColor; opacity: 0; }
-/* con movimiento no se pinta nada hasta que la coreografía arranca:
-   ni un fotograma de los símbolos "ya hechos" antes de dibujarse */
-.motion .loader:not(.is-running) .ritual,
-.motion .loader:not(.is-running) .loader__name { opacity: 0; }
-
-/* el diafragma: un agujero circular que se abre desde el sol */
-.loader.is-iris {
-  -webkit-mask-image: radial-gradient(circle at var(--ix) var(--iy), transparent var(--iris), #000 calc(var(--iris) + 1.5px));
-          mask-image: radial-gradient(circle at var(--ix) var(--iy), transparent var(--iris), #000 calc(var(--iris) + 1.5px));
-}
-.loader__name {
-  font-family: var(--f-text);
-  font-style: italic;
-  font-weight: 300;
-  font-size: clamp(12px, .8rem + .2vw, 15px);
-  letter-spacing: .42em;
-  text-transform: uppercase;
-  color: var(--bone-2);
-  padding-left: .42em; /* compensa el tracking para que quede centrado */
-}
 
 /* ----------------------------------------------------------------- HUD */
 .hud {

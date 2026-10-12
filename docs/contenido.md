@@ -83,7 +83,7 @@ Igual que una foto, con `"type": "video"`. Campos propios:
 El audio nunca se publica con el vídeo: todos van en silencio. La voz de VIDA
 es un medio aparte (`"type": "audio"`).
 
-**Retirada (12/10/2026):** la música de fondo de VIDA no tiene licencia, así que el audio no se publica (`vida-voz` lleva el rol `unused`). Se publica solo el texto de la declaración. Si Tomás graba su voz sin música, el reproductor puede recuperarse del historial de git.
+**Voz sin música (12/10/2026):** la música de fondo de VIDA no tiene licencia, así que se publica SOLO la voz de Tomás (`content/site/originals/vida-voz-sin-musica.flac`), separada con Demucs (`htdemucs_ft`, dos pasadas). Comprobado: en los tramos sin voz la música queda a −70 dB y la transcripción con Whisper solo contiene sus palabras. El audio de `vida.mp4` (con música) no se usa nunca.
 
 ---
 

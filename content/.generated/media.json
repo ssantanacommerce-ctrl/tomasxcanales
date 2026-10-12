@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T16:35:07.383Z",
+  "generatedAt": "2026-10-12T19:57:22.801Z",
   "items": {
     "medusa-zodiaco/plano-cerrado": {
       "kind": "image",
@@ -785,6 +785,16 @@
         "tomasxcanales-artista-veronese-1170.jpg",
         "tomasxcanales-artista-veronese-1170.webp",
         "tomasxcanales-artista-veronese-1170.avif"
+      ]
+    },
+    "site/vida-voz": {
+      "kind": "audio",
+      "duration": 34.2,
+      "hash": "cb48dde570aa",
+      "base": "/media/site/tomasxcanales-vida-voz",
+      "files": [
+        "tomasxcanales-vida-voz.webm",
+        "tomasxcanales-vida-voz.m4a"
       ]
     },
     "site/vida-estudio": {

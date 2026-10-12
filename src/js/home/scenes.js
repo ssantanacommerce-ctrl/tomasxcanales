@@ -5,9 +5,16 @@
    kind. Ninguna obra entra con el mismo gesto que la anterior: si dos
    tatuajes aparecen igual, el recorrido deja de tener ritmo.
 
-   Las funciones por kind son la versión de escritorio (escenas fijadas).
-   En móvil y tableta todas las escenas que fijan algo pasan por flow(): ver
-   motion.js. Todo lo que crean se revierte solo al cambiar de tamaño
+   Cada función recibe { desk, mode } desde home.js:
+     desk   maquetación de escritorio (901 px o más) o de móvil
+     mode   "pin"    escritorio con ratón: GSAP fija la escena (pin)
+            "stick"  móvil y tableta: la escena es position: sticky (CSS) y
+                     GSAP solo anima lo de dentro. Con el scroll de inercia
+                     del dedo, un pin de JS da tirones y descoloca la escena;
+                     sticky lo resuelve el navegador y no se mueve nunca.
+   En móvil cada escena tiene su propia coreografía: el texto se retira
+   ANTES de que la imagen crezca, así que nunca hay una foto encima de texto
+   que todavía se ve. Todo se revierte solo al cambiar de tamaño
    (gsap.matchMedia en home.js).
    ========================================================================== */
 
@@ -17,6 +24,18 @@ import { safePlay, useScrubSource, useMobileSource } from "../core/media.js";
 import { initDisplace } from "./displace.js";
 
 const frames = (root, sel) => [...root.querySelectorAll(sel)];
+const hudH = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--hud-h")) || 60;
+
+/** Recorrido de una escena: `dist` alturas de pantalla de scroll mientras la
+    escena está quieta. En "pin" la fija GSAP; en "stick" la sección crece
+    (--track, ver home.css) y el escenario es sticky. */
+function track(section, stage, mode, dist) {
+  if (mode === "pin") {
+    return { trigger: section, start: "top top", end: `+=${dist * 100}%`, pin: stage, anticipatePin: 1, scrub: 0.8 };
+  }
+  gsap.set(section, { "--track": dist });
+  return { trigger: section, start: "top top", end: "bottom bottom", scrub: 0.6 };
+}
 
 /** Fundido entre fotogramas apilados según un progreso 0..1 dividido en tramos.
     El nuevo entra entero POR ENCIMA del anterior y solo después se retira el
@@ -42,57 +61,20 @@ function preload(section, ahead = "150%") {
   });
 }
 
-/* ------------------------------------------------------------------ FLOW
-   Móvil y tableta. La escena es un bloque normal (el CSS sin `.pin` la
-   maqueta: imagen, y debajo su texto; los fotogramas uno tras otro). Nada
-   va atado al scroll fotograma a fotograma salvo el entintado del texto,
-   que solo cambia clases: cada pieza aparece una vez, con un fundido corto,
-   y los vídeos se reproducen solo mientras se ven. */
-const FLOW_REVEAL = [
-  ".zoom__plate", ".zoom__cartela",
-  ".process__monitor", ".process__text",
-  ".ink__img", ".ink__cartela",
-  ".film__screen", ".film__cartela",
-  ".layers__main", ".layers__detail", ".layers__cartela",
-  ".line__clip",
-  ".gallery__head",
-  ".artist__main", ".artist__second", ".artist__text", ".artist__studio"
-].join(", ");
-
-export function flow(section) {
-  // los de data-autoplay ya los lleva autoplayVideos() (core/media.js)
-  section.querySelectorAll("video:not([data-autoplay])").forEach((v) => {
-    v.loop = true;
-    useMobileSource(v);
-    ScrollTrigger.create({
-      trigger: v,
-      start: "top bottom",
-      end: "bottom top",
-      onToggle: (self) => (self.isActive ? safePlay(v) : v.pause())
-    });
-  });
-  section.querySelectorAll("[data-ink]").forEach((el) => inkScrub(el, { start: "top 85%", end: "bottom 60%" }));
-  section.querySelectorAll(FLOW_REVEAL).forEach((el) => {
-    gsap.from(el, {
-      opacity: 0,
-      y: 28,
-      duration: 0.9,
-      ease: "power2.out",
-      scrollTrigger: { trigger: el, start: "top 92%", once: true }
-    });
-  });
-}
-
 /* ------------------------------------------------------------------ ZOOM
    La obra cuelga pequeña en el muro, con su cartela. Al bajar crece hasta
-   ocupar la altura de la vista: estás delante de la lámina. Dentro, el
-   plano se acerca (match cut al plano cerrado) y al final el brazo gira: el
-   tiempo del vídeo va atado al scroll, así que bajar ES rodear la pieza. */
-export function zoom(section, { desk }) {
+   ocupar la vista: estás delante de la lámina. Dentro, el plano se acerca
+   (match cut al plano cerrado) y al final el brazo gira: en escritorio el
+   tiempo del vídeo va atado al scroll, así que bajar ES rodear la pieza.
+   Móvil: la lámina cuelga arriba y la cartela debajo, sin tocarse; la
+   cartela se va primero y luego la lámina baja al centro y crece a todo el
+   ancho. */
+export function zoom(section, { desk, mode }) {
   const stage = section.querySelector("[data-stage]");
   const plate = section.querySelector("[data-plate]");
   const list = frames(section, "[data-frame]");
   const caps = frames(section, "[data-cap]");
+  const caption = section.querySelector(".zoom__caption");
   const cartela = section.querySelector(".zoom__cartela");
   const video = section.querySelector("video");
   const canScrub = !!(video && video.dataset.scrub && desk && !coarse);
@@ -106,8 +88,6 @@ export function zoom(section, { desk }) {
   setCap(0);
   preload(section);
 
-  const small = desk ? 0.44 : 0.62;
-  gsap.set(plate, { scale: small });
   let duration = 0;
   if (video) video.addEventListener("loadedmetadata", () => { duration = video.duration; }, { once: true });
 
@@ -126,12 +106,7 @@ export function zoom(section, { desk }) {
   const tl = gsap.timeline({
     defaults: { ease: "none" },
     scrollTrigger: {
-      trigger: section,
-      start: "top top",
-      end: desk ? "+=280%" : "+=220%",
-      pin: stage,
-      scrub: 0.8,
-      anticipatePin: 1,
+      ...track(section, stage, mode, desk ? 2.8 : 1.9),
       invalidateOnRefresh: true,
       onUpdate: (self) => {
         const p = self.progress;
@@ -145,8 +120,28 @@ export function zoom(section, { desk }) {
     }
   });
 
-  tl.to(plate, { scale: 1, duration: 0.34, ease: "power2.inOut" }, 0.02)
-    .to(cartela, { opacity: 0, y: 24, duration: 0.14, ease: "power1.in" }, 0.04);
+  if (desk) {
+    gsap.set(plate, { scale: 0.44 });
+    tl.to(plate, { scale: 1, duration: 0.34, ease: "power2.inOut" }, 0.02)
+      .to(cartela, { opacity: 0, y: 24, duration: 0.14, ease: "power1.in" }, 0.04);
+  } else {
+    // Lámina pequeña arriba, del ancho que deja libre la cartela de abajo
+    const geo = () => {
+      const H = stage.clientHeight, base = plate.offsetHeight || 1;
+      const room = H - hudH() - 16 - cartela.offsetHeight - 22 - 22;
+      const s = Math.max(0.42, Math.min(0.82, room / base));
+      return { s, y: hudH() + 16 - (H - base * s) / 2 };
+    };
+    gsap.set(caption, { opacity: 0 });
+    // El centrado va en el propio transform (xPercent/yPercent): si se deja
+    // en el `translate` del CSS, GSAP lo absorbe y al animar `y` pierde la
+    // mitad vertical (la lámina quedaba encima de la cartela en móviles bajos).
+    tl.fromTo(plate,
+      { xPercent: -50, yPercent: -50, scale: () => geo().s, y: () => geo().y },
+      { xPercent: -50, yPercent: -50, scale: 1, y: 0, duration: 0.3, ease: "power2.inOut" }, 0.1)
+      .fromTo(cartela, { opacity: 1, y: 0 }, { opacity: 0, y: 30, duration: 0.09, ease: "power1.in" }, 0)
+      .to(caption, { opacity: 1, duration: 0.06 }, 0.38);
+  }
   // match cut: el plano cerrado entra un poco más grande y se asienta
   const closeImg = list[1]?.querySelector("img, video");
   if (closeImg) tl.fromTo(closeImg, { scale: 1.1 }, { scale: 1, duration: 0.2, ease: "power2.out" }, 0.4);
@@ -155,14 +150,17 @@ export function zoom(section, { desk }) {
 }
 
 /* ------------------------------------------------------------------ LINE
-   Una frase de VIDA que se entinta al bajar, junto a la aguja trabajando. */
-export function line(section) {
+   Una frase de VIDA que se entinta al bajar, junto a la aguja trabajando.
+   En móvil el clip va justo debajo de la frase: se mueve poco para no
+   subirse encima de ella. */
+export function line(section, { desk }) {
   const ink = section.querySelector("[data-ink]");
   if (ink) inkScrub(ink, { start: "top 78%", end: "bottom 48%" });
   const clip = section.querySelector(".line__clip");
   if (clip) {
-    gsap.fromTo(clip, { yPercent: 12 }, {
-      yPercent: -12, ease: "none",
+    const amp = desk ? 12 : 4;
+    gsap.fromTo(clip, { yPercent: amp }, {
+      yPercent: -amp, ease: "none",
       scrollTrigger: { trigger: section, start: "top bottom", end: "bottom top", scrub: true }
     });
   }
@@ -170,8 +168,9 @@ export function line(section) {
 
 /* --------------------------------------------------------------- PROCESS
    Del stencil a la piel. Cuatro pasos reales del vídeo VIDA y la foto final,
-   uno tras otro en el mismo marco, mientras la frase se entinta. */
-export function process(section, { desk }) {
+   uno tras otro en el mismo marco, mientras la frase se entinta. En móvil se
+   ve solo el paso que está en el marco (la lista entera no cabe). */
+export function process(section, { desk, mode }) {
   const stage = section.querySelector("[data-stage]");
   const list = frames(section, "[data-frame]");
   const steps = frames(section, "[data-step]");
@@ -192,12 +191,7 @@ export function process(section, { desk }) {
   const tl = gsap.timeline({
     defaults: { ease: "none" },
     scrollTrigger: {
-      trigger: section,
-      start: "top top",
-      end: desk ? "+=300%" : "+=260%",
-      pin: stage,
-      scrub: 0.8,
-      anticipatePin: 1,
+      ...track(section, stage, mode, desk ? 3 : 2.2),
       invalidateOnRefresh: true,
       onUpdate: (self) => {
         const p = self.progress;
@@ -207,6 +201,7 @@ export function process(section, { desk }) {
       onToggle: (self) => { if (!self.isActive) videos.forEach((v) => v && v.pause()); else active = -1; }
     }
   });
+  steps[0]?.classList.add("is-on"); // el primer paso ya se lee antes de llegar (sin arrancar su vídeo)
   crossfade(tl, list, cuts, 0.05);
   tl.fromTo(section.querySelector(".process__monitor"), { scale: 0.94 }, { scale: 1, duration: 0.3, ease: "power2.out" }, 0);
   tl.to({}, { duration: 0.02 }, 0.98);
@@ -219,7 +214,7 @@ export function process(section, { desk }) {
 export function layers(section, { desk }) {
   section.querySelectorAll("[data-depth]").forEach((el) => {
     const d = parseFloat(el.dataset.depth) || 0;
-    const amp = desk ? 1 : 0.5;
+    const amp = desk ? 1 : 0.4;
     gsap.fromTo(el, { yPercent: d * 60 * amp }, {
       yPercent: -d * 60 * amp,
       ease: "none",
@@ -247,7 +242,7 @@ export function layers(section, { desk }) {
    momento, y después la tinta se desplaza y compone la manga egipcia: las
    dos fotos tienen la misma proporción, así que la transformación ocurre en
    el mismo marco. WebGL si hay; si no, fundido. */
-export function ink(section, { desk }) {
+export function ink(section, { desk, mode }) {
   const stage = section.querySelector("[data-stage]");
   const frameBox = section.querySelector("[data-ink-stage]");
   const imgs = frames(section, "[data-ink-frame]");
@@ -262,15 +257,7 @@ export function ink(section, { desk }) {
   const state = { p: 0 };
   const tl = gsap.timeline({
     defaults: { ease: "none" },
-    scrollTrigger: {
-      trigger: section,
-      start: "top top",
-      end: desk ? "+=240%" : "+=180%",
-      pin: stage,
-      scrub: 0.8,
-      anticipatePin: 1,
-      invalidateOnRefresh: true
-    }
+    scrollTrigger: { ...track(section, stage, mode, desk ? 2.4 : 1.7), invalidateOnRefresh: true }
   });
   tl.fromTo(frameBox, { scale: 0.9 }, { scale: 1, duration: 0.3, ease: "power2.out" }, 0)
     .to(state, {
@@ -289,8 +276,11 @@ export function ink(section, { desk }) {
    El vídeo cuelga en el muro como una pieza más. Al bajar crece hasta la
    altura de la vista y la sala se apaga a su alrededor (su propio póster,
    desenfocado): pantalla completa sin reescalar el vídeo. El título lo
-   cruza. Al salir, vuelve a su marco y se enciende la luz. */
-export function film(section, { desk }) {
+   cruza. Al salir, vuelve a su marco y se enciende la luz.
+   Móvil: la pantalla arriba y la cartela debajo; la cartela se va antes de
+   que la pantalla crezca y se centre. El título no cruza (en un móvil iría
+   encima del vídeo). */
+export function film(section, { desk, mode }) {
   const stage = section.querySelector("[data-stage]");
   const screen = section.querySelector("[data-screen]");
   const ambient = section.querySelector(".film__ambient");
@@ -299,48 +289,52 @@ export function film(section, { desk }) {
   const video = screen.querySelector("video");
   if (video) { video.removeAttribute("data-autoplay"); useMobileSource(video); }
 
-  const grow = () => {
-    const h = screen.getBoundingClientRect().height / (gsap.getProperty(screen, "scale") || 1);
-    return Math.max(1, (innerHeight * 0.98) / h);
-  };
+  // Escala y desplazamiento que dejan la pantalla al 98 % del alto, centrada
+  const grow = () => Math.max(1, (stage.clientHeight * 0.98) / (screen.offsetHeight || 1));
+  const center = () => stage.clientHeight / 2 - (screen.offsetTop + screen.offsetHeight / 2);
 
   const tl = gsap.timeline({
     defaults: { ease: "none" },
     scrollTrigger: {
-      trigger: section,
-      start: "top top",
-      end: desk ? "+=240%" : "+=200%",
-      pin: stage,
-      scrub: 0.8,
-      anticipatePin: 1,
+      ...track(section, stage, mode, desk ? 2.4 : 1.8),
       invalidateOnRefresh: true,
       onToggle: (self) => { if (!video) return; if (self.isActive) safePlay(video); else video.pause(); },
       onUpdate: (self) => stage.classList.toggle("is-dark", self.progress > 0.22 && self.progress < 0.86)
     }
   });
-  tl.to(cartela, { opacity: 0, y: 20, duration: 0.1, ease: "power1.in" }, 0.02)
-    .to(screen, { scale: grow, duration: 0.3, ease: "power2.inOut" }, 0.04)
-    .to(ambient, { opacity: 1, duration: 0.26 }, 0.06)
-    .fromTo(title, { x: () => innerWidth, opacity: 0 }, { x: () => -title.scrollWidth, opacity: 1, duration: 0.62 }, 0.24)
-    .to(title, { opacity: 0, duration: 0.06 }, 0.8)
-    .to(screen, { scale: 1, duration: 0.14, ease: "power2.inOut" }, 0.84)
-    .to(ambient, { opacity: 0, duration: 0.12 }, 0.86)
-    .to(cartela, { opacity: 1, y: 0, duration: 0.08, ease: "power1.out" }, 0.92);
+  if (desk) {
+    tl.to(cartela, { opacity: 0, y: 20, duration: 0.1, ease: "power1.in" }, 0.02)
+      .to(screen, { scale: grow, duration: 0.3, ease: "power2.inOut" }, 0.04)
+      .to(ambient, { opacity: 1, duration: 0.26 }, 0.06)
+      .fromTo(title, { x: () => innerWidth, opacity: 0 }, { x: () => -title.scrollWidth, opacity: 1, duration: 0.62 }, 0.24)
+      .to(title, { opacity: 0, duration: 0.06 }, 0.8)
+      .to(screen, { scale: 1, duration: 0.14, ease: "power2.inOut" }, 0.84)
+      .to(ambient, { opacity: 0, duration: 0.12 }, 0.86)
+      .to(cartela, { opacity: 1, y: 0, duration: 0.08, ease: "power1.out" }, 0.92);
+  } else {
+    tl.fromTo(cartela, { opacity: 1, y: 0 }, { opacity: 0, y: 24, duration: 0.08, ease: "power1.in" }, 0)
+      .to(screen, { scale: grow, y: center, duration: 0.28, ease: "power2.inOut" }, 0.09)
+      .to(ambient, { opacity: 1, duration: 0.24 }, 0.1)
+      .to(screen, { scale: 1, y: 0, duration: 0.14, ease: "power2.inOut" }, 0.82)
+      .to(ambient, { opacity: 0, duration: 0.12 }, 0.84)
+      .to(cartela, { opacity: 1, y: 0, duration: 0.06, ease: "power1.out" }, 0.94);
+  }
 }
 
 /* --------------------------------------------------------------- GALLERY
    El archivo entero en un travelling, como recorrer una pared de la sala.
-   Cada lámina gira un poco hacia ti cuando pasa por el centro (CSS 3D). En
-   móvil no se secuestra el scroll: es un carrusel nativo con snap. */
-export function gallery(section, { desk }) {
-  if (!desk) return;
+   Cada lámina gira un poco hacia ti cuando pasa por el centro (CSS 3D). Con
+   pin (escritorio) el scroll vertical mueve la pared; en móvil y tableta la
+   pared se desliza con el dedo (carrusel nativo con snap) y el giro sigue a
+   ese desplazamiento. */
+export function gallery(section, { mode }) {
   const viewport = section.querySelector("[data-viewport]");
   const track = section.querySelector("[data-track]");
   const items = frames(section, ".gallery__item");
-  const dist = () => Math.max(0, track.scrollWidth - innerWidth);
   // Lejos del centro se apaga solo la foto: con la ficha entera al 75 %, el
   // texto pequeño (zona del cuerpo) bajaba a 3,2:1 de contraste (AA pide 4,5).
   const tilt = items.map((el) => ({ el, set: gsap.quickSetter(el, "css"), dim: gsap.quickSetter(el.querySelector(".plate") || el, "opacity") }));
+  const turn = mode === "pin" ? 16 : 10, depth = mode === "pin" ? 90 : 50;
 
   const update = () => {
     const mid = innerWidth / 2;
@@ -348,11 +342,23 @@ export function gallery(section, { desk }) {
       const r = t.el.getBoundingClientRect();
       const d = (r.left + r.width / 2 - mid) / mid; // -1 .. 1
       const c = gsap.utils.clamp(-1, 1, d);
-      t.set({ rotationY: -c * 16, z: -Math.abs(c) * 90 });
+      t.set({ rotationY: -c * turn, z: -Math.abs(c) * depth });
       t.dim(1 - Math.abs(c) * 0.25);
     }
   };
 
+  if (mode !== "pin") {
+    let raf = 0;
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; update(); }); };
+    viewport.addEventListener("scroll", onScroll, { passive: true });
+    update();
+    return () => {
+      viewport.removeEventListener("scroll", onScroll);
+      tilt.forEach((t) => gsap.set([t.el, t.el.querySelector(".plate") || t.el], { clearProps: "transform,opacity" }));
+    };
+  }
+
+  const dist = () => Math.max(0, track.scrollWidth - innerWidth);
   gsap.to(track, {
     x: () => -dist(),
     ease: "none",
@@ -388,7 +394,7 @@ export function words(section) {
 export function artist(section, { desk }) {
   section.querySelectorAll("[data-depth]").forEach((el) => {
     const d = parseFloat(el.dataset.depth) || 0;
-    gsap.fromTo(el, { yPercent: d * 50 }, {
+    gsap.fromTo(el, { yPercent: d * 50 * (desk ? 1 : 0.5) }, {
       yPercent: -d * 50 * (desk ? 1 : 0.5), ease: "none",
       scrollTrigger: { trigger: section, start: "top bottom", end: "bottom top", scrub: true }
     });

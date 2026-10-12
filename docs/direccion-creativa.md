@@ -117,20 +117,19 @@ Dónde aparecen: el umbral, el HUD, el botón de la voz, la frase final, el
 pie, la 404 y los iconos. Nunca como decoración genérica: siempre son la
 firma.
 
-### El umbral (3 segundos)
+### El umbral (sin espera)
 
-La luna crece como una fase lunar (de luna nueva a creciente) → el anillo
-del sol se dibuja y el punto se enciende → el nombre de la persona →
-salen los rayos → el anillo se convierte en diafragma y se abre sobre el
-vídeo. El vídeo arranca en ese instante, así que lo primero que se ve es su
-comienzo. Segunda visita en la sesión: 1,1 s. Sin movimiento: los símbolos
-quietos un momento. Durante el umbral no se puede hacer scroll.
+Hasta el 12/10/2026 había una pantalla de carga de 3 segundos con los
+símbolos (luna, sol, diafragma) que bloqueaba el scroll. Se quitó: para un
+caso de éxito, nadie debe esperar. Ahora el vídeo arranca al cargar, se
+enfoca y el nombre se forma encima; se puede bajar desde el primer instante.
+Los símbolos siguen en el HUD, la frase final y el pie.
 
 ## 7. La exposición (home)
 
 | # | Escena | Obra | Gesto |
 | --- | --- | --- | --- |
-| 01 | Umbral | David (INTRO) | Diafragma → enfoque → el nombre se forma → la cámara empuja hacia la aguja → VIDA 1 se entinta → amanecer |
+| 01 | Umbral | David (INTRO) | Enfoque → el nombre se forma → la cámara empuja hacia la aguja → VIDA 1 se entinta → amanecer |
 | 02 | Medusa y el zodiaco | Medusa | La lámina cuelga pequeña y crece hasta la altura de la vista; *match cut* al plano cerrado; el brazo gira con el scroll |
 | 03 | Cada línea | Ánima (VIDA) | VIDA 2 se entinta junto a la aguja trabajando |
 | 04 | Ánima Spiritus | Ánima | Del stencil a la piel: 4 estados en el mismo marco mientras VIDA 3 se entinta |
@@ -139,7 +138,7 @@ quietos un momento. Durante el umbral no se puede hacer scroll.
 | 07 | Arcángel y geometría | Arcángel | El vídeo pasa de marco a pantalla completa; la sala se apaga; el título lo cruza |
 | 08 | Archivo | todas | Travelling por el muro; cada lámina gira hacia ti al pasar (CSS 3D) |
 | 09 | Para siempre | — | VIDA 4, y los símbolos |
-| 10 | Tomás Canales | — | El museo y el estudio en formato cine (la voz se retiró: la música de VIDA no tiene licencia) |
+| 10 | Tomás Canales | — | El museo, su voz sincronizada (solo la voz, sin la música de VIDA), el estudio en formato cine |
 | 11 | Reservar | — | «…hacia la persona que me confía su piel.» y RESERVAR CITA |
 
 Unas 28 pantallas de recorrido en escritorio. En móvil no hay recorrido
@@ -157,13 +156,18 @@ fijado: es un documento continuo (ver el punto 6 de Movimiento).
 5. Técnicas usadas: `scrub`, `pin`, `timeline`, `gsap.matchMedia` (escritorio
    y móvil se construyen y se revierten solos), `stagger`,
    `ScrollTrigger.refresh()` tras cargar fuentes e imágenes.
-6. **El recorrido fijado es solo de escritorio** (pantalla de 901 px o más y
-   ratón; clase `pin` en `<html>`). En móvil y tableta, con la inercia del
-   dedo, una escena fijada daba tirones al bajar rápido y en pantallas altas
-   la lámina acababa encima de la cartela. Allí cada sala es un bloque normal
-   (lámina y debajo su texto, sin nada superpuesto), con un fundido corto al
-   aparecer, el entintado de las frases y los vídeos solo mientras se ven
-   (`scenes.flow`). Sin Lenis: el scroll nativo del teléfono.
+6. **Dos mecanismos, el mismo recorrido.** Escritorio con ratón: GSAP fija
+   la escena (`pin`, clase `pin` en `<html>`). Móvil y tableta: la escena es
+   `position: sticky` (clase `stick`) y GSAP solo anima lo de dentro; la
+   sección mide su pantalla más el recorrido (`--track`, en svh). Con la
+   inercia del dedo un pin de JS daba tirones y se descolocaba; sticky lo
+   sostiene el navegador. Sin Lenis en táctil: scroll nativo.
+7. **En móvil, nunca una foto encima de un texto visible.** Cada escena tiene
+   su maqueta: la lámina arriba y la cartela debajo, sin tocarse, y la
+   cartela se va ANTES de que la lámina crezca. El paso del proceso se ve de
+   uno en uno; el título del Arcángel no cruza el vídeo. Comprobado con una
+   prueba automática (texto visible contra imágenes visibles, a pasos del
+   5–10 % de cada escena) a 375×667, 390×844, 430×932 y 768×1024.
 
 ### 3D y WebGL: dónde y por qué
 
@@ -181,7 +185,7 @@ fijado: es un documento continuo (ver el punto 6 de Movimiento).
 Ninguno aparece como «un vídeo en una caja». INTRO es la entrada; la rotación
 de Medusa se controla con el scroll; los tramos de VIDA son el proceso; el
 Arcángel pasa de marco a sala; el estudio es una franja de cine. Todos en
-silencio (la web no publica ningún audio). El vídeo del umbral tiene botón de
+silencio; la voz de Tomás solo a petición. El vídeo del umbral tiene botón de
 pausa (WCAG 2.2.2).
 
 ## 9. Navegación
