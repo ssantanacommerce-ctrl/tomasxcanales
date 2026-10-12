@@ -55,7 +55,7 @@ tools/
   fonts.mjs         descarga única de las fuentes
 src/css/            base · chrome (umbral, HUD, pie) · home (escenas) · pages
 src/js/
-  core/             movimiento, medios, HUD, enlaces, tipografía viva, la voz
+  core/             movimiento, medios, HUD, enlaces, tipografía viva
   home/             el umbral, la entrada, las escenas, el WebGL
 static/             se copia tal cual: media/ (derivados), fonts/, .htaccess
 index.html, work/, about/, booking/, 404.html,

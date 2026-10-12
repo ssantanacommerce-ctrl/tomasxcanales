@@ -32,7 +32,7 @@ dist/
   work/<slug>/index.html × 11  las obras
   about/ · booking/
   media/<obra>/                fotos (AVIF/WebP/JPEG) y vídeos (WebM/MP4/480/pósters)
-  media/site/                  artista, estudio, la voz de VIDA
+  media/site/                  artista y estudio
   media/brand/                 iconos
   fonts/                       Melodrama y Boska
   _build/                      CSS y JS con hash + DM Mono

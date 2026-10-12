@@ -81,7 +81,9 @@ Igual que una foto, con `"type": "video"`. Campos propios:
 | `caption` | Una línea bajo el vídeo en la página de la obra. |
 
 El audio nunca se publica con el vídeo: todos van en silencio. La voz de VIDA
-es un medio aparte (`"type": "audio"`) y solo suena a petición.
+es un medio aparte (`"type": "audio"`).
+
+**Retirada (12/10/2026):** la música de fondo de VIDA no tiene licencia, así que el audio no se publica (`vida-voz` lleva el rol `unused`). Se publica solo el texto de la declaración. Si Tomás graba su voz sin música, el reproductor puede recuperarse del historial de git.
 
 ---
 
@@ -141,7 +143,7 @@ anterior.**
 | `film` | Un vídeo que pasa de marco a pantalla completa | `work`, `media` |
 | `gallery` | Todas las obras publicadas en travelling (automático) | — |
 | `words` | Una frase de VIDA a gran tamaño | `sentence` |
-| `artist` | El artista, su voz y su estudio | — |
+| `artist` | El artista y su estudio | — |
 | `booking` | Reservar | — |
 
 `sentence` es el `id` de una frase de `site.json → vida.sentences`

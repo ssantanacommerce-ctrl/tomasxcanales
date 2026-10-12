@@ -7,11 +7,9 @@ import { markImages, autoplayVideos } from "./core/media.js";
 import { initHud } from "./core/hud.js";
 import { wireLinks } from "./core/links.js";
 import { fitAll } from "./core/type.js";
-import { initVoice } from "./core/voice.js";
 
 markImages();
 wireLinks();
-initVoice();
 const refit = fitAll();
 
 /* Filtros del archivo: con JS se muestran; sin JS no hacen falta, porque

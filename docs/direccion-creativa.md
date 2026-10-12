@@ -139,7 +139,7 @@ quietos un momento. Durante el umbral no se puede hacer scroll.
 | 07 | Arcángel y geometría | Arcángel | El vídeo pasa de marco a pantalla completa; la sala se apaga; el título lo cruza |
 | 08 | Archivo | todas | Travelling por el muro; cada lámina gira hacia ti al pasar (CSS 3D) |
 | 09 | Para siempre | — | VIDA 4, y los símbolos |
-| 10 | Tomás Canales | — | El museo, su voz sincronizada, el estudio en formato cine |
+| 10 | Tomás Canales | — | El museo y el estudio en formato cine (la voz se retiró: la música de VIDA no tiene licencia) |
 | 11 | Reservar | — | «…hacia la persona que me confía su piel.» y RESERVAR CITA |
 
 Unas 28 pantallas de recorrido en escritorio. En móvil no hay recorrido
@@ -181,7 +181,7 @@ fijado: es un documento continuo (ver el punto 6 de Movimiento).
 Ninguno aparece como «un vídeo en una caja». INTRO es la entrada; la rotación
 de Medusa se controla con el scroll; los tramos de VIDA son el proceso; el
 Arcángel pasa de marco a sala; el estudio es una franja de cine. Todos en
-silencio; la voz de Tomás solo a petición. El vídeo del umbral tiene botón de
+silencio (la web no publica ningún audio). El vídeo del umbral tiene botón de
 pausa (WCAG 2.2.2).
 
 ## 9. Navegación
@@ -207,5 +207,4 @@ noche o una foto oscura, sin cajas.
 `prefers-reduced-motion`: sin escenas fijadas, sin scrub, sin autoplay; todo
 visible (las secuencias se imprimen como rejilla, el archivo se recorre con
 desplazamiento nativo). Un `<h1>` por página, migas de pan, foco visible,
-enlace de salto, menú con Escape, vídeos con descripción y póster, la voz
-siempre con su texto en la página.
+enlace de salto, menú con Escape, vídeos con descripción y póster.

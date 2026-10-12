@@ -7,7 +7,6 @@ import { markImages, autoplayVideos } from "./core/media.js";
 import { initHud } from "./core/hud.js";
 import { wireLinks } from "./core/links.js";
 import { fitAll } from "./core/type.js";
-import { initVoice } from "./core/voice.js";
 import { runLoader } from "./home/loader.js";
 import { setupIntro } from "./home/intro.js";
 import * as scenes from "./home/scenes.js";
@@ -17,7 +16,6 @@ if (!location.hash) window.scrollTo(0, 0);
 
 markImages();
 wireLinks();
-initVoice();
 
 const introSection = document.querySelector(".scene--intro");
 const refit = fitAll();

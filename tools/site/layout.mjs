@@ -21,12 +21,14 @@ export const streetLine = (site) => site.address.street;
 export const townLine = (site) => `${site.address.postalCode} ${site.address.locality} (${site.address.province})`;
 export const fullAddress = (site) => `${streetLine(site)}, ${townLine(site)}`;
 /* Enlace (no mapa incrustado: un iframe de Google Maps pondría cookies de
-   terceros y obligaría a abrir la CSP). Busca el estudio por nombre y
-   dirección (sin piso ni puerta, que confunden la búsqueda): con la ficha
-   de empresa verificada, abre la ficha. */
+   terceros y obligaría a abrir la CSP). Con el CID de la ficha verificada
+   (content/site.json → google.cid) abre la ficha de Google Business
+   Profile; sin él, busca el estudio por nombre y dirección. */
 export const mapsURL = (site) =>
-  "https://www.google.com/maps/search/?api=1&query=" +
-  encodeURIComponent(`${site.studio}, ${site.address.street.split(",")[0]}, ${site.address.postalCode} ${site.address.locality}`);
+  site.google?.cid
+    ? `https://maps.google.com/?cid=${site.google.cid}`
+    : "https://www.google.com/maps/search/?api=1&query=" +
+      encodeURIComponent(`${site.studio}, ${site.address.street.split(",")[0]}, ${site.address.postalCode} ${site.address.locality}`);
 
 /* El script en línea decide si hay movimiento antes de pintar: no lo hay con
    «reducir movimiento» ni en un móvil en horizontal (alto ≤ 500 px), donde las
@@ -184,7 +186,7 @@ export function parlorLD(site, image) {
       addressCountry: site.country
     },
     hasMap: mapsURL(site),
-    sameAs: [`https://instagram.com/${site.contact.instagram}`],
+    sameAs: [`https://instagram.com/${site.contact.instagram}`, ...(site.google?.cid ? [mapsURL(site)] : [])],
     areaServed: [
       { "@type": "City", name: site.city },
       { "@type": "AdministrativeArea", name: site.region }

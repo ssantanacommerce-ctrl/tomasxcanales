@@ -12,6 +12,10 @@
     "locality": "Parla",
     "province": "Madrid"
   },
+  "google": {
+    "$comment": "Ficha de Google Business Profile verificada (12/10/2026) como «Tomasxcanales Studio». El CID abre la ficha en Google Maps.",
+    "cid": "5382407750792633695"
+  },
   "city": "Parla",
   "place": "Parla, Madrid",
   "region": "Comunidad de Madrid",
@@ -114,7 +118,8 @@
         "type": "audio",
         "src": "site/originals/vida.mp4",
         "trim": [0, 34.2],
-        "role": ["voice"],
+        "role": ["voice", "unused"],
+        "note": "NO SE PUBLICA (12/10/2026): la música de fondo de VIDA no tiene licencia. El texto de la declaración sí se publica. Si Tomás graba su voz sin música, se puede recuperar el reproductor «Escuchar a Tomás» (historial de git).",
         "alt": "Tomás lee su declaración sobre el tatuaje. Voz en off con música."
       },
       {

@@ -16,7 +16,7 @@
      film     un vídeo que pasa de marco en el muro a pantalla completa
      gallery  todas las obras publicadas, en travelling
      words    una frase de VIDA a gran tamaño
-     artist   el artista, su voz y su estudio
+     artist   el artista y su estudio
      booking  reservar
    ========================================================================== */
 
@@ -243,7 +243,7 @@ const K = {
   artist(s, ctx, i) {
     const site = ctx.site;
     const item = (id) => site.media.items.find((m) => m.id === id);
-    const del = item("artista-delacroix"), ver = item("artista-veronese"), studio = item("vida-estudio"), voz = entry("site/vida-voz");
+    const del = item("artista-delacroix"), ver = item("artista-veronese"), studio = item("vida-estudio");
     return scene(s, i, `
   <div class="artist__grid">
     <figure class="artist__main" style="aspect-ratio:${ratio("site/artista-delacroix")}">
@@ -255,17 +255,6 @@ const K = {
     <div class="artist__text">
       <h2 class="artist__name" id="artista">Tomás Canales</h2>
       <p class="artist__role">Tatuador. Tatúa en su estudio, ${esc(site.studio)}, en ${esc(site.city)} (${esc(site.address.province)}).</p>
-      <div class="voice" data-voice>
-        <button class="voice__play" type="button" data-voice-play aria-pressed="false" aria-describedby="voice-note">
-          ${mark({ cls: "voice__mark" })}<span data-voice-label>Escuchar a Tomás</span>
-        </button>
-        <p class="voice__note" id="voice-note">Su voz, ${Math.round(voz.duration)} segundos. El texto completo está en esta página.</p>
-        <p class="voice__caption" data-voice-caption aria-live="off"></p>
-        <audio preload="none" data-voice-audio>
-          <source src="${voz.base}.webm" type="audio/webm">
-          <source src="${voz.base}.m4a" type="audio/mp4">
-        </audio>
-      </div>
       <a class="artist__more" href="/about/">Sobre Tomás y el estudio</a>
     </div>
   </div>

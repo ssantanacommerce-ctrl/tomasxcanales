@@ -96,12 +96,14 @@ Ciudad y estudio en títulos, descripciones, pie y `TattooParlor`. NAP
 **Decisión (12/10/2026):** el estudio es **Tomasxcanales Studio**, Calle Dos
 Hermanas 20, 28982 Parla (Madrid), con ficha en Google Business
 Profile. `TattooParlor` lleva la dirección completa (`streetAddress`,
-`postalCode`, `addressLocality`), `hasMap` (enlace de búsqueda en Google Maps)
-y `sameAs` (Instagram). No lleva `geo` ni `openingHoursSpecification`: no hay
+`postalCode`, `addressLocality`), `hasMap` con el enlace a la ficha
+verificada de Google (`https://maps.google.com/?cid=…`, de `content/site.json → google.cid`)
+y `sameAs` (Instagram y esa misma ficha). No lleva `geo` ni `openingHoursSpecification`: no hay
 coordenadas ni horario confirmados. **El nombre, la dirección y el teléfono de
 la ficha de Google tienen que ser exactamente los de `content/site.json`.**
-Cuando la ficha esté verificada, conviene cambiar `hasMap` por su enlace
-directo (el «Compartir» de la ficha).
+Search Console: propiedad de dominio `tomasxcanales.com` en la cuenta de
+Tomás (verificada por DNS, registro TXT `google-site-verification`, que no
+hay que borrar), sitemap enviado el 12/10/2026.
 
 1. **Dominio + Search Console**, y enviar `sitemap.xml`.
 2. **Enlace a la web desde la bio de Instagram.**
@@ -116,5 +118,4 @@ directo (el «Compartir» de la ficha).
 
 Los eventos ya se envían a `window.dataLayer` (sin ningún ID inventado; hasta
 pegar GA4/GTM en el `<head>` no hacen nada): `whatsapp_click`,
-`instagram_click`, `email_click`, `booking_start`, `booking_submit`,
-`voice_play`.
+`instagram_click`, `email_click`, `booking_start`, `booking_submit`.
