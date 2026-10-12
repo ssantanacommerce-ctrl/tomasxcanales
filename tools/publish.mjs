@@ -127,7 +127,15 @@ async function deploy() {
     writeFileSync(list, upload.join("\n") + "\n");
     await new Promise((ok, ko) => {
       const tar = spawn(TAR, ["-c", "-f", "-", "-C", DIST, "-T", list], { stdio: ["ignore", "pipe", "pipe"] });
-      const sh = spawn("ssh", ["-o", "BatchMode=yes", SSH_HOST, `cd ${REMOTE} && tar -xf - --no-same-owner`], { stdio: ["pipe", "ignore", "pipe"] });
+      // El tar de Windows marca los archivos como rw-rw-rw-: en el servidor se
+      // descomprimen con los permisos normales (umask) y se dejan en 644/755.
+      const extract = [
+        `cd ${REMOTE}`,
+        "tar -xf - --no-same-owner --no-same-permissions",
+        "find . -type d ! -perm 755 -exec chmod 755 {} +",
+        "find . -type f ! -perm 644 -exec chmod 644 {} +"
+      ].join(" && ");
+      const sh = spawn("ssh", ["-o", "BatchMode=yes", SSH_HOST, extract], { stdio: ["pipe", "ignore", "pipe"] });
       let err = "";
       tar.stderr.on("data", (d) => (err += d));
       sh.stderr.on("data", (d) => (err += d));
