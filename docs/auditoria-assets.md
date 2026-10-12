@@ -155,9 +155,9 @@ su dirección en Parla (Madrid) son datos del cliente, no de VIDA.
 | 7,0 – 9,8 | Resultado: piernas, tronco de apoyo, pedestal y texto manuscrito. |
 | 9,8 – 12,4 | Negro (recortado). |
 
-Uso: el umbral. El vídeo arranca nada más cargar la página (ya no hay
-pantalla de carga), así que lo primero que se ve es su comienzo: Tomás
-trabajando. El enfoque llega con la entrada (desenfoque → nitidez), el nombre se forma
+Uso: el umbral. El vídeo **no arranca hasta que el diafragma del sol se
+abre**, así que lo primero que se ve es su comienzo: Tomás trabajando. El
+enfoque llega con la entrada (desenfoque → nitidez), el nombre se forma
 encima y, al bajar, la cámara empuja hacia la aguja. Recortado a 0–9,8 s;
 póster en 0,5 s; versión de 480 px (615 KB) para móvil. También es la
 página de la obra **David**, que solo existe en vídeo.

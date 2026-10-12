@@ -22,7 +22,7 @@
 
 import { esc, attrs, cx, inkWords, picture, video, still, entry, imageURL, ratio } from "./html.mjs";
 import { head, hud, footer, scripts, personLD, parlorLD, abs } from "./layout.mjs";
-import { mark } from "./symbols.mjs";
+import { ritual, mark } from "./symbols.mjs";
 
 const byId = (w, id) => w.media.find((m) => m.id === id);
 const key = (slug, id) => `${slug}/${id}`;
@@ -345,6 +345,10 @@ export function renderHome(ctx) {
     ]
   })}
 <body class="page page--home">
+<div class="loader" data-loader aria-hidden="true">
+  ${ritual()}
+  <p class="loader__name">Tomás Canales</p>
+</div>
 ${hud({ room: "" })}
 <main id="main" class="exhibition">
 ${body}

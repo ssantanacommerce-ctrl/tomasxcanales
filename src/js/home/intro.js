@@ -4,7 +4,7 @@
    Lo que tiene que sentir quien entra: que mira a Tomás trabajando y que,
    al bajar, entra en su mundo.
 
-   Nada más cargar (sin espera ni pantalla de carga)
+   Al abrirse el diafragma del umbral (home/loader.js)
      - el vídeo arranca desenfocado y algo más cerca, y enfoca (2,2 s)
      - las letras de TOMASXCANALES llegan separadas y se juntan en el nombre
 
@@ -105,7 +105,7 @@ export function setupIntro(section) {
   dawn.setAttribute("aria-hidden", "true");
   section.appendChild(dawn);
 
-  /* ------------------------------------------------ revelado (al cargar) */
+  /* ------------------------------------------------ revelado (tras el diafragma) */
   function reveal() {
     const tl = gsap.timeline();
     tl.to(video, { scale: 1, filter: "blur(0px) brightness(1)", duration: 2.4, ease: "power2.out" }, 0)

@@ -117,19 +117,28 @@ Dónde aparecen: el umbral, el HUD, el botón de la voz, la frase final, el
 pie, la 404 y los iconos. Nunca como decoración genérica: siempre son la
 firma.
 
-### El umbral (sin espera)
+### El umbral (2,4 segundos)
 
-Hasta el 12/10/2026 había una pantalla de carga de 3 segundos con los
-símbolos (luna, sol, diafragma) que bloqueaba el scroll. Se quitó: para un
-caso de éxito, nadie debe esperar. Ahora el vídeo arranca al cargar, se
-enfoca y el nombre se forma encima; se puede bajar desde el primer instante.
-Los símbolos siguen en el HUD, la frase final y el pie.
+La luna crece como una fase lunar (de luna nueva a creciente) → el anillo
+del sol se dibuja y el punto se enciende → el nombre de la persona →
+salen los rayos → el anillo se convierte en diafragma y se abre sobre el
+vídeo. El vídeo arranca en ese instante, así que lo primero que se ve es su
+comienzo. Desde otra página de la web: versión breve (38 %). Sin
+movimiento: los símbolos quietos un momento. Durante el umbral no se puede
+hacer scroll.
+
+**Los símbolos son CSS** (chrome.css) y empiezan en el primer fotograma. Antes
+los animaba el JS después de cargar fuentes y montar todas las escenas, y en
+un móvil eso eran ~3 s de pantalla negra antes de ver el logo. Ahora el JS
+(home/loader.js) solo abre el diafragma, cuando los símbolos han terminado,
+la escena está montada y el vídeo puede arrancar. El montaje ocurre mientras
+se dibuja el logo, no después.
 
 ## 7. La exposición (home)
 
 | # | Escena | Obra | Gesto |
 | --- | --- | --- | --- |
-| 01 | Umbral | David (INTRO) | Enfoque → el nombre se forma → la cámara empuja hacia la aguja → VIDA 1 se entinta → amanecer |
+| 01 | Umbral | David (INTRO) | Diafragma → enfoque → el nombre se forma → la cámara empuja hacia la aguja → VIDA 1 se entinta → amanecer |
 | 02 | Medusa y el zodiaco | Medusa | La lámina cuelga pequeña y crece hasta la altura de la vista; *match cut* al plano cerrado; el brazo gira con el scroll |
 | 03 | Cada línea | Ánima (VIDA) | VIDA 2 se entinta junto a la aguja trabajando |
 | 04 | Ánima Spiritus | Ánima | Del stencil a la piel: 4 estados en el mismo marco mientras VIDA 3 se entinta |

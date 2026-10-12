@@ -32,8 +32,10 @@ export const mapsURL = (site) =>
 
 /* El script en línea decide si hay movimiento antes de pintar: no lo hay con
    «reducir movimiento» ni en un móvil en horizontal (alto ≤ 500 px), donde las
-   escenas fijadas no caben. ?motion y ?nomotion lo fuerzan. Su hash SHA-256
-   lo calcula tools/csp.mjs en cada build: se puede cambiar sin tocar la CSP. */
+   escenas fijadas no caben. ?motion y ?nomotion lo fuerzan. También marca
+   `again` si la visita llega desde otra página de la web (el umbral de la
+   home dura menos), sin guardar nada en el navegador. Su hash SHA-256 lo
+   calcula tools/csp.mjs en cada build: se puede cambiar sin tocar la CSP. */
 export function head({ site, title, description, path, image, imageAlt, type = "website", noindex = false, ld = [], preload = [], light = "day" }) {
   const url = abs(site, path);
   const img = image ? abs(site, image) : null;
@@ -75,7 +77,7 @@ ${img ? `<meta name="twitter:image" content="${img}">` : ""}
 <link rel="preload" href="/fonts/boska-variable-italic.woff2" as="font" type="font/woff2" crossorigin>
 ${preload.join("\n")}
 <link rel="stylesheet" href="/src/css/site.css">
-<script>(function(d){d.className=d.className.replace("no-js","js");try{var q=location.search;if(/[?&]nomotion\\b/.test(q))return;if((!matchMedia("(prefers-reduced-motion: reduce)").matches&&!matchMedia("(orientation: landscape) and (max-height: 500px)").matches)||/[?&]motion\\b/.test(q))d.classList.add("motion")}catch(e){}})(document.documentElement);</script>
+<script>(function(d){d.className=d.className.replace("no-js","js");try{if(document.referrer.indexOf(location.origin+"/")===0)d.classList.add("again")}catch(e){}try{var q=location.search;if(/[?&]nomotion\\b/.test(q))return;if((!matchMedia("(prefers-reduced-motion: reduce)").matches&&!matchMedia("(orientation: landscape) and (max-height: 500px)").matches)||/[?&]motion\\b/.test(q))d.classList.add("motion")}catch(e){}})(document.documentElement);</script>
 ${ld.map(jsonld).join("\n")}
 </head>`;
 }

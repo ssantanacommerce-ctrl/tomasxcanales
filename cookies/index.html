@@ -35,7 +35,7 @@
 <link rel="preload" href="/fonts/boska-variable-italic.woff2" as="font" type="font/woff2" crossorigin>
 
 <link rel="stylesheet" href="/src/css/site.css">
-<script>(function(d){d.className=d.className.replace("no-js","js");try{var q=location.search;if(/[?&]nomotion\b/.test(q))return;if((!matchMedia("(prefers-reduced-motion: reduce)").matches&&!matchMedia("(orientation: landscape) and (max-height: 500px)").matches)||/[?&]motion\b/.test(q))d.classList.add("motion")}catch(e){}})(document.documentElement);</script>
+<script>(function(d){d.className=d.className.replace("no-js","js");try{if(document.referrer.indexOf(location.origin+"/")===0)d.classList.add("again")}catch(e){}try{var q=location.search;if(/[?&]nomotion\b/.test(q))return;if((!matchMedia("(prefers-reduced-motion: reduce)").matches&&!matchMedia("(orientation: landscape) and (max-height: 500px)").matches)||/[?&]motion\b/.test(q))d.classList.add("motion")}catch(e){}})(document.documentElement);</script>
 
 </head>
 <body class="page page--legal">

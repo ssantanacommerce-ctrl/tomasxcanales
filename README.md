@@ -2,8 +2,8 @@
 
 Web de **Tomás Canales** (Tomasxcanales), tatuador en su estudio,
 **Tomasxcanales Studio** (Calle Dos Hermanas 20, 28982 Parla, Madrid).
-Una exposición digital: el vídeo de Tomás trabajando desde el primer
-segundo (sin pantalla de carga), su voz, y la obra presentada como en una galería, con el
+Una exposición digital: el umbral con sus símbolos (que se dibujan desde el
+primer fotograma), el vídeo de Tomás trabajando, su voz, y la obra presentada como en una galería, con el
 scroll como hilo narrativo.
 
 Vite + GSAP ScrollTrigger + Lenis. HTML estático real, generado desde

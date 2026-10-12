@@ -8,6 +8,7 @@ import { initHud } from "./core/hud.js";
 import { wireLinks } from "./core/links.js";
 import { fitAll } from "./core/type.js";
 import { initVoice } from "./core/voice.js";
+import { runLoader } from "./home/loader.js";
 import { setupIntro } from "./home/intro.js";
 import * as scenes from "./home/scenes.js";
 
@@ -20,6 +21,17 @@ initVoice();
 
 const introSection = document.querySelector(".scene--intro");
 const refit = fitAll();
+
+/* El umbral arranca YA: sus símbolos son CSS y se están dibujando desde el
+   primer fotograma; aquí solo se espera a que la escena esté montada
+   (`ready`) para abrir el diafragma. Mientras dura, no se puede bajar:
+   nadie debería llegar a la sala a mitad de una escena que no ha visto
+   empezar. */
+let setupDone;
+const ready = new Promise((r) => (setupDone = r));
+const locked = !location.hash && !!document.querySelector("[data-loader]");
+if (locked) document.documentElement.classList.add("is-locked");
+const entry = runLoader({ video: introSection?.querySelector("video"), ready });
 
 async function start() {
   await fontsReady();
@@ -57,10 +69,13 @@ async function start() {
   autoplayVideos();
 
   ScrollTrigger.refresh();
+  if (locked) getLenis()?.stop();
+  setupDone();
 
-  // Sin espera: el vídeo arranca y el nombre se forma nada más cargar.
-  if (intro?.video && motionOK) intro.video.play().catch(() => {});
-  if (intro && motionOK) intro.reveal();
+  const opened = await entry;
+  if (locked) { document.documentElement.classList.remove("is-locked"); getLenis()?.start(); }
+  if (intro && motionOK && !opened?.skipped) intro.reveal();
+  else if (intro?.video && motionOK) intro.video.play().catch(() => {});
 
   if (location.hash) {
     const target = document.querySelector(location.hash);

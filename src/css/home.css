@@ -65,6 +65,7 @@
 .intro__title .wordmark { transform-origin: 50% 100%; }
 .intro__title .wordmark .ch { display: inline-block; will-change: transform; }
 .intro__title .wordmark .ch__i { display: inline-block; }
+html.is-locked, html.is-locked body { overflow: hidden; }
 .intro__what {
   display: block;
   margin-top: clamp(12px, 2vh, 22px);

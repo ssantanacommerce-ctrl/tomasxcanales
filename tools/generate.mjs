@@ -193,6 +193,21 @@ await png("icon-192.png", pairSVG(192, 24, { rx: 0 }));
 await png("icon-512.png", pairSVG(512, 64, { rx: 0 }));
 await png("icon-maskable-512.png", pairSVG(512, 118, { rx: 0 }));
 
+/* /favicon.ico: muchos navegadores (y Google) lo piden por su cuenta aunque
+   haya <link rel="icon">; sin él, cada visita dejaba un 404. Es un ICO con
+   el PNG de 32 px dentro (formato válido desde Windows Vista). */
+const ico = join(ROOT, "static", "favicon.ico");
+if (!(await exists(ico)) || process.argv.includes("--brand")) {
+  const pngData = await readFile(join(brandDir, "favicon-32.png"));
+  const head = Buffer.alloc(22);
+  head.writeUInt16LE(0, 0); head.writeUInt16LE(1, 2); head.writeUInt16LE(1, 4); // ICO, 1 imagen
+  head.writeUInt8(32, 6); head.writeUInt8(32, 7); head.writeUInt8(0, 8); head.writeUInt8(0, 9);
+  head.writeUInt16LE(1, 10); head.writeUInt16LE(32, 12); // planos, bits por píxel
+  head.writeUInt32LE(pngData.length, 14); head.writeUInt32LE(22, 18); // tamaño y posición del PNG
+  await writeFile(ico, Buffer.concat([head, pngData]));
+  written.push("static/favicon.ico");
+}
+
 /* ---------------------------------------------------------------- resumen */
 console.log(`Generado en ${Date.now() - t0} ms · ${published.length} obras publicadas · ${written.length} archivos escritos`);
 for (const f of written) console.log("  " + f);
