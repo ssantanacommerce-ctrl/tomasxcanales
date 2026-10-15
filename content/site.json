@@ -5,12 +5,6 @@
   "person": "Tomás Canales",
   "role": "Tatuador",
   "studio": "Tomasxcanales Studio",
-  "address": {
-    "$comment": "Dónde está el estudio. Por decisión del cliente (15/10/2026) la web solo dice que es un tatuador de Parla (Madrid): sin calle. El código postal solo va en los datos estructurados. El domicilio del titular está en content/legal.json y solo se muestra en el aviso legal (LSSI art. 10).",
-    "postalCode": "28982",
-    "locality": "Parla",
-    "province": "Madrid"
-  },
   "share": {
     "$comment": "Imagen para compartir (og:image) de la portada, el archivo, reservar y legales: 1200 x 628, la manga egipcia. Las obras usan su propia foto.",
     "src": "/og/tomasxcanales-1200x628.jpg",
@@ -22,8 +16,8 @@
     "$comment": "Ficha de Google Business Profile verificada (12/10/2026) como «Tomasxcanales Studio». El CID abre la ficha en Google Maps.",
     "cid": "5382407750792633695"
   },
-  "city": "Parla",
-  "place": "Parla, Madrid",
+  "place": "Madrid",
+  "$place": "Dónde dice la web que tatúa. Por decisión del cliente (15/10/2026) solo «Madrid»: ni calle ni municipio, en ningún texto ni en los datos estructurados. La localidad exacta la da la ficha de Google (google.cid), a la que enlaza «Ver en Google Maps». El domicilio del titular está en content/legal.json y solo sale en el aviso legal, porque lo exige el art. 10 de la LSSI.",
   "region": "Comunidad de Madrid",
   "country": "ES",
   "origin": "https://tomasxcanales.com",

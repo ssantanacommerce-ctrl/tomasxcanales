@@ -44,7 +44,7 @@ function artworkLD(site, w) {
     locationCreated: {
       "@type": "Place",
       name: site.studio,
-      address: { "@type": "PostalAddress", addressLocality: site.address.locality, addressRegion: site.region, addressCountry: site.country }
+      address: { "@type": "PostalAddress", addressRegion: site.region, addressCountry: site.country }
     },
     ...(w.year ? { dateCreated: String(w.year) } : {}),
     creativeWorkStatus: w.status ? "Incomplete" : "Published",
@@ -284,7 +284,7 @@ export function renderAbout(ctx) {
   return `${head({
     site,
     title: `${site.person}, tatuador | ${site.brand}, ${site.place}`,
-    description: `${site.person} tatúa en su estudio, ${site.studio}, en ${site.city} (${site.address.province}). «Considero el tatuaje una ceremonia en la que se inmortalizan sentimientos, recuerdos, intenciones y sueños.»`,
+    description: `${site.person} tatúa en su estudio, ${site.studio}, en ${site.place}. «Considero el tatuaje una ceremonia en la que se inmortalizan sentimientos, recuerdos, intenciones y sueños.»`,
     path: "/about/",
     image: imageURL("site/artista-delacroix", 1200),
     imageAlt: del.alt,
@@ -298,7 +298,7 @@ ${hud({ current: "about", room: site.person })}
   ${crumbs(trail)}
   <header class="about__head">
     <h1 class="about__name">${esc(site.person)}</h1>
-    <p class="about__role">Tatuador en ${esc(site.studio)}, ${esc(site.city)} (${esc(site.address.province)}).</p>
+    <p class="about__role">Tatuador en ${esc(site.studio)}, ${esc(site.place)}.</p>
   </header>
 
   <div class="about__grid">
@@ -400,7 +400,7 @@ export function renderBooking(ctx) {
   return `${head({
     site,
     title: `Reservar cita | ${site.brand}, tatuador en ${site.place}`,
-    description: `Reserva cita con ${site.person} en ${site.studio}, ${site.city} (${site.address.province}). Cuéntale la idea, la zona del cuerpo y el tamaño: el formulario prepara el mensaje y lo envía por WhatsApp.`,
+    description: `Reserva cita con ${site.person} en ${site.studio}, ${site.place}. Cuéntale la idea, la zona del cuerpo y el tamaño: el formulario prepara el mensaje y lo envía por WhatsApp.`,
     path: "/booking/",
     image: site.share.src,
     imageAlt: site.share.alt,

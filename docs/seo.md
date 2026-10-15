@@ -54,7 +54,7 @@ seis primeras y el archivo.
 | --- | --- |
 | `WebSite`, `WebPage` | `/` |
 | `Person` (Tomás Canales, `sameAs` Instagram, `worksFor` el estudio) | todas |
-| `TattooParlor` (Tomasxcanales Studio, dirección completa en Parla, teléfono, correo, `hasMap`, `areaServed`) | `/`, `/about/`, `/booking/` |
+| `TattooParlor` (Tomasxcanales Studio, región Comunidad de Madrid, teléfono, correo, `hasMap`, `areaServed`) | `/`, `/about/`, `/booking/` |
 | `VisualArtwork` (`artform` Tatuaje, `artMedium` Tinta sobre piel, `artworkSurface` = zona, `genre` = técnicas, `creativeWorkStatus`) | cada obra |
 | `VideoObject` (póster, `contentUrl`, duración real, `uploadDate` = fecha de publicación en la web) | cada vídeo de cada obra |
 | `CollectionPage` + `ItemList` | `/work/` |
@@ -94,11 +94,12 @@ Ciudad y estudio en títulos, descripciones, pie y `TattooParlor`. NAP
 ## 7. Qué hacer a continuación (por impacto)
 
 **Decisión (12/10/2026, revisada el 15/10/2026):** el estudio es
-**Tomasxcanales Studio**, en Parla (Madrid), con ficha en Google Business
-Profile. Por decisión del cliente la web no muestra la calle: `TattooParlor`
-lleva `postalCode`, `addressLocality`, `addressRegion` y `addressCountry`
-(sin `streetAddress`), y cada obra (`VisualArtwork`) lleva
-`locationCreated` con el estudio y la localidad. `hasMap` con el enlace a la ficha
+**Tomasxcanales Studio**, con ficha en Google Business Profile. Por decisión
+del cliente la web solo dice «Madrid» (ni calle ni municipio): `TattooParlor`
+lleva solo `addressRegion` (Comunidad de Madrid) y `addressCountry`, con
+`areaServed` Madrid y Comunidad de Madrid, y cada obra (`VisualArtwork`)
+lleva `locationCreated` con el estudio y la región. La localidad exacta la
+aporta la ficha de Google, enlazada en `hasMap` y `sameAs`. `hasMap` con el enlace a la ficha
 verificada de Google (`https://maps.google.com/?cid=…`, de `content/site.json → google.cid`)
 y `sameAs` (Instagram y esa misma ficha). No lleva `geo` ni `openingHoursSpecification`: no hay
 coordenadas ni horario confirmados. **El nombre y el teléfono de la ficha de Google tienen que ser exactamente

@@ -254,7 +254,7 @@ const K = {
     </figure>
     <div class="artist__text">
       <h2 class="artist__name" id="artista">Tomás Canales</h2>
-      <p class="artist__role">Tatuador. Tatúa en su estudio, ${esc(site.studio)}, en ${esc(site.city)} (${esc(site.address.province)}).</p>
+      <p class="artist__role">Tatuador. Tatúa en su estudio, ${esc(site.studio)}, en ${esc(site.place)}.</p>
       <div class="voice" data-voice>
         <button class="voice__play" type="button" data-voice-play aria-pressed="false" aria-describedby="voice-note">
           ${mark({ cls: "voice__mark" })}<span data-voice-label>Escuchar a Tomás</span>
@@ -330,7 +330,7 @@ export function renderHome(ctx) {
   return `${head({
     site,
     title: `${site.brand} · Tatuador en ${site.place} | Realismo en negro y gris y línea fina`,
-    description: `${site.person} tatúa en ${site.studio}, en ${site.city} (${site.address.province}): realismo en negro y gris, línea fina y geometría. Recorre su obra como una exposición y reserva cita.`,
+    description: `${site.person} tatúa en ${site.studio}, en ${site.place}: realismo en negro y gris, línea fina y geometría. Recorre su obra como una exposición y reserva cita.`,
     path: "/",
     image: site.share.src,
     imageAlt: site.share.alt,

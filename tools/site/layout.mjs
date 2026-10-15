@@ -16,20 +16,20 @@ const NAV = [
 /** URL absoluta a partir de una ruta del sitio. */
 export const abs = (site, path) => site.origin.replace(/\/$/, "") + path;
 
-/* Dónde está el estudio, tal como se muestra: solo la localidad. La calle no
-   aparece en la web (decisión del cliente, 15/10/2026); el código postal
-   solo va en los datos estructurados. El domicilio del titular está únicamente
-   en el aviso legal, porque lo exige el art. 10 de la LSSI. */
-export const townLine = (site) => `${site.address.locality} (${site.address.province})`;
+/* Dónde está el estudio, tal como se muestra: solo «Madrid» (decisión del
+   cliente, 15/10/2026; ver content/site.json → $place). El domicilio del
+   titular está únicamente en el aviso legal, porque lo exige el art. 10 de
+   la LSSI. */
+export const townLine = (site) => site.place;
 /* Enlace (no mapa incrustado: un iframe de Google Maps pondría cookies de
    terceros y obligaría a abrir la CSP). Con el CID de la ficha verificada
    (content/site.json → google.cid) abre la ficha de Google Business
-   Profile; sin él, busca el estudio por nombre y localidad. */
+   Profile; sin él, busca el estudio por su nombre. */
 export const mapsURL = (site) =>
   site.google?.cid
     ? `https://maps.google.com/?cid=${site.google.cid}`
     : "https://www.google.com/maps/search/?api=1&query=" +
-      encodeURIComponent(`${site.studio}, ${site.address.locality}`);
+      encodeURIComponent(site.studio);
 
 /* El script en línea decide si hay movimiento antes de pintar: no lo hay con
    «reducir movimiento» ni en un móvil en horizontal (alto ≤ 500 px), donde las
@@ -183,15 +183,13 @@ export function parlorLD(site, image) {
     email: site.contact.email,
     address: {
       "@type": "PostalAddress",
-      postalCode: site.address.postalCode,
-      addressLocality: site.address.locality,
       addressRegion: site.region,
       addressCountry: site.country
     },
     hasMap: mapsURL(site),
     sameAs: [`https://instagram.com/${site.contact.instagram}`, ...(site.google?.cid ? [mapsURL(site)] : [])],
     areaServed: [
-      { "@type": "City", name: site.city },
+      { "@type": "City", name: site.place },
       { "@type": "AdministrativeArea", name: site.region }
     ],
     founder: { "@id": abs(site, "/#persona") },

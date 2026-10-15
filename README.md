@@ -1,7 +1,7 @@
 # Tomasxcanales
 
 Web de **Tomás Canales** (Tomasxcanales), tatuador en su estudio,
-**Tomasxcanales Studio**, en Parla (Madrid).
+**Tomasxcanales Studio**, en Madrid.
 Una exposición digital: el umbral con sus símbolos (que se dibujan desde el
 primer fotograma), el vídeo de Tomás trabajando, su voz, y la obra presentada como en una galería, con el
 scroll como hilo narrativo.
@@ -76,11 +76,13 @@ en `content/marketing/`, las piezas para Google Ads (no se publican en la web).
 
 ## Decisiones
 
-- El estudio es **Tomasxcanales Studio**, en Parla (Madrid), con ficha en
-  Google Business Profile (12/10/2026). Desde el 15/10/2026, por decisión del
-  cliente, la web **no muestra la calle**: solo «Parla (Madrid)». El domicilio
-  del titular figura únicamente en el aviso legal, porque lo exige el art. 10
-  de la LSSI. Nombre, localidad y teléfono salen de `content/site.json`. La web enlaza a Google Maps (no lo
+- El estudio es **Tomasxcanales Studio**, con ficha en Google Business
+  Profile (12/10/2026). Desde el 15/10/2026, por decisión del cliente, la web
+  solo dice que es **tatuador en Madrid**: ni calle ni municipio (la localidad
+  exacta la muestra la ficha de Google, enlazada con «Ver en Google Maps»). El
+  domicilio del titular figura únicamente en el aviso legal, porque lo exige
+  el art. 10 de la LSSI. Nombre, lugar (`place`) y teléfono salen de
+  `content/site.json`. La web enlaza a Google Maps (no lo
   incrusta: un mapa incrustado pondría cookies de terceros). El horario no se
   publica: la hora se confirma al cerrar la cita.
 - Todas las citas se piden con el **formulario** de `/booking/` (15/10/2026):

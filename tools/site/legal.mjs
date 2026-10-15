@@ -91,7 +91,7 @@ export function renderLegalNotice(ctx) {
         <div><dt>Correo</dt><dd>${mail(site)}</dd></div>
         <div><dt>Teléfono</dt><dd>${esc(site.contact.whatsappDisplay)} (también WhatsApp)</dd></div>
         <div><dt>Web</dt><dd>${esc(site.origin.replace("https://", ""))}</dd></div>
-        <div><dt>Actividad</dt><dd>Tatuaje, en su estudio ${esc(site.studio)}, en ${esc(site.address.locality)} (${esc(site.address.province)})</dd></div>
+        <div><dt>Actividad</dt><dd>Tatuaje, en su estudio ${esc(site.studio)}, en ${esc(site.place)}</dd></div>
       </dl>`],
       ["Qué es esta web", `<p>Es el portafolio de ${esc(site.brand)}: muestra su obra y permite pedir cita. No se vende nada en línea ni se cobra nada a través de ella. El precio, las sesiones y las condiciones de cada tatuaje se acuerdan directamente con ${esc(site.person.split(" ")[0])} antes de la cita.</p>`],
       ["Condiciones de uso", `<p>El acceso es libre y gratuito y no exige registro. Quien visita la web se compromete a usarla de acuerdo con la ley y con este aviso, y a no dañarla, sobrecargarla ni intentar entrar en partes que no son públicas.</p>`],

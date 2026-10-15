@@ -120,7 +120,7 @@ que **transforma ideas ajenas en un lenguaje propio, simbólico y evolutivo**;
 
 No contiene: fechas, años de oficio, lugares, nombre del estudio, premios ni
 biografía. Por eso la web no los muestra. El estudio (Tomasxcanales Studio) y
-su dirección en Parla (Madrid) son datos del cliente, no de VIDA.
+su ubicación (la web solo dice «Madrid») son datos del cliente, no de VIDA.
 
 ### Dónde se usa VIDA en la web
 
