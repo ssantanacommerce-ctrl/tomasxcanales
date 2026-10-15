@@ -4,9 +4,10 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://tomasxcanales.com/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <image:image><image:loc>https://tomasxcanales.com/media/medusa-zodiaco/tomasxcanales-medusa-zodiaco-plano-cerrado-1800.jpg</image:loc></image:image>
     <image:image><image:loc>https://tomasxcanales.com/media/site/tomasxcanales-artista-delacroix-1170.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/transmutacion/tomasxcanales-transmutacion-antebrazo-1066.jpg</image:loc></image:image>
     <image:image><image:loc>https://tomasxcanales.com/media/medusa-zodiaco/tomasxcanales-medusa-zodiaco-plano-cerrado-1200.jpg</image:loc></image:image>
     <image:image><image:loc>https://tomasxcanales.com/media/anima-spiritus/tomasxcanales-anima-spiritus-detalle-1200.jpg</image:loc></image:image>
     <image:image><image:loc>https://tomasxcanales.com/media/atlas-vitruvio/tomasxcanales-atlas-vitruvio-plano-general-1170.jpg</image:loc></image:image>
@@ -21,8 +22,16 @@
   </url>
   <url>
     <loc>https://tomasxcanales.com/work/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-10-15</lastmod>
 
+  </url>
+  <url>
+    <loc>https://tomasxcanales.com/work/transmutacion/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <image:image><image:loc>https://tomasxcanales.com/media/transmutacion/tomasxcanales-transmutacion-antebrazo-1066.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/transmutacion/tomasxcanales-transmutacion-codo-renacer-1066.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/transmutacion/tomasxcanales-transmutacion-plano-medio-1066.jpg</image:loc></image:image>
+    <image:image><image:loc>https://tomasxcanales.com/media/transmutacion/tomasxcanales-transmutacion-plano-medio-mano-1066.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://tomasxcanales.com/work/medusa-zodiaco/</loc>
@@ -183,13 +192,13 @@
   </url>
   <url>
     <loc>https://tomasxcanales.com/about/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <image:image><image:loc>https://tomasxcanales.com/media/site/tomasxcanales-artista-delacroix-1170.jpg</image:loc></image:image>
     <image:image><image:loc>https://tomasxcanales.com/media/site/tomasxcanales-artista-veronese-1170.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://tomasxcanales.com/booking/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-10-15</lastmod>
 
   </url>
 </urlset>

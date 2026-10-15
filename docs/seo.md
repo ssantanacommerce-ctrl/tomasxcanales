@@ -93,14 +93,17 @@ Ciudad y estudio en títulos, descripciones, pie y `TattooParlor`. NAP
 
 ## 7. Qué hacer a continuación (por impacto)
 
-**Decisión (12/10/2026):** el estudio es **Tomasxcanales Studio**, Calle Dos
-Hermanas 20, 28982 Parla (Madrid), con ficha en Google Business
-Profile. `TattooParlor` lleva la dirección completa (`streetAddress`,
-`postalCode`, `addressLocality`), `hasMap` con el enlace a la ficha
+**Decisión (12/10/2026, revisada el 15/10/2026):** el estudio es
+**Tomasxcanales Studio**, en Parla (Madrid), con ficha en Google Business
+Profile. Por decisión del cliente la web no muestra la calle: `TattooParlor`
+lleva `postalCode`, `addressLocality`, `addressRegion` y `addressCountry`
+(sin `streetAddress`), y cada obra (`VisualArtwork`) lleva
+`locationCreated` con el estudio y la localidad. `hasMap` con el enlace a la ficha
 verificada de Google (`https://maps.google.com/?cid=…`, de `content/site.json → google.cid`)
 y `sameAs` (Instagram y esa misma ficha). No lleva `geo` ni `openingHoursSpecification`: no hay
-coordenadas ni horario confirmados. **El nombre, la dirección y el teléfono de
-la ficha de Google tienen que ser exactamente los de `content/site.json`.**
+coordenadas ni horario confirmados. **El nombre y el teléfono de la ficha de Google tienen que ser exactamente
+los de `content/site.json`.** Si tampoco se quiere la calle en Google, se
+oculta en la ficha (zona de servicio), desde la cuenta de Tomás.
 Search Console: propiedad de dominio `tomasxcanales.com` en la cuenta de
 Tomás (verificada por DNS, registro TXT `google-site-verification`, que no
 hay que borrar), sitemap enviado el 12/10/2026.

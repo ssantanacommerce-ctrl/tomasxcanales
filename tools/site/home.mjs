@@ -281,12 +281,8 @@ const K = {
   <div class="booking__inner">
     <p class="booking__epigraph">«…hacia la persona que me confía su piel.»</p>
     <h2 class="booking__title" id="reservar"><a href="/booking/" data-track="booking_start">Reservar cita</a></h2>
-    <p class="booking__text">Cuéntale la idea, la zona del cuerpo y el tamaño aproximado. El formulario prepara el mensaje y lo envía por WhatsApp.</p>
-    <ul class="booking__channels">
-      <li><a href="https://wa.me/${site.contact.whatsapp}" data-wa="booking">WhatsApp</a></li>
-      <li><a href="https://instagram.com/${site.contact.instagram}" data-ig>Instagram</a></li>
-      <li><a href="mailto:${site.contact.email}" data-mail>Correo</a></li>
-    </ul>
+    <p class="booking__text">Cuéntale la idea, la zona del cuerpo y el tamaño aproximado. Todas las citas se piden con el formulario: cuatro preguntas y listo.</p>
+    <p class="booking__go"><a href="/booking/" data-track="booking_start">Ir al formulario <svg class="arrow" viewBox="0 0 20 12" width="20" height="12" aria-hidden="true" focusable="false"><path d="M0 6h18.5M13.5 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a></p>
   </div>`, { labelledby: "reservar" });
   }
 };

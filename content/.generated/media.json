@@ -1,6 +1,102 @@
 {
-  "generatedAt": "2026-10-12T20:13:31.459Z",
+  "generatedAt": "2026-10-15T18:22:44.995Z",
   "items": {
+    "transmutacion/antebrazo": {
+      "kind": "image",
+      "w": 1066,
+      "h": 1600,
+      "widths": [
+        480,
+        800,
+        1066
+      ],
+      "color": "#504f4c",
+      "hash": "ff95cda72041",
+      "base": "/media/transmutacion/tomasxcanales-transmutacion-antebrazo",
+      "files": [
+        "tomasxcanales-transmutacion-antebrazo-480.jpg",
+        "tomasxcanales-transmutacion-antebrazo-480.webp",
+        "tomasxcanales-transmutacion-antebrazo-480.avif",
+        "tomasxcanales-transmutacion-antebrazo-800.jpg",
+        "tomasxcanales-transmutacion-antebrazo-800.webp",
+        "tomasxcanales-transmutacion-antebrazo-800.avif",
+        "tomasxcanales-transmutacion-antebrazo-1066.jpg",
+        "tomasxcanales-transmutacion-antebrazo-1066.webp",
+        "tomasxcanales-transmutacion-antebrazo-1066.avif"
+      ]
+    },
+    "transmutacion/codo-renacer": {
+      "kind": "image",
+      "w": 1066,
+      "h": 1600,
+      "widths": [
+        480,
+        800,
+        1066
+      ],
+      "color": "#5e6162",
+      "hash": "c3123a569083",
+      "base": "/media/transmutacion/tomasxcanales-transmutacion-codo-renacer",
+      "files": [
+        "tomasxcanales-transmutacion-codo-renacer-480.jpg",
+        "tomasxcanales-transmutacion-codo-renacer-480.webp",
+        "tomasxcanales-transmutacion-codo-renacer-480.avif",
+        "tomasxcanales-transmutacion-codo-renacer-800.jpg",
+        "tomasxcanales-transmutacion-codo-renacer-800.webp",
+        "tomasxcanales-transmutacion-codo-renacer-800.avif",
+        "tomasxcanales-transmutacion-codo-renacer-1066.jpg",
+        "tomasxcanales-transmutacion-codo-renacer-1066.webp",
+        "tomasxcanales-transmutacion-codo-renacer-1066.avif"
+      ]
+    },
+    "transmutacion/plano-medio": {
+      "kind": "image",
+      "w": 1066,
+      "h": 1600,
+      "widths": [
+        480,
+        800,
+        1066
+      ],
+      "color": "#3f3b34",
+      "hash": "36c6c4c28b25",
+      "base": "/media/transmutacion/tomasxcanales-transmutacion-plano-medio",
+      "files": [
+        "tomasxcanales-transmutacion-plano-medio-480.jpg",
+        "tomasxcanales-transmutacion-plano-medio-480.webp",
+        "tomasxcanales-transmutacion-plano-medio-480.avif",
+        "tomasxcanales-transmutacion-plano-medio-800.jpg",
+        "tomasxcanales-transmutacion-plano-medio-800.webp",
+        "tomasxcanales-transmutacion-plano-medio-800.avif",
+        "tomasxcanales-transmutacion-plano-medio-1066.jpg",
+        "tomasxcanales-transmutacion-plano-medio-1066.webp",
+        "tomasxcanales-transmutacion-plano-medio-1066.avif"
+      ]
+    },
+    "transmutacion/plano-medio-mano": {
+      "kind": "image",
+      "w": 1066,
+      "h": 1600,
+      "widths": [
+        480,
+        800,
+        1066
+      ],
+      "color": "#383532",
+      "hash": "8853b19264db",
+      "base": "/media/transmutacion/tomasxcanales-transmutacion-plano-medio-mano",
+      "files": [
+        "tomasxcanales-transmutacion-plano-medio-mano-480.jpg",
+        "tomasxcanales-transmutacion-plano-medio-mano-480.webp",
+        "tomasxcanales-transmutacion-plano-medio-mano-480.avif",
+        "tomasxcanales-transmutacion-plano-medio-mano-800.jpg",
+        "tomasxcanales-transmutacion-plano-medio-mano-800.webp",
+        "tomasxcanales-transmutacion-plano-medio-mano-800.avif",
+        "tomasxcanales-transmutacion-plano-medio-mano-1066.jpg",
+        "tomasxcanales-transmutacion-plano-medio-mano-1066.webp",
+        "tomasxcanales-transmutacion-plano-medio-mano-1066.avif"
+      ]
+    },
     "medusa-zodiaco/plano-cerrado": {
       "kind": "image",
       "w": 3413,

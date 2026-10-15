@@ -16,19 +16,20 @@ const NAV = [
 /** URL absoluta a partir de una ruta del sitio. */
 export const abs = (site, path) => site.origin.replace(/\/$/, "") + path;
 
-/* Dirección del estudio, siempre igual que en Google Business Profile. */
-export const streetLine = (site) => site.address.street;
-export const townLine = (site) => `${site.address.postalCode} ${site.address.locality} (${site.address.province})`;
-export const fullAddress = (site) => `${streetLine(site)}, ${townLine(site)}`;
+/* Dónde está el estudio, tal como se muestra: solo la localidad. La calle no
+   aparece en la web (decisión del cliente, 15/10/2026); el código postal
+   solo va en los datos estructurados. El domicilio del titular está únicamente
+   en el aviso legal, porque lo exige el art. 10 de la LSSI. */
+export const townLine = (site) => `${site.address.locality} (${site.address.province})`;
 /* Enlace (no mapa incrustado: un iframe de Google Maps pondría cookies de
    terceros y obligaría a abrir la CSP). Con el CID de la ficha verificada
    (content/site.json → google.cid) abre la ficha de Google Business
-   Profile; sin él, busca el estudio por nombre y dirección. */
+   Profile; sin él, busca el estudio por nombre y localidad. */
 export const mapsURL = (site) =>
   site.google?.cid
     ? `https://maps.google.com/?cid=${site.google.cid}`
     : "https://www.google.com/maps/search/?api=1&query=" +
-      encodeURIComponent(`${site.studio}, ${site.address.street.split(",")[0]}, ${site.address.postalCode} ${site.address.locality}`);
+      encodeURIComponent(`${site.studio}, ${site.address.locality}`);
 
 /* El script en línea decide si hay movimiento antes de pintar: no lo hay con
    «reducir movimiento» ni en un móvil en horizontal (alto ≤ 500 px), donde las
@@ -107,7 +108,6 @@ export function hud({ current = null, room = "" } = {}) {
   </ul>
   <p class="menu__foot">
     <a href="#" data-ig>Instagram</a>
-    <a href="#" data-wa="default">WhatsApp</a>
     <a href="#" data-mail>Correo</a>
   </p>
 </nav>`;
@@ -128,13 +128,13 @@ export function footer({ site, published }) {
     </div>
     <div class="footer__col">
       <p class="footer__head">Contacto</p>
-      <ul><li><a href="https://instagram.com/${site.contact.instagram}" data-ig>Instagram</a></li>
-        <li><a href="https://wa.me/${site.contact.whatsapp}" data-wa="default">WhatsApp</a></li>
+      <ul><li><a href="/booking/" data-track="booking_start">Formulario de reserva</a></li>
+        <li><a href="https://instagram.com/${site.contact.instagram}" data-ig>Instagram</a></li>
         <li><a href="mailto:${site.contact.email}" data-mail>${esc(site.contact.email)}</a></li></ul>
     </div>
     <div class="footer__col footer__col--place">
       <p class="footer__head">Estudio</p>
-      <address>${esc(site.studio)}<br>${esc(streetLine(site))}<br>${esc(townLine(site))}</address>
+      <address>${esc(site.studio)}<br>${esc(townLine(site))}</address>
       <a class="footer__map" href="${mapsURL(site)}" target="_blank" rel="noopener" data-track="maps_click">Ver en Google Maps</a>
     </div>
   </div>
@@ -183,7 +183,6 @@ export function parlorLD(site, image) {
     email: site.contact.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: site.address.street,
       postalCode: site.address.postalCode,
       addressLocality: site.address.locality,
       addressRegion: site.region,

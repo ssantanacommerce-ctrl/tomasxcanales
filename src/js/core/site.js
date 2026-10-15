@@ -8,13 +8,10 @@ import site from "../../../content/site.json";
 
 const c = site.contact;
 
-export const waText = {
-  default: "Hola Tomás, he visto tu web y me gustaría preguntarte por un tatuaje.",
-  booking: "Hola Tomás, quiero reservar cita para un tatuaje.",
-  work: (title) => `Hola Tomás, he visto "${title}" en tu web y me gustaría preguntarte por una idea en esa línea.`
-};
-
-export const waUrl = (text) => `https://wa.me/${c.whatsapp}?text=${encodeURIComponent(text || waText.default)}`;
+/* Solo lo usa el formulario de reserva (booking.js), con las respuestas de la
+   persona. No hay enlaces de WhatsApp con mensaje prerredactado: todas las
+   citas se piden con el formulario (decisión del cliente, 15/10/2026). */
+export const waUrl = (text) => `https://wa.me/${c.whatsapp}?text=${encodeURIComponent(text)}`;
 export const igUrl = `https://instagram.com/${c.instagram}`;
 export const mailUrl = `mailto:${c.email}`;
 

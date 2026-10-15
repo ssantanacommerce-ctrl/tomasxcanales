@@ -1,7 +1,7 @@
 # Tomasxcanales
 
 Web de **Tomás Canales** (Tomasxcanales), tatuador en su estudio,
-**Tomasxcanales Studio** (Calle Dos Hermanas 20, 28982 Parla, Madrid).
+**Tomasxcanales Studio**, en Parla (Madrid).
 Una exposición digital: el umbral con sus símbolos (que se dibujan desde el
 primer fotograma), el vídeo de Tomás trabajando, su voz, y la obra presentada como en una galería, con el
 scroll como hilo narrativo.
@@ -76,12 +76,16 @@ en `content/marketing/`, las piezas para Google Ads (no se publican en la web).
 
 ## Decisiones
 
-- El estudio es **Tomasxcanales Studio**, Calle Dos Hermanas 20,
-  28982 Parla (Madrid), con ficha en Google Business Profile (12/10/2026).
-  Nombre, dirección y teléfono salen de `content/site.json` y tienen que ser
-  idénticos a los de la ficha de Google. La web enlaza a Google Maps (no lo
+- El estudio es **Tomasxcanales Studio**, en Parla (Madrid), con ficha en
+  Google Business Profile (12/10/2026). Desde el 15/10/2026, por decisión del
+  cliente, la web **no muestra la calle**: solo «Parla (Madrid)». El domicilio
+  del titular figura únicamente en el aviso legal, porque lo exige el art. 10
+  de la LSSI. Nombre, localidad y teléfono salen de `content/site.json`. La web enlaza a Google Maps (no lo
   incrusta: un mapa incrustado pondría cookies de terceros). El horario no se
   publica: la hora se confirma al cerrar la cita.
+- Todas las citas se piden con el **formulario** de `/booking/` (15/10/2026):
+  no hay enlaces de WhatsApp con mensaje prerredactado en ninguna página. Al
+  enviar el formulario se abre WhatsApp con las respuestas de la persona.
 - Esta web es independiente: no comparte código, datos, cuentas ni enlaces con
   ninguna otra web.
 - Las fotos del museo las hizo Tomás. El museo no es suyo ni es su estudio, y la

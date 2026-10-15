@@ -1,0 +1,61 @@
+{
+  "slug": "transmutacion",
+  "published": true,
+  "order": 1,
+  "title": "Transmutación",
+  "status": null,
+  "description": "Un diseño propio en el antebrazo: dos manos sostienen un sol radiante junto a una luna creciente entre círculos. Arriba, símbolos alquímicos; hacia la muñeca, tres poliedros y la frase «Deus non ludit alea cum uni verso.»",
+  "body": [
+    "Es el primer diseño de una trilogía que explora la alquimia del ser, el movimiento de la energía y la evolución del alma. Cada línea, cada símbolo y cada forma hablan del cambio profundo, del renacer desde dentro.",
+    "En la cara interna del codo, la palabra «renacer» rodea letra a letra los círculos de la luna. Las manos, sombreadas como un grabado, contrastan con la línea fina de la geometría y del texto latino que baja hasta la muñeca.",
+    "Diseñado y tatuado por Tomás en su estudio de Parla (Madrid)."
+  ],
+  "quote": {
+    "text": "Convertir lo denso en luz, el dolor en conciencia, la experiencia en sabiduría. Transmutar no es borrar el pasado: es integrarlo y elevarlo.",
+    "source": "Texto que Tomás publicó con la obra"
+  },
+  "styles": ["Línea fina", "Realismo", "Geometría sagrada"],
+  "bodyPlacement": "Antebrazo, cara interna",
+  "year": 2026,
+  "dateAdded": "2026-10-15",
+  "cover": "antebrazo",
+  "media": [
+    {
+      "id": "antebrazo",
+      "type": "image",
+      "src": "originals/antebrazo.jpg",
+      "role": ["featured", "primary", "mobile"],
+      "focus": "42% 42%",
+      "alt": "Antebrazo completo sobre fondo gris, del codo a la muñeca: dos manos sostienen un sol radiante junto a una luna creciente entre círculos, con símbolos alquímicos arriba y, hacia la muñeca, tres poliedros y la frase «Deus non ludit alea cum uni verso.»"
+    },
+    {
+      "id": "codo-renacer",
+      "type": "image",
+      "src": "originals/codo-renacer.jpg",
+      "role": ["detail"],
+      "focus": "55% 45%",
+      "alt": "Detalle de la cara interna del codo: las letras de la palabra «renacer» rodean la luna creciente y sus círculos; a la derecha asoman el sol y una de las manos."
+    },
+    {
+      "id": "plano-medio",
+      "type": "image",
+      "src": "originals/plano-medio.jpg",
+      "role": ["detail"],
+      "focus": "45% 50%",
+      "alt": "Plano más cercano del antebrazo: las manos sombreadas como un grabado, el sol y la luna, dos barras, los poliedros unidos por una línea y el texto latino en vertical."
+    },
+    {
+      "id": "plano-medio-mano",
+      "type": "image",
+      "src": "originals/plano-medio-mano.jpg",
+      "role": ["secondary"],
+      "focus": "45% 45%",
+      "alt": "El antebrazo con la mano abierta: la composición entera, del símbolo alquímico de arriba a la frase latina junto a la muñeca."
+    }
+  ],
+  "related": ["anima-spiritus", "rostro-de-marmol"],
+  "seo": {
+    "title": "Transmutación. Tatuaje de alquimia y geometría sagrada en Parla, Madrid",
+    "description": "Diseño propio de Tomasxcanales: manos que sostienen un sol, luna, símbolos alquímicos y geometría sagrada en el antebrazo. Tatuador en Parla (Madrid)."
+  }
+}

@@ -5,7 +5,7 @@
    ========================================================================== */
 
 import { esc, attrs, cx, picture, video, still, media, entry, imageURL, ratio, isoDuration, inkWords } from "./html.mjs";
-import { head, hud, footer, scripts, personLD, parlorLD, breadcrumbLD, crumbs, abs, streetLine, townLine, fullAddress, mapsURL } from "./layout.mjs";
+import { head, hud, footer, scripts, personLD, parlorLD, breadcrumbLD, crumbs, abs, townLine, mapsURL } from "./layout.mjs";
 import { mark } from "./symbols.mjs";
 
 const k = (w, id) => `${w.slug}/${id}`;
@@ -40,6 +40,13 @@ function artworkLD(site, w) {
     artworkSurface: w.bodyPlacement,
     genre: w.styles,
     creator: { "@id": abs(site, "/#persona") },
+    // SEO local: dónde se hizo la obra (solo la localidad, como en el resto de la web)
+    locationCreated: {
+      "@type": "Place",
+      name: site.studio,
+      address: { "@type": "PostalAddress", addressLocality: site.address.locality, addressRegion: site.region, addressCountry: site.country }
+    },
+    ...(w.year ? { dateCreated: String(w.year) } : {}),
     creativeWorkStatus: w.status ? "Incomplete" : "Published",
     image: imgs.length ? imgs : vids.map((v) => v.thumbnailUrl),
     inLanguage: "es-ES"
@@ -115,7 +122,7 @@ ${hud({ current: "work", room: w.title })}
     <header class="work-hero">
       <div class="work-hero__text">
         ${w.status ? `<p class="work-hero__status">${esc(w.status)}</p>` : ""}
-        <h1 class="work-hero__title">${esc(w.title)}</h1>
+        <h1 class="work-hero__title" style="--longest:${Math.max(...w.title.split(" ").map((p) => p.length))}">${esc(w.title)}</h1>
         <p class="work-hero__desc">${esc(w.description)}</p>
         <dl class="cartela__meta work-hero__meta">
           <div><dt>Zona</dt><dd>${esc(w.bodyPlacement)}</dd></div>
@@ -140,7 +147,6 @@ ${hud({ current: "work", room: w.title })}
     <section class="work-cta" aria-labelledby="cta-${w.slug}">
       <p class="work-cta__lead" id="cta-${w.slug}">¿Una idea en esta línea?</p>
       <a class="work-cta__link" href="/booking/" data-track="booking_start">Reservar cita</a>
-      <a class="work-cta__wa" href="https://wa.me/${site.contact.whatsapp}" data-wa="work:${esc(w.title)}">Escribir por WhatsApp</a>
     </section>
   </article>
 
@@ -325,7 +331,7 @@ ${hud({ current: "about", room: site.person })}
     <figure class="about__studio-film" style="aspect-ratio:${ratio("site/vida-estudio")}">
       ${video("site/vida-estudio", { alt: studio.alt })}
     </figure>
-    <p class="about__studio-text">${esc(site.studio)}, ${esc(fullAddress(site))}. La hora se confirma al cerrar la cita. <a href="${mapsURL(site)}" target="_blank" rel="noopener" data-track="maps_click">Ver en Google Maps</a></p>
+    <p class="about__studio-text">${esc(site.studio)}, en ${esc(townLine(site))}. La dirección y la hora se confirman al cerrar la cita. <a href="${mapsURL(site)}" target="_blank" rel="noopener" data-track="maps_click">Ver en Google Maps</a></p>
   </section>
 
   <section class="about__work" aria-labelledby="sobre-obra">
@@ -336,7 +342,6 @@ ${hud({ current: "about", room: site.person })}
   <section class="work-cta" aria-labelledby="about-cta">
     <p class="work-cta__lead" id="about-cta">¿Tienes una idea?</p>
     <a class="work-cta__link" href="/booking/" data-track="booking_start">Reservar cita</a>
-    <a class="work-cta__wa" href="https://wa.me/${site.contact.whatsapp}" data-wa="default">Escribir por WhatsApp</a>
   </section>
 </main>
 ${footer(ctx)}
@@ -348,12 +353,12 @@ ${scripts("page")}
 
 /* ----------------------------------------------------------- /booking/ */
 const faq = (site) => [
-  ["¿Cómo reservo cita?", "Rellena el formulario de esta página: al enviarlo se abre WhatsApp con todos tus datos ya escritos y solo tienes que mandarlo. También puedes escribir directamente por WhatsApp, por correo o por Instagram."],
+  ["¿Cómo reservo cita?", "Todas las citas se piden con el formulario de esta página: cuatro preguntas sobre tu idea. Al enviarlo se abre WhatsApp con tus respuestas ya escritas y solo tienes que mandarlo."],
   ["¿Qué información hay que mandar?", "La idea contada con tus palabras, la zona del cuerpo, el tamaño aproximado y cuándo te gustaría hacerlo. Las fotos de referencia, mejor enviarlas después por WhatsApp."],
   ["¿Cómo trabaja las ideas que le llegan?", "Con sus palabras: «Mi proceso creativo se basa en transformar las ideas que recibo en un lenguaje propio, simbólico y evolutivo.»"],
   ["¿Hace tatuajes en color?", "Todo el trabajo que aparece en esta web está tatuado en negro y gris. Si buscas color, pregúntalo antes de reservar."],
   ["¿Cuánto cuesta y cuántas sesiones hacen falta?", "Depende del tamaño, de la zona y del nivel de detalle. Con la idea, la zona y el tamaño aproximado se puede valorar el proyecto antes de reservar."],
-  ["¿Dónde tatúa?", `En su estudio, ${site.studio}: ${fullAddress(site)}. La hora se confirma al cerrar la cita.`]
+  ["¿Dónde tatúa?", `En su estudio, ${site.studio}, en ${townLine(site)}. La dirección exacta y la hora se confirman al cerrar la cita.`]
 ];
 
 export function renderBooking(ctx) {
@@ -380,7 +385,8 @@ export function renderBooking(ctx) {
     ]
   };
   const first = site.person.split(" ")[0];
-  const directHref = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(`Hola ${first}, quiero reservar cita para un tatuaje.`)}`;
+  // Respaldo sin JavaScript: el chat, sin mensaje prerredactado.
+  const directHref = `https://wa.me/${site.contact.whatsapp}`;
   // Sin rayas largas en el texto visible: lo comprueba tools/check.mjs
   const SIZE_HINTS = ["Pequeño · hasta 10 cm", "Mediano · 10 a 20 cm", "Grande · 20 a 30 cm", "Brazo o espalda completa"];
   const WHEN_HINTS = ["Lo antes posible", "En 1 a 3 meses", "En 3 a 6 meses", "Sin prisa"];
@@ -505,15 +511,9 @@ ${hud({ current: "booking", room: "Reservar cita" })}
       </form>
     </div>
 
-    <aside class="booking-page__aside" aria-label="Contacto directo">
-      <p class="booking-page__aside-title">Directo</p>
-      <ul class="booking-page__channels">
-        <li><a href="https://wa.me/${site.contact.whatsapp}" data-wa="booking">WhatsApp</a> <span data-phone>${esc(site.contact.whatsappDisplay)}</span></li>
-        <li><a href="https://instagram.com/${site.contact.instagram}" data-ig>Instagram</a> <span>@${esc(site.contact.instagram)}</span></li>
-        <li><a href="mailto:${site.contact.email}" data-mail>Correo</a> <span>${esc(site.contact.email)}</span></li>
-      </ul>
+    <aside class="booking-page__aside" aria-label="Dónde está el estudio">
       <p class="booking-page__aside-title">Dónde</p>
-      <address class="booking-page__address">${esc(site.studio)}<br>${esc(streetLine(site))}<br>${esc(townLine(site))}</address>
+      <address class="booking-page__address">${esc(site.studio)}<br>${esc(townLine(site))}</address>
       <a class="booking-page__map" href="${mapsURL(site)}" target="_blank" rel="noopener" data-track="maps_click">Ver en Google Maps</a>
     </aside>
   </div>

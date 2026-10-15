@@ -599,9 +599,12 @@ html:not(.pin):not(.stick) .ink__cartela,
 .booking__title a .ch { display: inline-block; }
 .booking__title { overflow: hidden; padding-bottom: .04em; }
 .booking__text { margin-top: 2em; max-width: 46ch; color: var(--fg-2); }
-.booking__channels { display: flex; flex-wrap: wrap; gap: 14px 30px; margin-top: 2em; font: 400 13px/1 var(--f-mono); }
-.booking__channels a { padding-bottom: 5px; border-bottom: 1px solid var(--line-2); transition: border-color .4s var(--ease); }
-.booking__channels a:hover { border-color: currentColor; }
+/* Un solo camino: el formulario (sin WhatsApp directo, decisión del cliente) */
+.booking__go { margin-top: 2em; font: 400 13px/1 var(--f-mono); }
+.booking__go a { display: inline-flex; align-items: center; gap: 12px; padding: 16px 22px; border: 1px solid var(--line-2); border-radius: 999px; transition: border-color .4s var(--ease), background-color .4s var(--ease), color .4s var(--ease); }
+.booking__go a:hover, .booking__go a:focus-visible { border-color: currentColor; background: var(--fg); color: var(--bg); }
+.booking__go .arrow { transition: transform .4s var(--ease); }
+.booking__go a:hover .arrow { transform: translateX(4px); }
 
 /* ============================================================ responsive */
 @media (max-width: 900px) {

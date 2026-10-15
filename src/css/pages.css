@@ -14,7 +14,7 @@
   max-width: 1600px;
   margin: 0 auto;
 }
-.work-hero__text { padding-bottom: 2vh; }
+.work-hero__text { padding-bottom: 2vh; container-type: inline-size; }
 .work-hero__status {
   font: 400 12px/1 var(--f-mono);
   letter-spacing: .04em;
@@ -25,6 +25,11 @@
   font-family: var(--f-display);
   font-weight: 380;
   font-size: clamp(3.4rem, 2rem + 6vw, 8.6rem);
+  /* Una palabra larga (TRANSMUTACIÓN) no puede partirse: el tamaño baja lo
+     justo para que la palabra más larga (--longest, en letras; lo pone el
+     generador) quepa en la columna. Melodrama en mayúsculas ocupa ~.46em
+     por letra; .5 deja margen. Los títulos que ya cabían no cambian. */
+  font-size: min(clamp(3.4rem, 2rem + 6vw, 8.6rem), calc(100cqi / (var(--longest, 8) * .5)));
   /* .96 y no menos: en dos líneas, la tilde de una mayúscula de abajo
      (MÁRMOL, CLÁSICAS) tocaba la línea de arriba con .84 */
   line-height: .96;
@@ -117,7 +122,6 @@
   padding-bottom: .05em;
 }
 .work-cta__link:hover, .work-cta__link:focus-visible { background-size: 100% 2px; }
-.work-cta__wa { margin-top: 1.4em; font: 400 13px/1 var(--f-mono); padding-bottom: 5px; border-bottom: 1px solid var(--line-2); }
 
 .work-pager {
   display: grid;
@@ -264,10 +268,6 @@
 .booking-page__aside { position: sticky; top: calc(var(--hud-h) + 30px); }
 .booking-page__aside-title { font: 400 12.5px/1 var(--f-mono); color: var(--fg-3); margin-bottom: 1em; }
 .booking-page__aside-title:not(:first-child) { margin-top: 3em; }
-.booking-page__channels li { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
-.booking-page__channels li + li { margin-top: .8em; }
-.booking-page__channels a { font-family: var(--f-display); font-size: 1.9rem; line-height: 1; }
-.booking-page__channels span { font: 400 12.5px/1 var(--f-mono); color: var(--fg-3); }
 .booking-page__address { font-style: normal; line-height: 1.5; }
 .booking-page__map { display: inline-block; margin-top: .9em; padding-bottom: 4px; font: 400 12.5px/1 var(--f-mono); border-bottom: 1px solid var(--line-2); }
 

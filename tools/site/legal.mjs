@@ -29,6 +29,8 @@ const longDate = (iso) => {
   return `${d} de ${MONTHS[m - 1]} de ${y}`;
 };
 
+/* El domicilio del titular solo aparece en el aviso legal: lo exige el art. 10
+   de la LSSI. En el resto de la web solo figura la localidad. */
 const fullAddress = (l) => `${l.address}, ${l.postalCode} ${l.locality} (${l.province}), ${l.country}`;
 const mail = (site) => `<a href="mailto:${site.contact.email}">${esc(site.contact.email)}</a>`;
 
@@ -89,7 +91,7 @@ export function renderLegalNotice(ctx) {
         <div><dt>Correo</dt><dd>${mail(site)}</dd></div>
         <div><dt>Teléfono</dt><dd>${esc(site.contact.whatsappDisplay)} (también WhatsApp)</dd></div>
         <div><dt>Web</dt><dd>${esc(site.origin.replace("https://", ""))}</dd></div>
-        <div><dt>Actividad</dt><dd>Tatuaje, en su estudio ${esc(site.studio)} (${esc(site.address.street)}, ${esc(site.address.postalCode)} ${esc(site.address.locality)})</dd></div>
+        <div><dt>Actividad</dt><dd>Tatuaje, en su estudio ${esc(site.studio)}, en ${esc(site.address.locality)} (${esc(site.address.province)})</dd></div>
       </dl>`],
       ["Qué es esta web", `<p>Es el portafolio de ${esc(site.brand)}: muestra su obra y permite pedir cita. No se vende nada en línea ni se cobra nada a través de ella. El precio, las sesiones y las condiciones de cada tatuaje se acuerdan directamente con ${esc(site.person.split(" ")[0])} antes de la cita.</p>`],
       ["Condiciones de uso", `<p>El acceso es libre y gratuito y no exige registro. Quien visita la web se compromete a usarla de acuerdo con la ley y con este aviso, y a no dañarla, sobrecargarla ni intentar entrar en partes que no son públicas.</p>`],
@@ -116,7 +118,6 @@ export function renderPrivacy(ctx) {
       ["Quién trata tus datos", `<dl class="legal__data">
         <div><dt>Responsable</dt><dd>${esc(legal.holder)} (${esc(site.brand)})</dd></div>
         <div><dt>NIF</dt><dd>${esc(legal.nif)}</dd></div>
-        <div><dt>Domicilio</dt><dd>${esc(fullAddress(legal))}</dd></div>
         <div><dt>Correo</dt><dd>${mail(site)}</dd></div>
       </dl>`],
       ["Al visitar la web", `<p>No hay registro, ni analítica, ni publicidad, ni cookies (lo explica la página de <a href="/cookies/">cookies</a>). El servidor que aloja la web registra de forma automática datos técnicos de cada visita, como la dirección IP, la fecha y la página pedida, para poder servirla y protegerla frente a ataques. La base es el interés legítimo en mantener la web segura (art. 6.1.f RGPD). Esos registros los guarda el proveedor de alojamiento durante el tiempo limitado que fija para esos fines.</p>`],

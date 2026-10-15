@@ -1,10 +1,11 @@
 /* ==========================================================================
    TOMASXCANALES · enlaces de contacto y analítica
-   Los enlaces ya funcionan en el HTML (wa.me, instagram, mailto). Aquí se
-   les añade el mensaje prerredactado y el evento de analítica.
+   Los enlaces ya funcionan en el HTML (instagram, mailto). Aquí se les
+   añade el evento de analítica. WhatsApp solo se abre desde el formulario
+   de reserva, con las respuestas de la persona (booking.js).
    ========================================================================== */
 
-import site, { waText, waUrl, igUrl, mailUrl } from "./site.js";
+import site, { igUrl, mailUrl } from "./site.js";
 
 /* Solo empuja a dataLayer. No hay ningún ID de medición inventado: hasta
    que se pegue el contenedor de GA4/GTM en el <head>, esto es inocuo. */
@@ -14,17 +15,6 @@ export function track(event, payload = {}) {
 }
 
 export function wireLinks() {
-  document.querySelectorAll("[data-wa]").forEach((a) => {
-    const kind = a.getAttribute("data-wa");
-    const text = kind === "booking" ? waText.booking
-      : kind && kind.startsWith("work:") ? waText.work(kind.slice(5))
-      : waText.default;
-    a.href = waUrl(text);
-    a.target = "_blank";
-    a.rel = "noopener";
-    a.addEventListener("click", () => track("whatsapp_click", { context: kind || "default", page: location.pathname }));
-  });
-
   document.querySelectorAll("[data-ig]").forEach((a) => {
     a.href = igUrl;
     a.target = "_blank";
